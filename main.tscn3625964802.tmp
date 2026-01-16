@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://bdyigy4fvbvtr"]
+
+[ext_resource type="Material" uid="uid://ddpx6prpbnrye" path="res://materials/tiles.tres" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dl3mfoi35lg5w" path="res://rich_text_label.gd" id="4_1bvp3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ig7tw"]
+sky_material = SubResource("ProceduralSkyMaterial_7dm0k")
+
+[sub_resource type="Environment" id="Environment_0xm2m"]
+background_mode = 2
+sky = SubResource("Sky_ig7tw")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
+albedo_color = Color(0.3137255, 0.50980395, 1, 1)
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0xm2m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="World" type="Node" parent="."]
+
+[node name="Floor" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_ig7tw")
+use_collision = true
+size = Vector3(33.7, 1, 24.800001)
+
+[node name="Room" type="CSGCombiner3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9, -0.5, 0)
+material_override = ExtResource("1_0xm2m")
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="World/Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4331777, 1.7885828, 0.64258957)
+size = Vector3(6.645508, 2.529419, 0.6411133)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="World/Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4331777, 1.7885828, -6.0574107)
+size = Vector3(6.645508, 2.529419, 0.6411133)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="World/Room"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.433178, 1.7885829, -2.5574105)
+size = Vector3(6.645508, 2.529419, 0.6411133)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="World/Room"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5668222, 1.7885829, -2.5574105)
+size = Vector3(6.645508, 2.529419, 0.6411133)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="World/Room/CSGBox3D5"]
+transform = Transform3D(9.801817e-15, -4.3711392e-08, -2.88, -5.13, -4.3711392e-08, 0, -2.2423944e-07, 1.0000001, -1.258888e-07, 0.14258957, -0.62423575, 0.18131852)
+operation = 2
+radius = 0.3408203
+
+[node name="Parcour" type="Node" parent="World"]
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="World/Parcour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4668226, 0.9238733, -15.686855)
+material_override = ExtResource("1_0xm2m")
+use_collision = true
+size = Vector3(6.645508, 0.8, 3.1000001)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="World/Parcour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4668226, 2.0238733, -22.886856)
+material_override = ExtResource("1_0xm2m")
+use_collision = true
+size = Vector3(6.645508, 0.8, 3.1000001)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="World/Parcour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4668226, 2.0238733, -31.186855)
+material_override = ExtResource("1_0xm2m")
+use_collision = true
+size = Vector3(6.645508, 0.8, 3.1000001)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="World/Parcour"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 6.2536516, 3.8238735, -30.886856)
+material_override = ExtResource("1_0xm2m")
+use_collision = true
+size = Vector3(6.2000003, 0.8, 3.1000001)
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+can_sprint = false
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI" node_paths=PackedStringArray("player")]
+offset_left = 2.0
+offset_right = 901.0
+offset_bottom = 384.0
+mouse_filter = 2
+scroll_active = false
+script = ExtResource("4_1bvp3")
+player = NodePath("../../Player")

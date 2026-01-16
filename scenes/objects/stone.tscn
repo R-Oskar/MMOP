@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb4fk5cvhk80y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rbgv"]
+albedo_color = Color(0.44291076, 0.44291076, 0.44291073, 1)
+
+[node name="Cube" type="CSGBox3D"]
+material_override = SubResource("StandardMaterial3D_5rbgv")
+use_collision = true

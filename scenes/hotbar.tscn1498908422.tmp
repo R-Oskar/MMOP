@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://laa6wkcpj3ws"]
+
+[ext_resource type="PackedScene" uid="uid://cocghnpcu6bpq" path="res://scenes/slot.tscn" id="1_mjyg7"]
+[ext_resource type="Script" uid="uid://dcajdgouxdv0w" path="res://scripts/hotbar.gd" id="1_xrqkv"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4qkdb"]
+load_path = "res://.godot/imported/select_texture.png-94245124479cfb0bad877a6009f6f35b.ctex"
+
+[node name="Hotbar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xrqkv")
+
+[node name="Select" type="TextureRect" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 51.0
+offset_bottom = 53.0
+texture = SubResource("CompressedTexture2D_4qkdb")
+
+[node name="Slots" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 516.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Slot1" parent="Slots" instance=ExtResource("1_mjyg7")]
+layout_mode = 2
+slot_identification = "1"
+
+[node name="Slot2" parent="Slots" instance=ExtResource("1_mjyg7")]
+layout_mode = 2
+slot_identification = "2"
+
+[node name="Slot3" parent="Slots" instance=ExtResource("1_mjyg7")]
+layout_mode = 2
+slot_identification = "3"
+
+[node name="Slot4" parent="Slots" instance=ExtResource("1_mjyg7")]
+layout_mode = 2
+slot_identification = "4"
+
+[node name="Slot5" parent="Slots" instance=ExtResource("1_mjyg7")]
+layout_mode = 2
+slot_identification = "5"
+
+[node name="Slot6" parent="Slots" instance=ExtResource("1_mjyg7")]
+layout_mode = 2
+slot_identification = "6"
+
+[node name="Slot7" parent="Slots" instance=ExtResource("1_mjyg7")]
+layout_mode = 2
+slot_identification = "7"
+
+[node name="Slot8" parent="Slots" instance=ExtResource("1_mjyg7")]
+layout_mode = 2
+slot_identification = "8"
+
+[node name="Slot9" parent="Slots" instance=ExtResource("1_mjyg7")]
+layout_mode = 2
+slot_identification = "9"
+
+[node name="Slot10" parent="Slots" instance=ExtResource("1_mjyg7")]
+layout_mode = 2
+slot_identification = "0"

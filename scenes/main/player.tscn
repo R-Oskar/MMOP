@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://bs72ogkvdd7d6"]
+
+[ext_resource type="Script" uid="uid://3cvycxtlb0c4" path="res://scripts/player/player.gd" id="1_fjrip"]
+[ext_resource type="Script" uid="uid://c4qsvc211sc1" path="res://scripts/player/player_logic.gd" id="2_rm8fd"]
+[ext_resource type="PackedScene" uid="uid://bb4fk5cvhk80y" path="res://scenes/objects/stone.tscn" id="3_2jso2"]
+[ext_resource type="AudioStream" uid="uid://c40cnjfmavs2y" path="res://ressources/sounds/jump.mp3" id="4_rm8fd"]
+[ext_resource type="AudioStream" uid="uid://1o10fnhinqcg" path="res://ressources/sounds/place.mp3" id="5_2jso2"]
+[ext_resource type="AudioStream" uid="uid://dmsdeo8wuunex" path="res://ressources/sounds/landing.mp3" id="6_fmh12"]
+[ext_resource type="Script" uid="uid://blvquebv4338o" path="res://scripts/player/player_movement.gd" id="7_fjrip"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
+albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ucva2"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
+radius = 0.4
+height = 1.8
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_fjrip")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+material_override = SubResource("StandardMaterial3D_iof21")
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_ucva2")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_iof21")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="SoundEffects" type="Node" parent="."]
+
+[node name="Jump" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource("4_rm8fd")
+volume_db = -20.0
+
+[node name="Place" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource("5_2jso2")
+volume_db = -5.66
+
+[node name="Landing" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource("6_fmh12")
+
+[node name="Scripts" type="Node" parent="."]
+
+[node name="Logic" type="Node" parent="Scripts" node_paths=PackedStringArray("place", "player")]
+script = ExtResource("2_rm8fd")
+place = NodePath("../../SoundEffects/Place")
+player = NodePath("../..")
+cube_scene = ExtResource("3_2jso2")
+
+[node name="Movement" type="Node" parent="Scripts" node_paths=PackedStringArray("player")]
+script = ExtResource("7_fjrip")
+player = NodePath("../..")
