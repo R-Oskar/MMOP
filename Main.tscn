@@ -11,3 +11,5 @@
 [node name="oskar 2" type="Node" parent="."]
 
 [node name="Node" type="Node" parent="."]
+
+[node name="oskar 3" type="Node" parent="."]
