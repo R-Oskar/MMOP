@@ -7,3 +7,5 @@
 [node name="oskar" type="Node" parent="."]
 
 [node name="Node3D" type="Node3D" parent="."]
+
+[node name="oskar 2" type="Node" parent="."]
