@@ -5,3 +5,5 @@
 [node name="Maksim" type="CharacterBody3D" parent="."]
 
 [node name="oskar" type="Node" parent="."]
+
+[node name="Node3D" type="Node3D" parent="."]
