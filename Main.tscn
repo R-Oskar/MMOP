@@ -1,15 +1,3 @@
 [gd_scene format=3 uid="uid://d3eeoagyv7vmr"]
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Maksim" type="CharacterBody3D" parent="."]
-
-[node name="oskar" type="Node" parent="."]
-
-[node name="Node3D" type="Node3D" parent="."]
-
-[node name="oskar 2" type="Node" parent="."]
-
-[node name="Node" type="Node" parent="."]
-
-[node name="oskar 3" type="Node" parent="."]
