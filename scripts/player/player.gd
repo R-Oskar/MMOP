@@ -91,7 +91,6 @@ func show_preview(item):
 		# Preview exists, just move it
 		last_preview.global_transform.origin = spawn_pos
 
-# Helper to apply semi-transparent material to all MeshInstances
 func _apply_transparency(node: Node, alpha: float = 0.5):
 	# Handle MeshInstance3D
 	if node is MeshInstance3D:
