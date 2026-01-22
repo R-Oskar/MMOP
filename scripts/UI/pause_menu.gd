@@ -17,6 +17,7 @@ func resume():
 	player.capture_mouse()
 
 func pause():
+	player.release_mouse()
 	get_tree().paused = true
 	show()
 	$AnimationPlayer.play("blur")
@@ -28,10 +29,6 @@ func testEsc():
 		resume()
 
 func _on_resume_pressed() -> void:
-	resume()
-
-func _on_restart_pressed() -> void:
-	player.teleport_to_spawn()
 	resume()
 
 func _on_quit_pressed() -> void:

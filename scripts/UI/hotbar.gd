@@ -8,8 +8,13 @@ var selected_index := 0
 
 
 func _ready():
-	load_item_to_hotbar(ItemIDs.ItemID.STONE, 2, 10)
+	load_item_to_hotbar(ItemIDs.ItemID.STONE, 2, 100)
 	load_item_to_hotbar(ItemIDs.ItemID.STONE, 3, 10)
+
+func _process(_delta: float) -> void:
+	var item = hotbar_items[selected_index]
+	if item and item.scene:
+		player.show_preview(item)
 
 func load_item_to_hotbar(item_id, index := 0, count := 1):
 	var item: Item = ItemIDs.ITEM_REGISTRY[item_id].duplicate()
@@ -32,9 +37,12 @@ func _unhandled_input(_event: InputEvent) -> void:
 				selected_index = 9
 			else:
 				selected_index = i - 1
+			if(player.last_preview):
+				player.clear_preview()
 			update_selection_position()
 			break
-	if Input.is_action_just_pressed("use_item"):
+		
+	if Input.is_action_pressed("use_item"):
 		var item = hotbar_items[selected_index]
 		if item && player.try_to_use_item(item):
 			reduce_item_count(item)
@@ -42,8 +50,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 			play_sound(item.sound)
 
 func update_selection_position():
-	var goal = Vector2(-1 + selected_index * 54, -1)
-	$Select.position = goal
+	var target_position = Vector2(-1 + selected_index * 54, -1)
+	$Select.position = target_position
 
 func play_sound(sound):
 	var music_player = AudioStreamPlayer.new()

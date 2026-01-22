@@ -197,11 +197,6 @@ layout_mode = 2
 size_flags_vertical = 4
 text = "Resume"
 
-[node name="BackToSpawn" type="Button" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-text = "Back to spawn"
-
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
@@ -213,5 +208,4 @@ libraries = {
 }
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/BackToSpawn" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

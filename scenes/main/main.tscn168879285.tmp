@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bdyigy4fvbvtr"]
 
 [ext_resource type="Script" uid="uid://o3eg7vjc47t7" path="res://scripts/main.gd" id="1_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://bdp4f8yo0fnl7" path="res://scenes/objects/rocket.tscn" id="2_85g3d"]
+[ext_resource type="PackedScene" uid="uid://bdp4f8yo0fnl7" path="res://scenes/objects/oxygen_generator.tscn" id="2_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://scenes/main/player.tscn" id="2_tipki"]
 [ext_resource type="Script" uid="uid://dl3mfoi35lg5w" path="res://scripts/UI/show_coordinates.gd" id="3_85g3d"]
 [ext_resource type="PackedScene" uid="uid://laa6wkcpj3ws" path="res://scenes/UI/hotbar.tscn" id="4_choun"]
@@ -34,16 +34,16 @@ musicPlayer = NodePath("MusicPlayer")
 
 [node name="World" type="Node" parent="."]
 
-[node name="Rocket" parent="World" instance=ExtResource("2_85g3d")]
+[node name="Oxygen Generator" parent="World" instance=ExtResource("2_85g3d")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.5, 0)
 
-[node name="Floor" type="CSGCylinder3D" parent="World"]
+[node name="Boden" type="CSGCylinder3D" parent="World"]
 use_collision = true
 radius = 50.0
 height = 1.0
 material = SubResource("StandardMaterial3D_272bh")
 
-[node name="Sea" type="CSGCylinder3D" parent="World/Floor"]
+[node name="Meer" type="CSGCylinder3D" parent="World/Boden"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 radius = 142.402
 material = SubResource("StandardMaterial3D_5vw27")

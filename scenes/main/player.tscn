@@ -1,8 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=9 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://3cvycxtlb0c4" path="res://scripts/player/player.gd" id="1_fjrip"]
-[ext_resource type="Script" uid="uid://c4qsvc211sc1" path="res://scripts/player/player_logic.gd" id="2_rm8fd"]
-[ext_resource type="PackedScene" uid="uid://bb4fk5cvhk80y" path="res://scenes/objects/stone.tscn" id="3_2jso2"]
 [ext_resource type="AudioStream" uid="uid://c40cnjfmavs2y" path="res://ressources/sounds/jump.mp3" id="4_rm8fd"]
 [ext_resource type="AudioStream" uid="uid://1o10fnhinqcg" path="res://ressources/sounds/place.mp3" id="5_2jso2"]
 [ext_resource type="AudioStream" uid="uid://dmsdeo8wuunex" path="res://ressources/sounds/landing.mp3" id="6_fmh12"]
@@ -51,12 +49,6 @@ volume_db = -5.66
 stream = ExtResource("6_fmh12")
 
 [node name="Scripts" type="Node" parent="."]
-
-[node name="Logic" type="Node" parent="Scripts" node_paths=PackedStringArray("place", "player")]
-script = ExtResource("2_rm8fd")
-place = NodePath("../../SoundEffects/Place")
-player = NodePath("../..")
-cube_scene = ExtResource("3_2jso2")
 
 [node name="Movement" type="Node" parent="Scripts" node_paths=PackedStringArray("player")]
 script = ExtResource("7_fjrip")

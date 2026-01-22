@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bb4fk5cvhk80y"]
+[gd_scene load_steps=4 format=3 uid="uid://bb4fk5cvhk80y"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rbgv"]
-albedo_color = Color(0.44291076, 0.44291076, 0.44291073, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_asons"]
+transparency = 1
+albedo_color = Color(0.3553136, 0.35531354, 0.35531357, 1)
 
-[node name="Cube" type="CSGBox3D"]
-material_override = SubResource("StandardMaterial3D_5rbgv")
-use_collision = true
+[sub_resource type="BoxMesh" id="BoxMesh_kxjt8"]
+material = SubResource("StandardMaterial3D_asons")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_asons"]
+
+[node name="Cube" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_kxjt8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_asons")
