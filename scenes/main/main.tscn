@@ -103,9 +103,11 @@ texture = ExtResource("5_ya4ey")
 [node name="PauseMenu" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("6_eb6dy")]
 player = NodePath("../../Player")
 
-[node name="Inventory" parent="UI" instance=ExtResource("8_b1x3f")]
+[node name="Inventory" parent="UI" node_paths=PackedStringArray("player", "hotbar") instance=ExtResource("8_b1x3f")]
 offset_left = 3.0
 offset_right = 43.0
+player = NodePath("../../Player")
+hotbar = NodePath("../Hotbar")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_trceg")
