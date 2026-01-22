@@ -11,6 +11,17 @@ func _process(delta):
 	if place_cooldown > 0:
 		place_cooldown -= delta
 
+func toggle_input(enable: bool):
+	set_process(enable)
+	set_physics_process(enable)
+	set_process_input(enable)
+	set_process_unhandled_input(enable)
+
+	if enable:
+		capture_mouse()
+	else:
+		release_mouse()
+
 func capture_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	mouse_captured = true

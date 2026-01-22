@@ -17,12 +17,10 @@ func _input(event):
 
 func open_inventory():
 	hotbar.hide()
-	player.release_mouse()
 	visible = true
-	get_tree().paused = true
+	player.toggle_input(false)
 	
 func close_inventory():
 	hotbar.show()
-	player.capture_mouse()
 	visible = false
-	get_tree().paused = false
+	player.toggle_input(true)

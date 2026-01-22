@@ -16,6 +16,14 @@ offset_right = 1155.0
 offset_bottom = 648.0
 color = Color(0.19607843, 0.19607843, 0.19607843, 0.84313726)
 
+[node name="Background2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 118.0
+offset_right = 840.0
+offset_bottom = 558.8805
+color = Color(0.19641912, 0.19641912, 0.19641912, 1)
+
 [node name="row_1" type="HBoxContainer" parent="."]
 layout_mode = 1
 offset_left = 291.0
