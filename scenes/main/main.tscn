@@ -104,8 +104,6 @@ texture = ExtResource("5_ya4ey")
 player = NodePath("../../Player")
 
 [node name="Inventory" parent="UI" node_paths=PackedStringArray("player", "hotbar") instance=ExtResource("8_b1x3f")]
-offset_left = 3.0
-offset_right = 43.0
 player = NodePath("../../Player")
 hotbar = NodePath("../Hotbar")
 

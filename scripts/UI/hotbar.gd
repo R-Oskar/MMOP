@@ -6,9 +6,6 @@ extends Control
 var hotbar_items: Array[Item] = [null, null, null, null, null, null, null, null, null, null]
 var selected_index := 0
 
-func inventory_opened():
-	pass
-
 func _ready():
 	load_item_to_hotbar(ItemIDs.ItemID.STONE, 2, 10)
 	load_item_to_hotbar(ItemIDs.ItemID.STONE, 3, 10)

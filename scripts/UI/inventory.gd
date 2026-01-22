@@ -16,12 +16,13 @@ func _input(event):
 			open_inventory()
 
 func open_inventory():
-	hotbar.inventory_opened()
+	hotbar.hide()
 	player.release_mouse()
 	visible = true
 	get_tree().paused = true
 	
 func close_inventory():
+	hotbar.show()
 	player.capture_mouse()
 	visible = false
 	get_tree().paused = false
