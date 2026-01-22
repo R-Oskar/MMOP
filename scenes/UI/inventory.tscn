@@ -1,0 +1,286 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq8sbte51hdu2"]
+
+[ext_resource type="Script" uid="uid://cwbpprwwrx2rh" path="res://scripts/UI/inventory.gd" id="1_egg3t"]
+[ext_resource type="PackedScene" uid="uid://cocghnpcu6bpq" path="res://scenes/UI/slot.tscn" id="3_kpdmy"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_egg3t")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1155.0
+offset_bottom = 648.0
+color = Color(0.19607843, 0.19607843, 0.19607843, 0.84313726)
+
+[node name="row_1" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 291.0
+offset_top = 430.0
+offset_right = 827.0
+offset_bottom = 482.0
+
+[node name="Slot1" parent="row_1" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot2" parent="row_1" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot3" parent="row_1" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot4" parent="row_1" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot5" parent="row_1" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot6" parent="row_1" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot7" parent="row_1" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot8" parent="row_1" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot9" parent="row_1" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot10" parent="row_1" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="row_2" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 291.0
+offset_top = 370.0
+offset_right = 827.0
+offset_bottom = 422.0
+
+[node name="Slot1" parent="row_2" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot2" parent="row_2" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot3" parent="row_2" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot4" parent="row_2" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot5" parent="row_2" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot6" parent="row_2" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot7" parent="row_2" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot8" parent="row_2" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot9" parent="row_2" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot10" parent="row_2" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="row_3" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 291.0
+offset_top = 310.0
+offset_right = 827.0
+offset_bottom = 362.0
+
+[node name="Slot1" parent="row_3" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot2" parent="row_3" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot3" parent="row_3" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot4" parent="row_3" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot5" parent="row_3" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot6" parent="row_3" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot7" parent="row_3" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot8" parent="row_3" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot9" parent="row_3" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot10" parent="row_3" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="row_4" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 291.0
+offset_top = 250.0
+offset_right = 827.0
+offset_bottom = 302.0
+
+[node name="Slot1" parent="row_4" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot2" parent="row_4" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot3" parent="row_4" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot4" parent="row_4" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot5" parent="row_4" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot6" parent="row_4" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot7" parent="row_4" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot8" parent="row_4" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot9" parent="row_4" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot10" parent="row_4" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="row_5" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 291.0
+offset_top = 190.0
+offset_right = 827.0
+offset_bottom = 242.0
+
+[node name="Slot1" parent="row_5" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot2" parent="row_5" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot3" parent="row_5" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot4" parent="row_5" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot5" parent="row_5" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot6" parent="row_5" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot7" parent="row_5" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot8" parent="row_5" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot9" parent="row_5" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot10" parent="row_5" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="row_6" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 291.0
+offset_top = 130.0
+offset_right = 827.0
+offset_bottom = 182.0
+
+[node name="Slot1" parent="row_6" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot2" parent="row_6" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot3" parent="row_6" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot4" parent="row_6" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot5" parent="row_6" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot6" parent="row_6" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot7" parent="row_6" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot8" parent="row_6" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot9" parent="row_6" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="Slot10" parent="row_6" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+
+[node name="hotbar" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 291.0
+offset_top = 495.0
+offset_right = 827.0
+offset_bottom = 547.0
+
+[node name="Slot1" parent="hotbar" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "1"
+
+[node name="Slot2" parent="hotbar" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "2"
+
+[node name="Slot3" parent="hotbar" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "3"
+
+[node name="Slot4" parent="hotbar" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "4"
+
+[node name="Slot5" parent="hotbar" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "5"
+
+[node name="Slot6" parent="hotbar" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "6"
+
+[node name="Slot7" parent="hotbar" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "7"
+
+[node name="Slot8" parent="hotbar" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "8"
+
+[node name="Slot9" parent="hotbar" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "9"
+
+[node name="Slot10" parent="hotbar" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "0"

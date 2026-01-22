@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bdyigy4fvbvtr"]
+[gd_scene load_steps=15 format=3 uid="uid://bdyigy4fvbvtr"]
 
 [ext_resource type="Script" uid="uid://o3eg7vjc47t7" path="res://scripts/main.gd" id="1_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bdp4f8yo0fnl7" path="res://scenes/objects/rocket.tscn" id="2_85g3d"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://2lg3o2g67vdp" path="res://ressources/pictures/crosshair.png" id="5_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://equrnyrs8b8x" path="res://scenes/UI/pause_menu.tscn" id="6_eb6dy"]
 [ext_resource type="AudioStream" uid="uid://chrw4bninhbgo" path="res://ressources/sounds/backgroundMusic.mp3" id="7_trceg"]
+[ext_resource type="PackedScene" uid="uid://cq8sbte51hdu2" path="res://scenes/UI/inventory.tscn" id="8_b1x3f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
 albedo_color = Color(0, 0.54525805, 2.8878452e-07, 1)
@@ -101,6 +102,10 @@ texture = ExtResource("5_ya4ey")
 
 [node name="PauseMenu" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("6_eb6dy")]
 player = NodePath("../../Player")
+
+[node name="Inventory" parent="UI" node_paths=PackedStringArray("player", "hotbar") instance=ExtResource("8_b1x3f")]
+player = NodePath("../../Player")
+hotbar = NodePath("../Hotbar")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_trceg")
