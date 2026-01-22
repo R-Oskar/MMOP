@@ -2,9 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cocghnpcu6bpq" path="res://scenes/UI/slot.tscn" id="1_mjyg7"]
 [ext_resource type="Script" uid="uid://dcajdgouxdv0w" path="res://scripts/UI/hotbar.gd" id="1_xrqkv"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4qkdb"]
-load_path = "res://.godot/imported/select_texture.png-94245124479cfb0bad877a6009f6f35b.ctex"
+[ext_resource type="Texture2D" uid="uid://cuerrwspg40sl" path="res://ressources/pictures/select_texture.png" id="2_3lmyj"]
 
 [node name="Hotbar" type="Control"]
 layout_mode = 3
@@ -29,7 +27,7 @@ offset_left = -1.0
 offset_top = -1.0
 offset_right = 51.0
 offset_bottom = 53.0
-texture = SubResource("CompressedTexture2D_4qkdb")
+texture = ExtResource("2_3lmyj")
 
 [node name="Slots" type="HBoxContainer" parent="."]
 layout_mode = 1
