@@ -42,7 +42,8 @@ func _ready() -> void:
 	player.capture_mouse()
 
 func _unhandled_input(event: InputEvent) -> void:
-	
+	if not player.is_input_enabled():
+		return
 	# Look around
 	if player.mouse_captured and event is InputEventMouseMotion:
 		rotate_look(event.relative)
@@ -55,69 +56,72 @@ func _unhandled_input(event: InputEvent) -> void:
 			disable_freefly()
 
 func _physics_process(delta: float) -> void:
-	# If freeflying, handle freefly and nothing else
-	if can_freefly and freeflying:
-		# Get horizontal input
-		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
+	# -----------------------
+	# Freefly mode
+	# -----------------------
+	var input_dir
+	if can_freefly and freeflying and player.is_input_enabled():
+		# Horizontal input
+		input_dir = Input.get_vector(input_left, input_right, input_forward, input_back)
 		
-		# Get vertical input (space for up, optionally shift for down)
+		# Vertical input
 		var vertical := 0
-		if Input.is_action_pressed("jump"):  # assuming "jump" is space
+		if Input.is_action_pressed("jump"):
 			vertical += 1
-		if Input.is_action_pressed("fly_down"):  # optional, e.g., shift
+		if Input.is_action_pressed("fly_down"):
 			vertical -= 1
-		
-		# Combine horizontal and vertical movement
-		var motion := (head.global_basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		motion.y = vertical  # set vertical component
-		
-		# Scale by speed and delta
-		motion *= freefly_speed * delta
-		
-		player.move_and_collide(motion)
-		return
-	
-	# Apply gravity to velocity
-	if has_gravity:
-		if not player.is_on_floor():
-			player.velocity += player.get_gravity() * delta * gravity_strength
 
-	# Apply jumping
-	if can_jump:
+		# Combine horizontal and vertical
+		var motion := (head.global_basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		motion.y = vertical
+
+		motion *= freefly_speed * delta
+		player.move_and_collide(motion)
+		return  # skip rest of physics in freefly
+
+	# Gravity
+	if has_gravity and not player.is_on_floor():
+		player.velocity += player.get_gravity() * delta * gravity_strength
+
+	# Input handling
+	input_dir = Vector2.ZERO
+	if can_move and player.is_input_enabled():
+		input_dir = Input.get_vector(input_left, input_right, input_forward, input_back)
+
+	var move_dir := (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
+	# Determine target velocity
+	var target_velocity_x = 0.0
+	var target_velocity_z = 0.0
+	if move_dir:
+		target_velocity_x = move_dir.x * move_speed
+		target_velocity_z = move_dir.z * move_speed
+
+	# Smooth horizontal movement (inertia applies even if input disabled)
+	var smoothing = 15.0 if player.is_on_floor() else 3.0
+	player.velocity.x = lerp(player.velocity.x, target_velocity_x, smoothing * delta)
+	player.velocity.z = lerp(player.velocity.z, target_velocity_z, smoothing * delta)
+
+	# Jumping (only if input enabled)
+	if can_jump and player.is_input_enabled():
 		if Input.is_action_pressed(input_jump) and player.is_on_floor():
 			jump.pitch_scale = randf_range(0.9, 1.1)
 			jump.play()
 			player.velocity.y = jump_velocity
 
-	# Modify speed based on sprinting
-	if can_sprint and Input.is_action_pressed(input_sprint):
-			move_speed = sprint_speed
-	else:
-		move_speed = base_speed
+	# Sprinting (only if input enabled)
+	move_speed = sprint_speed if can_sprint and Input.is_action_pressed(input_sprint) and player.is_input_enabled() else base_speed
 
-	# Apply desired movement to velocity
-	if can_move:
-		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
-		var move_dir := (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		if move_dir:
-			player.velocity.x = move_dir.x * move_speed
-			player.velocity.z = move_dir.z * move_speed
-		else:
-			player.velocity.x = move_toward(player.velocity.x, 0, move_speed)
-			player.velocity.z = move_toward(player.velocity.z, 0, move_speed)
-	else:
-		player.velocity.x = 0
-		player.velocity.y = 0
-	
-	# Use velocity to actually move
+	# Apply velocity
 	player.move_and_slide()
-	
+
+	# Landing sounds
 	if not was_on_floor and player.is_on_floor():
-		# Just landed
-		landing.pitch_scale = randf_range(0.9, 1.1)  # optional randomness
+		landing.pitch_scale = randf_range(0.9, 1.1)
 		landing.play()
-	# Update the state for next frame
 	was_on_floor = player.is_on_floor()
+
+
 	
 ## Rotate us to look around.
 ## Base of controller rotates around y (left/right). Head rotates around x (up/down).

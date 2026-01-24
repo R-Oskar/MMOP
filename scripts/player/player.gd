@@ -4,15 +4,20 @@ extends CharacterBody3D
 var mouse_captured : bool = false
 
 var place_reach = 2.7
-var place_cooldown := 0.0
-var place_delay := 0.15
+var item_use_cooldown := 0.0
+var item_use_delay := 0.15
+
+var input_enabled: bool = true
 
 func _process(delta) -> void:
-	if place_cooldown > 0:
-		place_cooldown -= delta
+	if item_use_cooldown > 0:
+		item_use_cooldown -= delta
+
 
 ## Disables (if parameter is false) or enables (if parameter is true) all player input.
-func toggle_input(enable: bool) -> void:
+func enable_input(enable: bool) -> void:
+	input_enabled = enable
+	
 	set_process(enable)
 	set_physics_process(enable)
 	set_process_input(enable)
@@ -75,7 +80,8 @@ func place_block(item) -> bool:
 
 	if not block_placeable(spawn_pos, blocks_root):
 		return false
-
+	
+	play_sound(item.sound)
 	var instance = item.scene.instantiate()
 	blocks_root.add_child(instance)
 	instance.global_transform.origin = spawn_pos
@@ -83,6 +89,7 @@ func place_block(item) -> bool:
 
 var last_preview: Node3D = null
 
+## Clears the last preview item.
 func clear_preview() -> void:
 	if last_preview:
 		last_preview.queue_free()
@@ -104,7 +111,7 @@ func show_preview(item) -> void:
 		instance.global_transform.origin = spawn_pos
 
 		# Apply transparency recursively to all MeshInstances
-		_apply_transparency(instance)
+		apply_transparency(instance)
 
 		last_preview = instance
 	else:
@@ -112,7 +119,7 @@ func show_preview(item) -> void:
 		last_preview.global_transform.origin = spawn_pos
 
 ## Applies lower transparency to given node with given alpha channel.
-func _apply_transparency(node: Node, alpha: float = 0.5) -> void:
+func apply_transparency(node: Node, alpha: float = 0.5) -> void:
 	# Handle MeshInstance3D
 	if node is MeshInstance3D:
 		var mat: StandardMaterial3D = node.get_active_material(0)
@@ -137,18 +144,26 @@ func _apply_transparency(node: Node, alpha: float = 0.5) -> void:
 	# Recurse over children (only Node3D to skip non-spatial nodes)
 	for child in node.get_children():
 		if child is Node3D:
-			_apply_transparency(child, alpha)
+			apply_transparency(child, alpha)
 
-## Uses item if cooldown is over.
+## Uses item if use is not on cooldown.
 func try_to_use_item(item) -> bool:
-	if place_cooldown <= 0:
-		place_cooldown = place_delay
+	if item_use_cooldown <= 0:
+		item_use_cooldown = item_use_delay
 		return use_selected_item(item)
 	return false
 
 ## Places item if placable, otherwise returns false.
 func use_selected_item(item) -> bool:
-	# item only has a scene when placable(scene is being placed into world)
 	if item.scene:
 		return place_block(item)
 	return false
+
+func play_sound(sound) -> void:
+	var music_player = AudioStreamPlayer.new()
+	add_child(music_player)
+	music_player.stream = sound
+	music_player.play()
+
+func is_input_enabled() -> bool:
+	return input_enabled

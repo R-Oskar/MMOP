@@ -16,6 +16,8 @@ func _process(_delta: float) -> void:
 		player.show_preview(item)
 
 func _unhandled_input(_event: InputEvent) -> void:
+	if not player.is_input_enabled():
+		return
 	for i in range(10):
 		var action_name = "slot%d" % i
 		if Input.is_action_just_pressed(action_name):
@@ -33,7 +35,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 		if item && player.try_to_use_item(item):
 			reduce_item_count(item)
 			update_hotbar_ui()
-			play_sound(item.sound)
+
 
 ## Load a item (identified by ItemID) at specified index with specified count to the hotbar.
 func load_item_to_hotbar(item_id, index := 0, count := 1) -> void:
@@ -78,9 +80,3 @@ func update_hotbar_ui() -> void:
 ## Returns the array of hotbar_items.
 func get_hotbar_items() -> Array[Item]:
 	return hotbar_items
-
-func play_sound(sound) -> void:
-	var music_player = AudioStreamPlayer.new()
-	add_child(music_player)
-	music_player.stream = sound
-	music_player.play()

@@ -5,5 +5,3 @@ extends Node3D
 func _ready() -> void:
 	musicPlayer.stream.loop = true
 	musicPlayer.play()
-	
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

@@ -15,7 +15,7 @@ var inventory_items: Array[Array] = [
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	close_inventory()
+	visible = false
 
 func _input(event) -> void:
 	if event.is_action_pressed("inventory"):
@@ -23,6 +23,7 @@ func _input(event) -> void:
 			close_inventory()
 		else:
 			open_inventory()
+
 
 ## Removes item (both visually and in code) from the inventory at given row and index.
 func clear_inventory_slot(row: int, index: int) -> void:
@@ -70,12 +71,10 @@ func load_hotbar_items() -> void:
 func open_inventory() -> void:
 	hotbar.hide()
 	visible = true
-	player.toggle_input(false)
+	player.enable_input(false)
 	load_hotbar_items()
-	get_tree().paused = true
 
 func close_inventory() -> void:
 	hotbar.show()
 	visible = false
-	player.toggle_input(true)
-	get_tree().paused = false
+	player.enable_input(true)
