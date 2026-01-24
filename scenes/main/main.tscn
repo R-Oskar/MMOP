@@ -119,4 +119,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.351467)
 [node name="Enemy2" parent="." instance=ExtResource("10_a8run")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.805804, 6.502536, 10.39901)
 
-[node name="End_Screen" parent="." instance=ExtResource("11_ouso4")]
+[node name="End_Screen" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="End_Screen" parent="End_Screen" instance=ExtResource("11_ouso4")]

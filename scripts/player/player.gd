@@ -181,6 +181,10 @@ func take_damage(amount: int) -> void:
 		die()	
 
 func die():
-	var end_screen = preload("res://scenes/UI/end_screen.tscn").instantiate()
-	get_tree().current_scene.add_child(end_screen)
-	queue_free()
+	var main = get_tree().current_scene
+	
+	main.get_node("UI").visible = false
+	main.get_node("End_Screen").visible = true
+
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().paused = true

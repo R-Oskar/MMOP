@@ -33,3 +33,4 @@ layout_mode = 2
 
 [node name="Beenden" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+text = "Beenden"

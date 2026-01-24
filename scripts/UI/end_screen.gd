@@ -1,8 +1,8 @@
 extends Control
 
 func _ready():
-	get_tree().paused = true
-	visible = true
+	get_tree().paused = false
+	visible = false
 
 func _on_restart_pressed():
 	get_tree().paused = false
