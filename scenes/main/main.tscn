@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdyigy4fvbvtr"]
+[gd_scene load_steps=17 format=3 uid="uid://bdyigy4fvbvtr"]
 
 [ext_resource type="Script" uid="uid://o3eg7vjc47t7" path="res://scripts/main.gd" id="1_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bdp4f8yo0fnl7" path="res://scenes/objects/rocket.tscn" id="2_85g3d"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://chrw4bninhbgo" path="res://ressources/sounds/backgroundMusic.mp3" id="7_trceg"]
 [ext_resource type="PackedScene" uid="uid://cq8sbte51hdu2" path="res://scenes/UI/inventory.tscn" id="8_b1x3f"]
 [ext_resource type="PackedScene" uid="uid://bhq5ow250herw" path="res://scenes/main/enemy.tscn" id="10_a8run"]
+[ext_resource type="PackedScene" uid="uid://dlv0tghnokaw3" path="res://scenes/UI/end_screen.tscn" id="11_ouso4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
 albedo_color = Color(0, 0.54525805, 2.8878452e-07, 1)
@@ -117,3 +118,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.351467)
 
 [node name="Enemy2" parent="." instance=ExtResource("10_a8run")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.805804, 6.502536, 10.39901)
+
+[node name="End_Screen" parent="." instance=ExtResource("11_ouso4")]

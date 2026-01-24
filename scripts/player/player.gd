@@ -181,5 +181,6 @@ func take_damage(amount: int) -> void:
 		die()	
 
 func die():
-	print("Spieler ist tot")
-	queue_free() # später evtl. Animation oder Game Over
+	var end_screen = preload("res://scenes/UI/end_screen.tscn").instantiate()
+	get_tree().current_scene.add_child(end_screen)
+	queue_free()
