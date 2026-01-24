@@ -7,11 +7,12 @@ var place_reach = 2.7
 var place_cooldown := 0.0
 var place_delay := 0.15
 
-func _process(delta):
+func _process(delta) -> void:
 	if place_cooldown > 0:
 		place_cooldown -= delta
 
-func toggle_input(enable: bool):
+## Disables (if parameter is false) or enables (if parameter is true) all player input.
+func toggle_input(enable: bool) -> void:
 	set_process(enable)
 	set_physics_process(enable)
 	set_process_input(enable)
@@ -22,22 +23,26 @@ func toggle_input(enable: bool):
 	else:
 		release_mouse()
 
-func capture_mouse():
+## Caputres the mouse so the player can look around again.
+func capture_mouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	mouse_captured = true
 
-func release_mouse():
+## Releases the mouse so the player can interact with menus.
+func release_mouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
 
-func calculate_block_spawn_pos():
+## Calculates the position of where to spawn the block the player wants to place.
+func calculate_block_spawn_pos() -> Vector3:
 	var look_dir = -head.global_transform.basis.z.normalized()
 	var spawn_pos = head.global_transform.origin + look_dir * place_reach
 
-	# Round coordinates to nearest integer
+	# Round coordinates to nearest integer for grid system
 	spawn_pos = Vector3(round(spawn_pos.x), round(spawn_pos.y), round(spawn_pos.z))
 	return spawn_pos
 
+## Returns boolean if it should be possible for the player to place a block at the given location.
 func block_placeable(spawn_pos: Vector3, blocks_root: Node3D = null) -> bool:
 	if spawn_pos.y <= 0:
 		return false
@@ -51,6 +56,7 @@ func block_placeable(spawn_pos: Vector3, blocks_root: Node3D = null) -> bool:
 
 	return true
 
+## Returns the blocks_root node (Node for organizing, which all player placed blocks have as a parent)
 func get_blocks_root(create_if_missing := false) -> Node3D:
 	var blocks_root = get_tree().current_scene.get_node_or_null("Blocks")
 
@@ -61,6 +67,8 @@ func get_blocks_root(create_if_missing := false) -> Node3D:
 
 	return blocks_root
 
+## Places (if possible) item/block in direction of looking.
+## Returns true if succesful, returns false if placing is not possible.
 func place_block(item) -> bool:
 	var spawn_pos = calculate_block_spawn_pos()
 	var blocks_root = get_blocks_root(true)
@@ -75,12 +83,13 @@ func place_block(item) -> bool:
 
 var last_preview: Node3D = null
 
-func clear_preview():
+func clear_preview() -> void:
 	if last_preview:
 		last_preview.queue_free()
 		last_preview = null
 
-func show_preview(item):
+## If having a block selected in the hotbar, a less transparent version is displayed where you would currently place the block.
+func show_preview(item) -> void:
 	var spawn_pos = calculate_block_spawn_pos()
 
 	if not block_placeable(spawn_pos):
@@ -102,7 +111,8 @@ func show_preview(item):
 		# Preview exists, just move it
 		last_preview.global_transform.origin = spawn_pos
 
-func _apply_transparency(node: Node, alpha: float = 0.5):
+## Applies lower transparency to given node with given alpha channel.
+func _apply_transparency(node: Node, alpha: float = 0.5) -> void:
 	# Handle MeshInstance3D
 	if node is MeshInstance3D:
 		var mat: StandardMaterial3D = node.get_active_material(0)
@@ -129,13 +139,15 @@ func _apply_transparency(node: Node, alpha: float = 0.5):
 		if child is Node3D:
 			_apply_transparency(child, alpha)
 
-func try_to_use_item(item):
+## Uses item if cooldown is over.
+func try_to_use_item(item) -> bool:
 	if place_cooldown <= 0:
 		place_cooldown = place_delay
 		return use_selected_item(item)
 	return false
 
-func use_selected_item(item):
+## Places item if placable, otherwise returns false.
+func use_selected_item(item) -> bool:
 	# item only has a scene when placable(scene is being placed into world)
 	if item.scene:
 		return place_block(item)

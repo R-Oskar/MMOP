@@ -1,6 +1,6 @@
 extends RichTextLabel
 
-@export var player: Node3D  # Assign your player node in the editor
+@export var player: Node3D
 
 func _ready() -> void:
 	bbcode_enabled = true  # Enable BBCode for coloring

@@ -6,7 +6,7 @@ extends Control
 var hotbar_items: Array[Item] = [null, null, null, null, null, null, null, null, null, null]
 var selected_index := 0
 
-func _ready():
+func _ready() -> void:
 	load_item_to_hotbar(ItemIDs.ItemID.STONE, 2, 100)
 	load_item_to_hotbar(ItemIDs.ItemID.STONE, 3, 10)
 
@@ -14,19 +14,6 @@ func _process(_delta: float) -> void:
 	var item = hotbar_items[selected_index]
 	if item and item.scene:
 		player.show_preview(item)
-
-func load_item_to_hotbar(item_id, index := 0, count := 1):
-	var item: Item = ItemIDs.ITEM_REGISTRY[item_id].duplicate()
-	hotbar_items[index] = item
-	item.count = count
-
-	var slot_node = boxContainer.get_child(index)
-	var icon_node = slot_node.get_node("Item") as TextureRect
-	icon_node.texture = item.icon
-
-	var count_label = slot_node.get_node("Count") as RichTextLabel
-	if count_label:
-		count_label.text = str(item.count)
 
 func _unhandled_input(_event: InputEvent) -> void:
 	for i in range(10):
@@ -48,23 +35,34 @@ func _unhandled_input(_event: InputEvent) -> void:
 			update_hotbar_ui()
 			play_sound(item.sound)
 
-func update_selection_position():
+## Load a item (identified by ItemID) at specified index with specified count to the hotbar.
+func load_item_to_hotbar(item_id, index := 0, count := 1) -> void:
+	var item: Item = ItemIDs.ITEM_REGISTRY[item_id].duplicate()
+	hotbar_items[index] = item
+	item.count = count
+
+	var slot_node = boxContainer.get_child(index)
+	var icon_node = slot_node.get_node("Item") as TextureRect
+	icon_node.texture = item.icon
+
+	var count_label = slot_node.get_node("Count") as RichTextLabel
+	if count_label:
+		count_label.text = str(item.count)
+
+## Updates the position of the selection icon in the hotbar.
+func update_selection_position() -> void:
 	var target_position = Vector2(-1 + selected_index * 54, -1)
 	$Select.position = target_position
 
-func play_sound(sound):
-	var music_player = AudioStreamPlayer.new()
-	add_child(music_player)
-	music_player.stream = sound
-	music_player.play()
-
-func reduce_item_count(item):
+## Reduces mentioned item count and removes it if needed from the hotbar.
+func reduce_item_count(item: Item) -> void:
 	if item.count > 0:
 		item.count -= 1
 	if item.count == 0:
 		hotbar_items[selected_index] = null
 
-func update_hotbar_ui():
+## Displays the items from the hotbar array on the hotbar GUI with their count and texture.
+func update_hotbar_ui() -> void:
 	for i in range(hotbar_items.size()):
 		var slot = boxContainer.get_child(i)
 		var icon_node = slot.get_node("Item") as TextureRect
@@ -77,5 +75,12 @@ func update_hotbar_ui():
 			icon_node.texture = null
 			count_label.text = ""
 
-func get_hotbar_items():
+## Returns the array of hotbar_items.
+func get_hotbar_items() -> Array[Item]:
 	return hotbar_items
+
+func play_sound(sound) -> void:
+	var music_player = AudioStreamPlayer.new()
+	add_child(music_player)
+	music_player.stream = sound
+	music_player.play()

@@ -17,13 +17,14 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	close_inventory()
 
-func _input(event):
+func _input(event) -> void:
 	if event.is_action_pressed("inventory"):
 		if visible:
 			close_inventory()
 		else:
 			open_inventory()
 
+## Removes item (both visually and in code) from the inventory at given row and index.
 func clear_inventory_slot(row: int, index: int) -> void:
 	inventory_items[row][index] = null
 
@@ -38,7 +39,8 @@ func clear_inventory_slot(row: int, index: int) -> void:
 	if count_label:
 		count_label.text = ""
 
-func load_item_to_inventory(item_id, row := 0, index := 0, count := 1):
+## Load a item (identified by ItemID) at specified row and specified index with specified count to the inventory.
+func load_item_to_inventory(item_id, row := 0, index := 0, count := 1) -> void:
 	var item: Item = ItemIDs.ITEM_REGISTRY[item_id].duplicate()
 	inventory_items[row][index] = item
 	item.count = count
@@ -52,7 +54,8 @@ func load_item_to_inventory(item_id, row := 0, index := 0, count := 1):
 	if count_label:
 		count_label.text = str(item.count)
 
-func load_hotbar_items():
+## Loads all items from the hotbar (both visually and in code) to row_0 of the inventory.
+func load_hotbar_items() -> void:
 	var items = hotbar.get_hotbar_items()
 	
 	for i in range(items.size()):
@@ -63,16 +66,15 @@ func load_hotbar_items():
 			continue
 		
 		load_item_to_inventory(item.item_id, 0, i, item.count)
-		
 
-func open_inventory():
+func open_inventory() -> void:
 	hotbar.hide()
 	visible = true
 	player.toggle_input(false)
 	load_hotbar_items()
 	get_tree().paused = true
-	
-func close_inventory():
+
+func close_inventory() -> void:
 	hotbar.show()
 	visible = false
 	player.toggle_input(true)
