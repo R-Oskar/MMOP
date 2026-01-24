@@ -17,7 +17,7 @@ height = 1.8
 radius = 0.4
 height = 1.8
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_fjrip")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]

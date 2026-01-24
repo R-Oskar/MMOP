@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 
 Item_ids="*res://items/item_ids.gd"
 
+[dotnet]
+
+project/assembly_name="MMOP"
+
 [input]
 
 move_up={
