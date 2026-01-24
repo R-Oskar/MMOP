@@ -24,6 +24,53 @@ offset_right = 840.0
 offset_bottom = 558.8805
 color = Color(0.19641912, 0.19641912, 0.19641912, 1)
 
+[node name="row_0" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 291.0
+offset_top = 495.0
+offset_right = 827.0
+offset_bottom = 547.0
+
+[node name="Slot1" parent="row_0" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "1"
+
+[node name="Slot2" parent="row_0" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "2"
+
+[node name="Slot3" parent="row_0" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "3"
+
+[node name="Slot4" parent="row_0" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "4"
+
+[node name="Slot5" parent="row_0" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "5"
+
+[node name="Slot6" parent="row_0" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "6"
+
+[node name="Slot7" parent="row_0" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "7"
+
+[node name="Slot8" parent="row_0" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "8"
+
+[node name="Slot9" parent="row_0" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "9"
+
+[node name="Slot10" parent="row_0" instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+slot_identification = "0"
+
 [node name="row_1" type="HBoxContainer" parent="."]
 layout_mode = 1
 offset_left = 291.0
@@ -245,50 +292,3 @@ layout_mode = 2
 
 [node name="Slot10" parent="row_6" instance=ExtResource("3_kpdmy")]
 layout_mode = 2
-
-[node name="hotbar" type="HBoxContainer" parent="."]
-layout_mode = 1
-offset_left = 291.0
-offset_top = 495.0
-offset_right = 827.0
-offset_bottom = 547.0
-
-[node name="Slot1" parent="hotbar" instance=ExtResource("3_kpdmy")]
-layout_mode = 2
-slot_identification = "1"
-
-[node name="Slot2" parent="hotbar" instance=ExtResource("3_kpdmy")]
-layout_mode = 2
-slot_identification = "2"
-
-[node name="Slot3" parent="hotbar" instance=ExtResource("3_kpdmy")]
-layout_mode = 2
-slot_identification = "3"
-
-[node name="Slot4" parent="hotbar" instance=ExtResource("3_kpdmy")]
-layout_mode = 2
-slot_identification = "4"
-
-[node name="Slot5" parent="hotbar" instance=ExtResource("3_kpdmy")]
-layout_mode = 2
-slot_identification = "5"
-
-[node name="Slot6" parent="hotbar" instance=ExtResource("3_kpdmy")]
-layout_mode = 2
-slot_identification = "6"
-
-[node name="Slot7" parent="hotbar" instance=ExtResource("3_kpdmy")]
-layout_mode = 2
-slot_identification = "7"
-
-[node name="Slot8" parent="hotbar" instance=ExtResource("3_kpdmy")]
-layout_mode = 2
-slot_identification = "8"
-
-[node name="Slot9" parent="hotbar" instance=ExtResource("3_kpdmy")]
-layout_mode = 2
-slot_identification = "9"
-
-[node name="Slot10" parent="hotbar" instance=ExtResource("3_kpdmy")]
-layout_mode = 2
-slot_identification = "0"

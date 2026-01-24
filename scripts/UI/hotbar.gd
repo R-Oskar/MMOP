@@ -76,3 +76,6 @@ func update_hotbar_ui():
 		else:
 			icon_node.texture = null
 			count_label.text = ""
+
+func get_hotbar_items():
+	return hotbar_items
