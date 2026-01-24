@@ -10,7 +10,7 @@ albedo_color = Color(1.353256, 0, 0, 1)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_s007n"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5wnaa"]
-radius = 0.54
+radius = 3.78
 
 [node name="Enemy" type="CharacterBody3D"]
 script = ExtResource("1_l1lbi")

@@ -9,6 +9,11 @@ var item_use_delay := 0.15
 
 var input_enabled: bool = true
 
+#attributes
+#Leben
+const health_max : float = 100
+var health: float = health_max
+
 func _process(delta) -> void:
 	if item_use_cooldown > 0:
 		item_use_cooldown -= delta
@@ -167,3 +172,14 @@ func play_sound(sound) -> void:
 
 func is_input_enabled() -> bool:
 	return input_enabled
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	print("Spieler bekommt Schaden! Leben:", health)
+
+	if health <= 0:
+		die()	
+
+func die():
+	print("Spieler ist tot")
+	queue_free() # später evtl. Animation oder Game Over
