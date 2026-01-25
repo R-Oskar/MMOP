@@ -178,7 +178,7 @@ func take_damage(amount: int) -> void:
 	print("Spieler bekommt Schaden! Leben:", health)
 
 	if health <= 0:
-		die()	
+		call_deferred("die")
 
 func die():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
