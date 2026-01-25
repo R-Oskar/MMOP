@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MMOP"
-run/main_scene="uid://bdyigy4fvbvtr"
+run/main_scene="uid://bjj4dy5lh60ll"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
 [autoload]

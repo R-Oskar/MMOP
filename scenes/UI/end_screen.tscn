@@ -2,23 +2,31 @@
 
 [ext_resource type="Script" uid="uid://m23y5my2egph" path="res://scripts/UI/end_screen.gd" id="1_20kt3"]
 
-[node name="End_Screen" type="Control"]
+[node name="Game_Over_Screen" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_20kt3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 1184.0
-offset_bottom = 689.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.27022192, 0.27022192, 0.2702219, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 1149.0
-offset_bottom = 643.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
 
@@ -30,7 +38,16 @@ horizontal_alignment = 1
 
 [node name="Neustart" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+text = "Neustarten"
+
+[node name="Button_Main_Menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
 
 [node name="Beenden" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Beenden"
+
+[connection signal="pressed" from="VBoxContainer/Neustart" to="." method="_on_neustart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button_Main_Menu" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Beenden" to="." method="_on_beenden_pressed"]

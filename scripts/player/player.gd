@@ -181,10 +181,5 @@ func take_damage(amount: int) -> void:
 		die()	
 
 func die():
-	var main = get_tree().current_scene
-	
-	main.get_node("UI").visible = false
-	main.get_node("End_Screen").visible = true
-
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	get_tree().paused = true
+	get_tree().change_scene_to_file("res://scenes/UI/end_screen.tscn")
