@@ -1,21 +1,55 @@
 extends CharacterBody3D
 
+@export var speed := 3.0
+@export var damage := 10
+@export var gravity := 9.8
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+@onready var agent: NavigationAgent3D = $NavigationAgent3D
+@onready var player = get_tree().get_first_node_in_group("player")
 
-const damage = 500
+func _ready():
+	$Damage_Area.body_entered.connect(_on_body_entered)
 
+func _physics_process(delta):
+	apply_gravity(delta)
+	update_movement()
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
 	move_and_slide()
 
+# -------------------------
+# Gravitation
+# -------------------------
+func apply_gravity(delta: float) -> void:
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	else:
+		velocity.y = 0
 
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		print("player dedectet")
+# -------------------------
+# Bewegung / Pathfinding
+# -------------------------
+func update_movement() -> void:
+	if player == null:
+		velocity.x = 0
+		velocity.z = 0
+		return
+
+	agent.target_position = player.global_position
+
+	if agent.is_navigation_finished():
+		velocity.x = 0
+		velocity.z = 0
+		return
+
+	var next_pos = agent.get_next_path_position()
+	var direction = (next_pos - global_position).normalized()
+
+	velocity.x = direction.x * speed
+	velocity.z = direction.z * speed
+
+# -------------------------
+# Schaden
+# -------------------------
+func _on_body_entered(body):
+	if body.has_method("take_damage"):
 		body.take_damage(damage)
-	

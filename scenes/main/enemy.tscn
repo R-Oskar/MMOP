@@ -24,11 +24,14 @@ mesh = SubResource("CylinderMesh_l1lbi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_s007n")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Damage_Area" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Damage_Area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_5wnaa")
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+max_speed = 4.0
+
+[connection signal="body_entered" from="Damage_Area" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_shape_entered" from="Damage_Area" to="." method="_on_area_3d_body_shape_entered"]
