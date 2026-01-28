@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhq5ow250herw"]
+[gd_scene load_steps=7 format=3 uid="uid://bhq5ow250herw"]
 
 [ext_resource type="Script" uid="uid://be0ekd1x7lcxe" path="res://scripts/enemy.gd" id="1_l1lbi"]
+[ext_resource type="Script" uid="uid://c8fo8w6ph2ink" path="res://scripts/enemy/damage_Area.gd" id="2_s007n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lcwq"]
 albedo_color = Color(1.353256, 0, 0, 1)
@@ -25,6 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_s007n")
 
 [node name="Damage_Area" type="Area3D" parent="."]
+script = ExtResource("2_s007n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Damage_Area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -33,5 +35,5 @@ shape = SubResource("CylinderShape3D_5wnaa")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 max_speed = 4.0
 
-[connection signal="body_entered" from="Damage_Area" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_shape_entered" from="Damage_Area" to="." method="_on_area_3d_body_shape_entered"]
+[connection signal="body_entered" from="Damage_Area" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Damage_Area" to="." method="_on_body_exited"]
