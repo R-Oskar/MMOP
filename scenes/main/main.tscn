@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdyigy4fvbvtr"]
+[gd_scene format=3 uid="uid://bdyigy4fvbvtr"]
 
 [ext_resource type="Script" uid="uid://o3eg7vjc47t7" path="res://scripts/main.gd" id="1_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bdp4f8yo0fnl7" path="res://scenes/objects/rocket.tscn" id="2_85g3d"]
@@ -36,39 +36,39 @@ sky = SubResource("Sky_ig7tw")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("musicPlayer")]
+[node name="Main" type="Node3D" unique_id=579425954 node_paths=PackedStringArray("musicPlayer")]
 script = ExtResource("1_o6xl0")
 musicPlayer = NodePath("MusicPlayer")
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=724357395]
 navigation_mesh = SubResource("NavigationMesh_a8run")
 navigation_layers = 255
 
-[node name="World" type="Node" parent="NavigationRegion3D"]
+[node name="World" type="Node" parent="NavigationRegion3D" unique_id=1998875284]
 
-[node name="Rocket" parent="NavigationRegion3D/World" instance=ExtResource("2_85g3d")]
+[node name="Rocket" parent="NavigationRegion3D/World" unique_id=433562493 instance=ExtResource("2_85g3d")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 11.731729, 0.9431906, 3.0545082)
 
-[node name="Floor" type="CSGCylinder3D" parent="NavigationRegion3D/World"]
+[node name="Floor" type="CSGCylinder3D" parent="NavigationRegion3D/World" unique_id=1784828762]
 use_collision = true
 radius = 50.0
 height = 1.0
 material = SubResource("StandardMaterial3D_272bh")
 
-[node name="Sea" type="CSGCylinder3D" parent="NavigationRegion3D/World/Floor"]
+[node name="Sea" type="CSGCylinder3D" parent="NavigationRegion3D/World/Floor" unique_id=1167328595]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 radius = 142.402
 material = SubResource("StandardMaterial3D_5vw27")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1508149338]
 environment = SubResource("Environment_0xm2m")
 
-[node name="Player" parent="." instance=ExtResource("2_tipki")]
+[node name="Player" parent="." unique_id=1027364402 instance=ExtResource("2_tipki")]
 transform = Transform3D(-0.99999636, 0, 0.0027052448, 0, 1, 0, -0.0027052448, 0, -0.99999636, 0, 11, 0)
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=700654966]
 
-[node name="Coordinates" type="RichTextLabel" parent="UI" node_paths=PackedStringArray("player")]
+[node name="Coordinates" type="RichTextLabel" parent="UI" unique_id=1339389968 node_paths=PackedStringArray("player")]
 offset_left = 2.0
 offset_right = 179.0
 offset_bottom = 110.0
@@ -80,7 +80,7 @@ scroll_active = false
 script = ExtResource("3_85g3d")
 player = NodePath("../../Player")
 
-[node name="Hotbar" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("4_choun")]
+[node name="Hotbar" parent="UI" unique_id=1251933844 node_paths=PackedStringArray("player", "inventory") instance=ExtResource("4_choun")]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -90,8 +90,9 @@ offset_right = 42.0
 offset_bottom = -15.0
 grow_vertical = 0
 player = NodePath("../../Player")
+inventory = NodePath("../Inventory")
 
-[node name="Crosshair" type="TextureRect" parent="UI"]
+[node name="Crosshair" type="TextureRect" parent="UI" unique_id=1358637544]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -107,19 +108,19 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 texture = ExtResource("5_ya4ey")
 
-[node name="PauseMenu" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("6_eb6dy")]
+[node name="PauseMenu" parent="UI" unique_id=277361084 node_paths=PackedStringArray("player") instance=ExtResource("6_eb6dy")]
 player = NodePath("../../Player")
 
-[node name="Inventory" parent="UI" node_paths=PackedStringArray("player", "hotbar") instance=ExtResource("8_b1x3f")]
+[node name="Inventory" parent="UI" unique_id=274594224 node_paths=PackedStringArray("player", "hotbar") instance=ExtResource("8_b1x3f")]
 player = NodePath("../../Player")
 hotbar = NodePath("../Hotbar")
 
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1998435069]
 stream = ExtResource("7_trceg")
 volume_db = -30.0
 
-[node name="Enemy" parent="." instance=ExtResource("10_a8run")]
+[node name="Enemy" parent="." unique_id=362872520 instance=ExtResource("10_a8run")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3556385, 4.7783556)
 
-[node name="Enemy2" parent="." instance=ExtResource("10_a8run")]
+[node name="Enemy2" parent="." unique_id=2076607082 instance=ExtResource("10_a8run")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.270113, 4.1709366, 4.652645)

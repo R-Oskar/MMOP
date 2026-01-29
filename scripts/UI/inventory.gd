@@ -8,10 +8,14 @@ var inventory_items: Array[Array] = [
 	[null, null, null, null, null, null, null, null, null, null],
 	[null, null, null, null, null, null, null, null, null, null],
 	[null, null, null, null, null, null, null, null, null, null],
-	[null, null, null, null, null, null, null, null, null, null],
-	[null, null, null, null, null, null, null, null, null, null],
 	[null, null, null, null, null, null, null, null, null, null]
 ]
+
+func get_hotbar_items() -> Array:
+	return inventory_items[0]
+
+func get_hotbar_item(index: int) -> Item:
+	return inventory_items[0][index]
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -24,6 +28,10 @@ func _input(event) -> void:
 		else:
 			open_inventory()
 
+func swap_inventory_slots(originalRow, originalIndex, row,index) -> void:
+	var item = inventory_items[originalRow][originalIndex]
+	clear_inventory_slot(originalRow, originalIndex)
+	load_item_to_inventory(item.item_id, row, index, item.count)
 
 ## Removes item (both visually and in code) from the inventory at given row and index.
 func clear_inventory_slot(row: int, index: int) -> void:
@@ -41,7 +49,16 @@ func clear_inventory_slot(row: int, index: int) -> void:
 		count_label.text = ""
 
 ## Load a item (identified by ItemID) at specified row and specified index with specified count to the inventory.
-func load_item_to_inventory(item_id, row := 0, index := 0, count := 1) -> void:
+func load_item_to_inventory(item_id, row := 0, index := 0, count := 1) -> Item:
+	var original_item = inventory_items[row][index]
+	
+	if original_item and original_item.item_id != item_id:
+		return
+	
+	if original_item and original_item.item_id == item_id:
+		inventory_items[row][index].count += count
+		return
+	
 	var item: Item = ItemIDs.ITEM_REGISTRY[item_id].duplicate()
 	inventory_items[row][index] = item
 	item.count = count
@@ -54,27 +71,38 @@ func load_item_to_inventory(item_id, row := 0, index := 0, count := 1) -> void:
 	var count_label = slot_node.get_node("Count") as RichTextLabel
 	if count_label:
 		count_label.text = str(item.count)
+	return item
 
-## Loads all items from the hotbar (both visually and in code) to row_0 of the inventory.
-func load_hotbar_items() -> void:
-	var items = hotbar.get_hotbar_items()
-	
-	for i in range(items.size()):
-		var item = items[i]
-		
-		if not item:
-			clear_inventory_slot(0, i)
-			continue
-		
-		load_item_to_inventory(item.item_id, 0, i, item.count)
+func change_count(number: int, row: int, index: int) -> void:
+	var item: Item = inventory_items[row][index]
+	if item == null:
+		return
+
+	item.count += number
+
+	# If count is zero or less, remove the item completely
+	if item.count <= 0:
+		clear_inventory_slot(row, index)
+		return
+
+	# Update the UI count label
+	var row_node = get_node("row_%d" % row)
+	var slot_node = row_node.get_child(index)
+	var count_label = slot_node.get_node("Count") as RichTextLabel
+	if count_label:
+		count_label.text = str(item.count)
+
+
+func update_ui() -> void:
+	pass
 
 func open_inventory() -> void:
 	hotbar.hide()
 	visible = true
 	player.enable_input(false)
-	load_hotbar_items()
 
 func close_inventory() -> void:
 	hotbar.show()
 	visible = false
 	player.enable_input(true)
+	hotbar.update_hotbar_ui()
