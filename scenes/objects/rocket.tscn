@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdp4f8yo0fnl7"]
+[gd_scene format=3 uid="uid://bdp4f8yo0fnl7"]
 
 [ext_resource type="PackedScene" uid="uid://dc6lccr0sbjku" path="res://ressources/models/Raketeohnerechtenfügel.glb" id="1_0j34m"]
 
@@ -6,11 +6,11 @@
 radius = 0.2
 height = 1.860019
 
-[node name="Oxygen Generator" type="StaticBody3D"]
+[node name="rocket" type="StaticBody3D" unique_id=1295832677]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 
-[node name="Raketeohnerechtenfügel" parent="." instance=ExtResource("1_0j34m")]
+[node name="Raketeohnerechtenfügel" parent="." unique_id=1135162169 instance=ExtResource("1_0j34m")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=233626766]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.130577, 0)
 shape = SubResource("CapsuleShape3D_7o3ct")

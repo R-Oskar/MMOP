@@ -14,8 +14,7 @@ var damage_timer := 0.0
 
 
 func _ready():
-	damage_area.body_entered.connect(_on_body_entered)
-	damage_area.body_exited.connect(_on_body_exited)
+	pass
 
 
 func _physics_process(delta):
