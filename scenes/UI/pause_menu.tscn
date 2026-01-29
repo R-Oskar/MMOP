@@ -195,12 +195,12 @@ alignment = 1
 [node name="Resume" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-text = "Resume"
+text = "Fortfahren"
 
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-text = "Quit"
+text = "Beenden"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
