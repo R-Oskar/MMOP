@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjj4dy5lh60ll"]
+[gd_scene format=3 uid="uid://bjj4dy5lh60ll"]
 
 [ext_resource type="Script" uid="uid://bai3hamerk25h" path="res://scripts/UI/main_menu.gd" id="1_qwnig"]
 
-[node name="Main_Menu" type="Control"]
+[node name="Main_Menu" type="Control" unique_id=1193709992]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qwnig")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1391850699]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.24313726, 0.24313726, 0.24313726, 0.64705884)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=866334615]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,13 +29,13 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=2012346012]
 layout_mode = 2
 text = "Start"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=582836921]
 layout_mode = 2
-text = "Quit"
+text = "Beenden"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -10,6 +10,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 	if not player.is_input_enabled():
 		return
 	if Input.is_action_just_pressed("ui_cancel") and !get_tree().paused:
+		player.clear_preview()
 		pause()
 	elif Input.is_action_just_pressed("ui_cancel") and get_tree().paused:
 		resume()

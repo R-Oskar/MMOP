@@ -14,16 +14,29 @@ func _get_drag_data(_pos):
 	if item == null:
 		return null
 
-	var preview = TextureRect.new()
-	preview.texture = item.icon
-	preview.custom_minimum_size = Vector2(48, 48)
-	set_drag_preview(preview)
+	var root := Control.new()
+
+	var icon := TextureRect.new()
+	icon.texture = item.icon
+	icon.scale = Vector2(0.1,0.1)
+	root.add_child(icon)
+
+	# Number label
+	var label := Label.new()
+	label.text = str(item.count) 
+	label.offset_left = 32
+	label.offset_top = 20
+
+	root.add_child(label)
+
+	set_drag_preview(root)
 
 	return {
 		"row": row,
 		"index": index,
 		"item": item
 	}
+
 
 func _can_drop_data(_pos, data):
 	return data.has("item")

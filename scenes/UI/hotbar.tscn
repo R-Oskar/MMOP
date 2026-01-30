@@ -1,84 +1,76 @@
-[gd_scene load_steps=4 format=3 uid="uid://laa6wkcpj3ws"]
+[gd_scene format=3 uid="uid://laa6wkcpj3ws"]
 
 [ext_resource type="PackedScene" uid="uid://cocghnpcu6bpq" path="res://scripts/slot.tscn" id="1_mjyg7"]
 [ext_resource type="Script" uid="uid://dcajdgouxdv0w" path="res://scripts/UI/hotbar.gd" id="1_xrqkv"]
 [ext_resource type="Texture2D" uid="uid://cuerrwspg40sl" path="res://ressources/pictures/select_texture.png" id="2_3lmyj"]
 
-[node name="Hotbar" type="Control"]
+[node name="Hotbar" type="Control" unique_id=439422052]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 538.0
+offset_bottom = 54.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 script = ExtResource("1_xrqkv")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1228913672]
 layout_mode = 0
-offset_left = -3.0
-offset_top = -2.0
 offset_right = 538.0
 offset_bottom = 54.0
 color = Color(0.19607843, 0.19607843, 0.19607843, 0.75686276)
 
-[node name="Select" type="TextureRect" parent="."]
+[node name="Select" type="TextureRect" parent="." unique_id=430553270]
 texture_filter = 1
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 51.0
-offset_bottom = 53.0
+offset_left = 486.0
+offset_right = 538.0
+offset_bottom = 54.0
 texture = ExtResource("2_3lmyj")
 
-[node name="Slots" type="HBoxContainer" parent="."]
+[node name="Slots" type="HBoxContainer" parent="." unique_id=1070701843]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 516.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 537.0
+offset_bottom = 51.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="Slot1" parent="Slots" instance=ExtResource("1_mjyg7")]
+[node name="Slot1" parent="Slots" unique_id=1120847920 instance=ExtResource("1_mjyg7")]
 layout_mode = 2
 slot_identification = "1"
 
-[node name="Slot2" parent="Slots" instance=ExtResource("1_mjyg7")]
+[node name="Slot2" parent="Slots" unique_id=579205429 instance=ExtResource("1_mjyg7")]
 layout_mode = 2
 slot_identification = "2"
 
-[node name="Slot3" parent="Slots" instance=ExtResource("1_mjyg7")]
+[node name="Slot3" parent="Slots" unique_id=1272368267 instance=ExtResource("1_mjyg7")]
 layout_mode = 2
 slot_identification = "3"
 
-[node name="Slot4" parent="Slots" instance=ExtResource("1_mjyg7")]
+[node name="Slot4" parent="Slots" unique_id=1462033922 instance=ExtResource("1_mjyg7")]
 layout_mode = 2
 slot_identification = "4"
 
-[node name="Slot5" parent="Slots" instance=ExtResource("1_mjyg7")]
+[node name="Slot5" parent="Slots" unique_id=512154647 instance=ExtResource("1_mjyg7")]
 layout_mode = 2
 slot_identification = "5"
 
-[node name="Slot6" parent="Slots" instance=ExtResource("1_mjyg7")]
+[node name="Slot6" parent="Slots" unique_id=1315744036 instance=ExtResource("1_mjyg7")]
 layout_mode = 2
 slot_identification = "6"
 
-[node name="Slot7" parent="Slots" instance=ExtResource("1_mjyg7")]
+[node name="Slot7" parent="Slots" unique_id=4015295 instance=ExtResource("1_mjyg7")]
 layout_mode = 2
 slot_identification = "7"
 
-[node name="Slot8" parent="Slots" instance=ExtResource("1_mjyg7")]
+[node name="Slot8" parent="Slots" unique_id=1717075908 instance=ExtResource("1_mjyg7")]
 layout_mode = 2
 slot_identification = "8"
 
-[node name="Slot9" parent="Slots" instance=ExtResource("1_mjyg7")]
+[node name="Slot9" parent="Slots" unique_id=222749109 instance=ExtResource("1_mjyg7")]
 layout_mode = 2
 slot_identification = "9"
 
-[node name="Slot10" parent="Slots" instance=ExtResource("1_mjyg7")]
+[node name="Slot10" parent="Slots" unique_id=755594795 instance=ExtResource("1_mjyg7")]
 layout_mode = 2
 slot_identification = "0"
