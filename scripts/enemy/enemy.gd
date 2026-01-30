@@ -10,7 +10,6 @@ extends CharacterBody3D
 @onready var damage_area: Area3D = $Damage_Area
 @onready var player = get_tree().get_first_node_in_group("player")
 
-#
 var player_in_damage_area := false
 var damage_timer := 0.0
 @export var damage_interval := 1.0
