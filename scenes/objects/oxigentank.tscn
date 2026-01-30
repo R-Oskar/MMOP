@@ -1,4 +1,4 @@
-[gd_scene load_steps=0 format=3 uid="uid://dr1hqhhyvv47c"]
+[gd_scene format=3 uid="uid://dr1hqhhyvv47c"]
 
 [ext_resource type="PackedScene" uid="uid://cbhfactubep3m" path="res://ressources/models/Sauerstofftank/Oxygentank.glb" id="1_hm0ya"]
 [ext_resource type="PackedScene" uid="uid://bmtrchr2n52bw" path="res://ressources/models/Sauerstofftank/oxygentank_2.tscn" id="2_6skvo"]

@@ -34,51 +34,61 @@ offset_bottom = 482.0
 [node name="Slot_0" parent="row_0" unique_id=337140349 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../..")
+slot_identification = "1"
 
 [node name="Slot_1" parent="row_0" unique_id=1312529367 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../..")
 index = 1
+slot_identification = "2"
 
 [node name="Slot_2" parent="row_0" unique_id=1108338319 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../..")
 index = 2
+slot_identification = "3"
 
 [node name="Slot_3" parent="row_0" unique_id=577872640 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../..")
 index = 3
+slot_identification = "4"
 
 [node name="Slot_4" parent="row_0" unique_id=635543891 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../..")
 index = 4
+slot_identification = "5"
 
 [node name="Slot_5" parent="row_0" unique_id=1308780033 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../..")
 index = 5
+slot_identification = "6"
 
 [node name="Slot_6" parent="row_0" unique_id=1212225428 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../..")
 index = 6
+slot_identification = "7"
 
 [node name="Slot_7" parent="row_0" unique_id=774227358 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../..")
 index = 7
+slot_identification = "8"
 
 [node name="Slot_8" parent="row_0" unique_id=535422615 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../..")
 index = 8
+slot_identification = "9"
 
 [node name="Slot_9" parent="row_0" unique_id=389581383 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../..")
 index = 9
+slot_identification = "0"
 
 [node name="row_1" type="HBoxContainer" parent="." unique_id=625297561]
 layout_mode = 1
