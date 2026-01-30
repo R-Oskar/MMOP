@@ -9,7 +9,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 538.0
 offset_bottom = 54.0
-pivot_offset_ratio = Vector2(0.5, 0.5)
 script = ExtResource("1_xrqkv")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1228913672]
