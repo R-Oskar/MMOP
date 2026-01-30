@@ -55,12 +55,12 @@ func handle_damage(delta: float) -> void:
 	if not player_in_damage_area:
 		return
 
-	damage_timer -= delta
+	damage_timer += delta
 
-	if damage_timer <= damage_interval:
+	if damage_timer >= damage_interval:
 		if player != null and player.has_method("take_damage"):
 			player.take_damage(damage)
-		damage_timer = damage_interval
+		damage_timer = 0.0
 
 
 func _on_body_entered(body):
