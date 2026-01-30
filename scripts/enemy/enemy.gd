@@ -3,7 +3,6 @@ extends CharacterBody3D
 @export var speed := 3.0
 @export var damage := 10
 @export var gravity := 9.8
-@export var damage_interval := 0.5 # Sekunden zwischen Schaden
 
 @onready var agent: NavigationAgent3D = $NavigationAgent3D
 @onready var damage_area: Area3D = $Damage_Area
@@ -11,17 +10,20 @@ extends CharacterBody3D
 
 var player_in_damage_area := false
 var damage_timer := 0.0
-
+@export var damage_interval := 1.0
+var player_can_take_damage = true
 
 func _ready():
 	pass
-
 
 func _physics_process(delta):
 	apply_gravity(delta)
 	update_movement()
 	handle_damage(delta)
 	move_and_slide()
+	
+	if damage_timer > 0:
+		damage_timer -= delta
 
 
 func apply_gravity(delta: float) -> void:
@@ -54,13 +56,11 @@ func update_movement() -> void:
 func handle_damage(delta: float) -> void:
 	if not player_in_damage_area:
 		return
-
-	damage_timer += delta
-
-	if damage_timer >= damage_interval:
+	
+	if damage_timer <= 0:
+		damage_timer = damage_interval
 		if player != null and player.has_method("take_damage"):
 			player.take_damage(damage)
-		damage_timer = 0.0
 
 
 func _on_body_entered(body):
