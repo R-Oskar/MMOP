@@ -68,12 +68,18 @@ func block_placeable(spawn_pos: Vector3, blocks_root: Node3D = null) -> bool:
 
 ## Returns the blocks_root node (Node for organizing, which all player placed blocks have as a parent)
 func get_blocks_root(create_if_missing := false) -> Node3D:
-	var blocks_root = get_tree().current_scene.get_node_or_null("Blocks")
-
+	var blocks_root := get_tree().current_scene.get_node_or_null(
+		"NavigationRegion3D/World_flexible/Blocks"
+	) as Node3D
+	
 	if blocks_root == null and create_if_missing:
+		var parent := get_tree().current_scene.get_node(
+			"NavigationRegion3D/World_flexible"
+		) as Node3D
+		
 		blocks_root = Node3D.new()
 		blocks_root.name = "Blocks"
-		get_tree().current_scene.add_child(blocks_root)
+		parent.add_child(blocks_root)
 
 	return blocks_root
 
@@ -173,13 +179,16 @@ func play_sound(sound) -> void:
 func is_input_enabled() -> bool:
 	return input_enabled
 
+
+
+#region New Code Region
 func take_damage(amount: int) -> void:
 	health -= amount
 	print("Spieler bekommt Schaden! Leben:", health)
 
 	if health <= 0:
 		call_deferred("die")
-
 func die():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().change_scene_to_file("res://scenes/UI/end_screen.tscn")
+#endregion

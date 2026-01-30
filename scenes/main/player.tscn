@@ -14,8 +14,8 @@ radius = 0.4
 height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
-radius = 0.4
-height = 1.8
+radius = 0.445
+height = 1.74
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_fjrip")
