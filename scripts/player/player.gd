@@ -181,7 +181,7 @@ func is_input_enabled() -> bool:
 
 
 
-#region New Code Region
+#region damage
 func take_damage(amount: int) -> void:
 	health -= amount
 	print("Spieler bekommt Schaden! Leben:", health)
