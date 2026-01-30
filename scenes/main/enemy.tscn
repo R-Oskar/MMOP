@@ -28,6 +28,10 @@ radius = 0.54
 
 [node name="Enemy" type="CharacterBody3D" unique_id=151593045]
 script = ExtResource("1_l1lbi")
+speed = null
+damage = null
+gravity = null
+damage_interval = null
 
 [node name="Body" type="MeshInstance3D" parent="." unique_id=259837282]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
