@@ -69,7 +69,7 @@ func block_placeable(spawn_pos: Vector3, blocks_root: Node3D = null) -> bool:
 ## Returns the blocks_root node (Node for organizing, which all player placed blocks have as a parent)
 func get_blocks_root(create_if_missing := false) -> Node3D:
 	var blocks_root = get_tree().current_scene.get_node_or_null("Blocks")
-
+	
 	if blocks_root == null and create_if_missing:
 		blocks_root = Node3D.new()
 		blocks_root.name = "Blocks"
