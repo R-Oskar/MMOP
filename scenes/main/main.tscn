@@ -116,7 +116,7 @@ scroll_active = false
 script = ExtResource("3_85g3d")
 player = NodePath("../../Player")
 
-[node name="Hotbar" parent="UI" unique_id=1611156962 node_paths=PackedStringArray("player") instance=ExtResource("4_choun")]
+[node name="Hotbar" parent="UI" unique_id=1611156962 node_paths=PackedStringArray("player", "inventory") instance=ExtResource("4_choun")]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
