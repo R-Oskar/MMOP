@@ -32,17 +32,19 @@ func _on_block_added(node: Node) -> void:
 	queue_bake()
 
 
+
+#region Navigation bakeing
 func queue_bake():
 	if bake_queued:
 		return
 	bake_queued = true
 	call_deferred(\"_do_bake\")
-
 func _do_bake():
 	await get_tree().physics_frame
 	navigation_mesh = navigation_mesh.duplicate()
 	bake_navigation_mesh()
 	bake_queued = false
+#endregion
 "
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
