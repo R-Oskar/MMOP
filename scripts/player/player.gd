@@ -112,7 +112,7 @@ func show_preview(item) -> void:
 	if not last_preview or last_preview.name != item.scene.resource_name:
 		clear_preview()
 		var instance = item.scene.instantiate() as Node3D
-		get_tree().current_scene.add_child(instance)  # add first
+		get_tree().current_scene.add_child(instance)
 		instance.global_transform.origin = spawn_pos
 
 		# Apply transparency recursively to all MeshInstances
@@ -120,7 +120,7 @@ func show_preview(item) -> void:
 
 		last_preview = instance
 	else:
-		# Preview exists, just move it
+		# Preview exists, move it
 		last_preview.global_transform.origin = spawn_pos
 
 ## Applies lower transparency to given node with given alpha channel.

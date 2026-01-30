@@ -81,14 +81,10 @@ script = ExtResource("3_85g3d")
 player = NodePath("../../Player")
 
 [node name="Hotbar" parent="UI" unique_id=1251933844 node_paths=PackedStringArray("player", "inventory") instance=ExtResource("4_choun")]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = -55.0
-offset_right = 42.0
-offset_bottom = -15.0
-grow_vertical = 0
+offset_left = 307.0
+offset_top = 588.0
+offset_right = 307.0
+offset_bottom = 588.0
 player = NodePath("../../Player")
 inventory = NodePath("../Inventory")
 
@@ -109,9 +105,11 @@ scale = Vector2(2, 2)
 texture = ExtResource("5_ya4ey")
 
 [node name="PauseMenu" parent="UI" unique_id=277361084 node_paths=PackedStringArray("player") instance=ExtResource("6_eb6dy")]
+visible = false
 player = NodePath("../../Player")
 
 [node name="Inventory" parent="UI" unique_id=274594224 node_paths=PackedStringArray("player", "hotbar") instance=ExtResource("8_b1x3f")]
+visible = false
 player = NodePath("../../Player")
 hotbar = NodePath("../Hotbar")
 

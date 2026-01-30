@@ -23,6 +23,7 @@ func _ready() -> void:
 
 func _input(event) -> void:
 	if event.is_action_pressed("inventory"):
+		player.clear_preview()
 		if visible:
 			close_inventory()
 		else:
@@ -56,7 +57,8 @@ func load_item_to_inventory(item_id, row := 0, index := 0, count := 1) -> Item:
 		return
 	
 	if original_item and original_item.item_id == item_id:
-		inventory_items[row][index].count += count
+		#inventory_items[row][index].count += count
+		change_count(count, row, index)
 		return
 	
 	var item: Item = ItemIDs.ITEM_REGISTRY[item_id].duplicate()
@@ -91,10 +93,6 @@ func change_count(number: int, row: int, index: int) -> void:
 	var count_label = slot_node.get_node("Count") as RichTextLabel
 	if count_label:
 		count_label.text = str(item.count)
-
-
-func update_ui() -> void:
-	pass
 
 func open_inventory() -> void:
 	hotbar.hide()

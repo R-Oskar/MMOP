@@ -7,6 +7,7 @@ extends Control
 var selected_index := 0
 
 func _ready() -> void:
+	$Select.position = Vector2(0,0)
 	load_item_to_hotbar(ItemIDs.ItemID.STONE, 2, 100)
 	load_item_to_hotbar(ItemIDs.ItemID.STONE, 3, 10)
 
@@ -43,7 +44,7 @@ func load_item_to_hotbar(item_id, index := 0, count := 1) -> void:
 
 ## Updates the position of the selection icon in the hotbar.
 func update_selection_position() -> void:
-	var target_position = Vector2(-1 + selected_index * 54, -1)
+	var target_position = Vector2(selected_index * 54, 0)
 	$Select.position = target_position
 
 ## Reduces mentioned item count and removes it if needed from the hotbar.

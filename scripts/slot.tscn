@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://668qia6pd6v4" path="res://ressources/fonts/Arena-rvwaK.ttf" id="1_4v6ba"]
 [ext_resource type="Script" uid="uid://dr2qp8v6l5t2r" path="res://scripts/UI/slot.gd" id="1_ic0fu"]
-[ext_resource type="Texture2D" uid="uid://bg7jbty15uoi3" path="res://InventoryFrame.png" id="2_ndouu"]
+[ext_resource type="Texture2D" uid="uid://cap7m2d4xcn75" path="res://ressources/pictures/slot_texture.png" id="2_ndouu"]
 
 [node name="Slot" type="Control" unique_id=212214653]
 texture_filter = 1
@@ -15,10 +15,9 @@ script = ExtResource("1_ic0fu")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1349995780]
 layout_mode = 0
-offset_right = 52.0
+offset_right = 50.0
 offset_bottom = 52.0
 texture = ExtResource("2_ndouu")
-stretch_mode = 2
 
 [node name="TopLeft" type="RichTextLabel" parent="." unique_id=1542889745]
 layout_mode = 0
