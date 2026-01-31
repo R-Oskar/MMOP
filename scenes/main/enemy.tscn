@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhq5ow250herw"]
+[gd_scene format=3 uid="uid://bhq5ow250herw"]
 
 [ext_resource type="Script" uid="uid://be0ekd1x7lcxe" path="res://scripts/enemy/enemy.gd" id="1_l1lbi"]
 
@@ -19,33 +19,37 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 "
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5wnaa"]
 radius = 0.54
 
-[node name="Enemy" type="CharacterBody3D"]
+[node name="Enemy" type="CharacterBody3D" unique_id=1800269208]
 script = ExtResource("1_l1lbi")
+speed = null
+damage = null
+gravity = null
+damage_interval = null
 
-[node name="Body" type="MeshInstance3D" parent="."]
+[node name="Body" type="MeshInstance3D" parent="." unique_id=601266304]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = SubResource("StandardMaterial3D_1lcwq")
 mesh = SubResource("CylinderMesh_l1lbi")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=962434473]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_s007n")
 
-[node name="Damage_Area" type="Area3D" parent="."]
+[node name="Damage_Area" type="Area3D" parent="." unique_id=932747740]
 script = SubResource("GDScript_l1lbi")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Damage_Area"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Damage_Area" unique_id=888423426]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_5wnaa")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1554216223]
 target_desired_distance = 0.1
 max_speed = 4.0
 

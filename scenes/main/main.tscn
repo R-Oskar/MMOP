@@ -172,5 +172,9 @@ volume_db = -30.0
 
 [node name="Enemy" parent="." unique_id=1208868271 instance=ExtResource("10_a8run")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.743204, 11.053991)
+speed = null
+damage = null
+gravity = null
+damage_interval = null
 
 [connection signal="child_entered_tree" from="NavigationRegion3D/World_flexible" to="NavigationRegion3D" method="_on_world_flexible_child_entered_tree"]

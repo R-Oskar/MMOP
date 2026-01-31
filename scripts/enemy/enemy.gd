@@ -53,7 +53,7 @@ func update_movement() -> void:
 	velocity.z = direction.z * speed
 
 
-func handle_damage(delta: float) -> void:
+func handle_damage() -> void:
 	if not player_in_damage_area:
 		return
 	
@@ -66,7 +66,7 @@ func handle_damage(delta: float) -> void:
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		player_in_damage_area = true
-		handle_damage(get_physics_process_delta_time()) 
+		handle_damage() 
 
 
 func _on_body_exited(body):
