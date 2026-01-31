@@ -19,7 +19,7 @@ func _ready():
 func _physics_process(delta):
 	apply_gravity(delta)
 	update_movement()
-	handle_damage(delta)
+	handle_damage()
 	move_and_slide()
 	
 	if damage_timer > 0:
