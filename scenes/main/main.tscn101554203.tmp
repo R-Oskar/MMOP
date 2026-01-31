@@ -95,23 +95,13 @@ material = SubResource("StandardMaterial3D_5vw27")
 
 [node name="Blocks" type="Node3D" parent="NavigationRegion3D/World_flexible" unique_id=303966832]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=16195839 node_paths=PackedStringArray("sun_pivot", "sun_light", "moon_pivot", "moon_light")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=16195839]
 environment = SubResource("Environment_0xm2m")
 script = ExtResource("4_blune")
-sun_pivot = NodePath("SunPivot")
-sun_light = NodePath("SunPivot/SunLight")
-moon_pivot = NodePath("MoonPivot")
-moon_light = NodePath("MoonPivot/MoonLight")
 
-[node name="SunPivot" type="Node3D" parent="WorldEnvironment" unique_id=968404363]
-
-[node name="SunLight" type="DirectionalLight3D" parent="WorldEnvironment/SunPivot" unique_id=57668596]
-shadow_enabled = true
-
-[node name="MoonPivot" type="Node3D" parent="WorldEnvironment" unique_id=1135485692]
-
-[node name="MoonLight" type="DirectionalLight3D" parent="WorldEnvironment/MoonPivot" unique_id=1937447166]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 44.100002, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=226188949]
+transform = Transform3D(1, 0, 0, 0, 0.64278764, 0.76604444, 0, -0.76604444, 0.64278764, 0, 42.8, 0)
+light_energy = 0.6
 shadow_enabled = true
 
 [node name="Player" parent="." unique_id=1560919245 instance=ExtResource("2_tipki")]

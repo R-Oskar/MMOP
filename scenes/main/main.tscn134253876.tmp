@@ -106,13 +106,10 @@ moon_light = NodePath("MoonPivot/MoonLight")
 [node name="SunPivot" type="Node3D" parent="WorldEnvironment" unique_id=968404363]
 
 [node name="SunLight" type="DirectionalLight3D" parent="WorldEnvironment/SunPivot" unique_id=57668596]
-shadow_enabled = true
 
 [node name="MoonPivot" type="Node3D" parent="WorldEnvironment" unique_id=1135485692]
 
 [node name="MoonLight" type="DirectionalLight3D" parent="WorldEnvironment/MoonPivot" unique_id=1937447166]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 44.100002, 0)
-shadow_enabled = true
 
 [node name="Player" parent="." unique_id=1560919245 instance=ExtResource("2_tipki")]
 transform = Transform3D(-0.99999636, 0, 0.0027052448, 0, 1, 0, -0.0027052448, 0, -0.99999636, 13.885383, 1.5007839, 11.5729475)
