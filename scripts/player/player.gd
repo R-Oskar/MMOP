@@ -43,6 +43,7 @@ func release_mouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
 
+#region block place
 ## Calculates the position of where to spawn the block the player wants to place.
 func calculate_block_spawn_pos() -> Vector3:
 	var look_dir = -head.global_transform.basis.z.normalized()
@@ -166,22 +167,24 @@ func try_to_use_item(item) -> bool:
 
 ## Places item if placable, otherwise returns false.
 func use_selected_item(item) -> bool:
+
 	if item.scene:
 		return place_block(item)
 	return false
+#endregion
 
 func play_sound(sound) -> void:
-	var music_player = AudioStreamPlayer.new()
-	add_child(music_player)
-	music_player.stream = sound
-	music_player.play()
+	var player := AudioStreamPlayer.new()
+	add_child(player)
+	player.stream = sound
+	player.finished.connect(player.queue_free)
+	player.play()
 
 func is_input_enabled() -> bool:
 	return input_enabled
 
 
-
-#region New Code Region
+#region damage
 func take_damage(amount: int) -> void:
 	health -= amount
 	print("Spieler bekommt Schaden! Leben:", health)

@@ -1,9 +1,11 @@
 extends CharacterBody3D
 
+#attributes
 @export var speed := 3.0
 @export var damage := 10
 @export var gravity := 9.8
 
+#nodes
 @onready var agent: NavigationAgent3D = $NavigationAgent3D
 @onready var damage_area: Area3D = $Damage_Area
 @onready var player = get_tree().get_first_node_in_group("player")
@@ -26,6 +28,7 @@ func _physics_process(delta):
 		damage_timer -= delta
 
 
+#region movement
 func apply_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -51,9 +54,11 @@ func update_movement() -> void:
 
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
+#endregion
 
 
-func handle_damage() -> void:
+#region damage
+func handle_damage(delta: float) -> void:
 	if not player_in_damage_area:
 		return
 	
@@ -66,10 +71,9 @@ func handle_damage() -> void:
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		player_in_damage_area = true
-		handle_damage() 
-
-
+		handle_damage(get_physics_process_delta_time()) 
 func _on_body_exited(body):
 	if body.is_in_group("player"):
 		player_in_damage_area = false
 		damage_timer = 0.0
+#endregion
