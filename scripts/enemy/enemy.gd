@@ -66,14 +66,16 @@ func handle_damage(delta: float) -> void:
 		damage_timer = damage_interval
 		if player != null and player.has_method("take_damage"):
 			player.take_damage(damage)
-
+#endregion
 
 func _on_body_entered(body):
+	print(body)
 	if body.is_in_group("player"):
 		player_in_damage_area = true
 		handle_damage(get_physics_process_delta_time()) 
+	if body.is_in_group("Damageable_World"):
+		body.take_damage(damage)
 func _on_body_exited(body):
 	if body.is_in_group("player"):
 		player_in_damage_area = false
 		damage_timer = 0.0
-#endregion

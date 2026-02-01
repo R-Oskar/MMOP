@@ -3,20 +3,23 @@ extends CharacterBody3D
 @onready var head: Node = get_node("Head")
 var mouse_captured : bool = false
 
-var place_reach = 2.7
-var item_use_cooldown := 0.0
-var item_use_delay := 0.15
-
 var input_enabled: bool = true
 
 #attributes
 #Leben
+#region fix
 const health_max : float = 100
+#endregion
 var health: float = health_max
+
+var place_reach = 2.7
+var item_use_cooldown := 0.0
+var item_use_delay := 0.15
 
 func _process(delta) -> void:
 	if item_use_cooldown > 0:
 		item_use_cooldown -= delta
+	
 
 
 ## Disables (if parameter is false) or enables (if parameter is true) all player input.

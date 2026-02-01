@@ -26,6 +26,10 @@ Item_ids="*res://items/item_ids.gd"
 
 project/assembly_name="MMOP"
 
+[global_group]
+
+Damageable_World=""
+
 [input]
 
 move_up={

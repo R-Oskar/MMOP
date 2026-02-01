@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cue4p61dgsmqw"]
+
+[ext_resource type="Script" uid="uid://bqw1f61q0vwa" path="res://scripts/damagable.gd" id="1_w0m6y"]
+
+[node name="Damagable" type="Node" unique_id=1157277046]
+script = ExtResource("1_w0m6y")
