@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bb4fk5cvhk80y"]
+[gd_scene format=3 uid="uid://bb4fk5cvhk80y"]
+
+[ext_resource type="PackedScene" uid="uid://mygg566cdlou" path="res://scenes/damageable.tscn" id="1_kxjt8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_asons"]
 transparency = 1
@@ -9,10 +11,12 @@ material = SubResource("StandardMaterial3D_asons")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_asons"]
 
-[node name="Cube" type="StaticBody3D"]
+[node name="Cube" type="StaticBody3D" unique_id=800659260]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2141835005]
 mesh = SubResource("BoxMesh_kxjt8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=391328780]
 shape = SubResource("BoxShape3D_asons")
+
+[node name="Damageable" parent="." unique_id=219845047 instance=ExtResource("1_kxjt8")]
