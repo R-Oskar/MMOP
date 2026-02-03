@@ -22,9 +22,17 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 Item_ids="*res://items/item_ids.gd"
 
+[display]
+
+window/size/always_on_top=true
+
 [dotnet]
 
 project/assembly_name="MMOP"
+
+[global_group]
+
+Damageable_World=""
 
 [input]
 
