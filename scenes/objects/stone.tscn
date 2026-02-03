@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bb4fk5cvhk80y"]
 
 [ext_resource type="Script" uid="uid://dudgagn82qdak" path="res://scripts/stone.gd" id="1_hxrs0"]
-[ext_resource type="PackedScene" uid="uid://mygg566cdlou" path="res://scenes/damageable.tscn" id="1_kxjt8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_asons"]
 transparency = 1
@@ -21,5 +20,3 @@ mesh = SubResource("BoxMesh_kxjt8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=391328780]
 shape = SubResource("BoxShape3D_asons")
-
-[node name="Damageable" parent="." unique_id=219845047 instance=ExtResource("1_kxjt8")]
