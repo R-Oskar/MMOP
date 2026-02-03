@@ -14,6 +14,7 @@ material = SubResource("StandardMaterial3D_asons")
 
 [node name="Cube" type="StaticBody3D" unique_id=800659260]
 script = ExtResource("1_hxrs0")
+max_health = 20.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2141835005]
 mesh = SubResource("BoxMesh_kxjt8")
