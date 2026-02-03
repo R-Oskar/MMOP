@@ -1,20 +1,17 @@
 extends CharacterBody3D
 
-@export var speed := 3.0
-@export var damage := 10
-@export var gravity := 9.8
-
 @onready var agent: NavigationAgent3D = $NavigationAgent3D
 @onready var damage_area: Area3D = $Damage_Area
 @onready var player = get_tree().get_first_node_in_group("player")
 
-var player_in_damage_area := false
-var damage_timer := 0.0
+@export var speed := 3.0
+@export var damage := 10
+@export var gravity := 9.8
 @export var damage_interval := 1.0
+var damage_timer := -0.1
+var bodies_in_damage_area: Array[Node3D] = []
 var player_can_take_damage = true
 
-func _ready():
-	pass
 
 func _physics_process(delta):
 	apply_gravity(delta)
@@ -22,7 +19,7 @@ func _physics_process(delta):
 	handle_damage()
 	move_and_slide()
 	
-	if damage_timer > 0:
+	if damage_timer >= 0:
 		damage_timer -= delta
 
 
@@ -54,22 +51,19 @@ func update_movement() -> void:
 
 
 func handle_damage() -> void:
-	if not player_in_damage_area:
+	if damage_timer >= 0:
 		return
-	
-	if damage_timer <= 0:
-		damage_timer = damage_interval
-		if player != null and player.has_method("take_damage"):
-			player.take_damage(damage)
+	for body in bodies_in_damage_area:
+			if body != null and body.has_method("take_damage"):
+				body.take_damage(damage)
+				damage_timer = damage_interval
 
 
 func _on_body_entered(body):
-	if body.is_in_group("player"):
-		player_in_damage_area = true
-		handle_damage() 
+	if body is PhysicsBody3D:
+		bodies_in_damage_area.append(body)
 
 
 func _on_body_exited(body):
-	if body.is_in_group("player"):
-		player_in_damage_area = false
-		damage_timer = 0.0
+	if body == PhysicsBody3D:
+		bodies_in_damage_area.erase(body)
