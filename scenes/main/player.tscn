@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://3cvycxtlb0c4" path="res://scripts/player/player.gd" id="1_fjrip"]
 [ext_resource type="AudioStream" uid="uid://c40cnjfmavs2y" path="res://ressources/sounds/jump.mp3" id="4_rm8fd"]
@@ -17,39 +17,39 @@ height = 1.8
 radius = 0.445
 height = 1.74
 
-[node name="Player" type="CharacterBody3D" groups=["player"]]
+[node name="Player" type="CharacterBody3D" unique_id=695893652 groups=["player"]]
 script = ExtResource("1_fjrip")
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=482181851]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 material_override = SubResource("StandardMaterial3D_iof21")
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_ucva2")
 
-[node name="Collider" type="CollisionShape3D" parent="."]
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=1694956258]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_iof21")
 
-[node name="Head" type="Node3D" parent="."]
+[node name="Head" type="Node3D" parent="." unique_id=324559470]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Head"]
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=518740790]
 
-[node name="SoundEffects" type="Node" parent="."]
+[node name="SoundEffects" type="Node" parent="." unique_id=1602734604]
 
-[node name="Jump" type="AudioStreamPlayer" parent="SoundEffects"]
+[node name="Jump" type="AudioStreamPlayer" parent="SoundEffects" unique_id=1585714737]
 stream = ExtResource("4_rm8fd")
 volume_db = -20.0
 
-[node name="Place" type="AudioStreamPlayer" parent="SoundEffects"]
+[node name="Place" type="AudioStreamPlayer" parent="SoundEffects" unique_id=1015252038]
 stream = ExtResource("5_2jso2")
 volume_db = -5.66
 
-[node name="Landing" type="AudioStreamPlayer" parent="SoundEffects"]
+[node name="Landing" type="AudioStreamPlayer" parent="SoundEffects" unique_id=1894450108]
 stream = ExtResource("6_fmh12")
 
-[node name="Scripts" type="Node" parent="."]
+[node name="Scripts" type="Node" parent="." unique_id=569954831]
 
-[node name="Movement" type="Node" parent="Scripts" node_paths=PackedStringArray("player")]
+[node name="Movement" type="Node" parent="Scripts" unique_id=1213419642 node_paths=PackedStringArray("player")]
 script = ExtResource("7_fjrip")
 player = NodePath("../..")
