@@ -8,7 +8,7 @@ extends CharacterBody3D
 @export var damage := 10
 @export var gravity := 9.8
 @export var damage_interval := 1.0
-var damage_timer := -0.1
+var damage_timer := 0.0
 var bodies_in_damage_area: Array[Node3D] = []
 var player_can_take_damage = true
 
@@ -51,7 +51,7 @@ func update_movement() -> void:
 
 
 func handle_damage() -> void:
-	if damage_timer >= 0:
+	if damage_timer > 0:
 		return
 	for body in bodies_in_damage_area:
 			if body != null and body.has_method("take_damage"):
@@ -65,5 +65,5 @@ func _on_body_entered(body):
 
 
 func _on_body_exited(body):
-	if body == PhysicsBody3D:
+	if body is PhysicsBody3D:
 		bodies_in_damage_area.erase(body)
