@@ -1,7 +1,7 @@
 extends WorldEnvironment
 
 # Day-night cycle settings
-@export var day_length_seconds := 20.0  # Duration of a full day in seconds
+@export var day_length_seconds := 180.0  # Duration of a full day in seconds
 @export var sun_max_intensity := 1.0
 @export var moon_max_intensity := 0.05
 @export var sun_color := Color(1, 1, 0.9)
