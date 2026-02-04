@@ -16,11 +16,10 @@ extends WorldEnvironment
 var is_day:bool
 
 # Internal time tracking
-var time := 0.0  # 0.0 - 1.0 represents full day cycle
+@export var time := 0.0  # 0.0 - 1.0 represents full day cycle
 
 func _ready():
 	moon_light.light_color = moon_color
-
 func _process(delta):
 	# Advance time
 	time += delta / day_length_seconds

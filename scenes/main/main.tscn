@@ -105,8 +105,10 @@ day_length_seconds = 10.0
 moon_max_intensity = 0.02
 sun_pivot = NodePath("SunPivot")
 moon_pivot = NodePath("MoonPivot")
+time = 0.93
 
 [node name="SunPivot" type="Node3D" parent="WorldEnvironment" unique_id=968404363]
+transform = Transform3D(1, 0, 0, 0, 0.030730372, 0.9995277, 0, -0.9995277, 0.030730372, 0, 0, 0)
 
 [node name="SunLight" type="DirectionalLight3D" parent="WorldEnvironment/SunPivot" unique_id=57668596]
 shadow_enabled = true
