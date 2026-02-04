@@ -35,6 +35,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=518740790]
 
+[node name="InteractRay" type="RayCast3D" parent="Head/Camera3D" unique_id=736315723]
+target_position = Vector3(0, 0, -3)
+
 [node name="SoundEffects" type="Node" parent="." unique_id=1602734604]
 
 [node name="Jump" type="AudioStreamPlayer" parent="SoundEffects" unique_id=1585714737]

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dr230symovhoe"]
+
+[ext_resource type="Script" uid="uid://dyfnqsehjocyi" path="res://scripts/chest.gd" id="1_bas4e"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hxfd3"]
+size = Vector3(1, 0.8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bas4e"]
+size = Vector3(1, 0.2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hxfd3"]
+size = Vector3(1, 0.85, 1)
+
+[node name="Chest" type="StaticBody3D" unique_id=684924033]
+script = ExtResource("1_bas4e")
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=1495462954]
+mesh = SubResource("BoxMesh_hxfd3")
+
+[node name="LidHinge" type="Node3D" parent="." unique_id=709751959]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.40497422, 0.5)
+
+[node name="Lid" type="MeshInstance3D" parent="LidHinge" unique_id=112584204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+mesh = SubResource("BoxMesh_bas4e")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=146804805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("BoxShape3D_hxfd3")
