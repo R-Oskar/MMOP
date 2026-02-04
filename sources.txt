@@ -1,2 +1,3 @@
 Stone icon: https://www.desertcart.de/products/319922322-karelian-heritageauthentic-shungite-stone-cube-highly-protective-crystal-cube
 Basis für Movementcontroller: https://github.com/Brackeys/brackeys-proto-controller?tab=readme-ov-file
+Basis für Gegnerspawnen: https://docs.godotengine.org/de/4.x/getting_started/first_3d_game/05.spawning_mobs.html

@@ -4,9 +4,10 @@ extends CharacterBody3D
 @onready var damage_area: Area3D = $Damage_Area
 @onready var player = get_tree().get_first_node_in_group("player")
 
-@export var speed := 3.0
-@export var damage := 10
+@export var speed := 5.0
+@export var damage := 0
 @export var gravity := 9.8
+
 @export var damage_interval := 1.0
 var damage_timer := 0.0
 var bodies_in_damage_area: Array[Node3D] = []
@@ -49,7 +50,6 @@ func update_movement() -> void:
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
 
-
 func handle_damage() -> void:
 	if damage_timer > 0:
 		return
@@ -58,7 +58,10 @@ func handle_damage() -> void:
 				body.take_damage(damage)
 				damage_timer = damage_interval
 
-
+# This function will be called from the Main scene.
+func initialize(start_position, player_position):
+	look_at_from_position(start_position, player_position)
+	
 func _on_body_entered(body):
 	if body is PhysicsBody3D:
 		bodies_in_damage_area.append(body)
