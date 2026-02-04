@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg7jbty15uoi3"
-path="res://.godot/imported/InventoryFrame.png-b8398ed95180d7ef598ebc753cc146b3.ctex"
+uid="uid://2lg3o2g67vdp"
+path="res://.godot/imported/crosshair.png-2bae7d6fa42666f4386c00fe6d63e295.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://InventoryFrame.png"
-dest_files=["res://.godot/imported/InventoryFrame.png-b8398ed95180d7ef598ebc753cc146b3.ctex"]
+source_file="res://ressources/pictures/UI/crosshair.png"
+dest_files=["res://.godot/imported/crosshair.png-2bae7d6fa42666f4386c00fe6d63e295.ctex"]
 
 [params]
 

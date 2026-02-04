@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://668qia6pd6v4" path="res://ressources/fonts/Arena-rvwaK.ttf" id="1_4v6ba"]
 [ext_resource type="Script" uid="uid://dr2qp8v6l5t2r" path="res://scripts/UI/slot.gd" id="1_ic0fu"]
-[ext_resource type="Texture2D" uid="uid://cap7m2d4xcn75" path="res://ressources/pictures/slot_texture.png" id="2_ndouu"]
+[ext_resource type="Texture2D" uid="uid://cap7m2d4xcn75" path="res://ressources/pictures/UI/slot_texture.png" id="2_ndouu"]
 
 [node name="Slot" type="Control" unique_id=212214653]
 texture_filter = 1

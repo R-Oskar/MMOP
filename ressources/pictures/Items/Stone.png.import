@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm0jtsgpuffd3"
-path="res://.godot/imported/Inventroy.png-59f6de7fe6d1ab715775dc4211864c4e.ctex"
+uid="uid://dahs8mhn1hp1t"
+path="res://.godot/imported/Stone.png-a38a0dcf616a9033dc66fa8e07498859.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Inventroy.png"
-dest_files=["res://.godot/imported/Inventroy.png-59f6de7fe6d1ab715775dc4211864c4e.ctex"]
+source_file="res://ressources/pictures/Items/Stone.png"
+dest_files=["res://.godot/imported/Stone.png-a38a0dcf616a9033dc66fa8e07498859.ctex"]
 
 [params]
 
