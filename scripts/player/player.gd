@@ -43,7 +43,7 @@ func release_mouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
 
-#region placeing blocks
+#region placing blocks
 ## Calculates the position of where to spawn the block the player wants to place.
 func calculate_block_spawn_pos() -> Vector3:
 	var look_dir = -head.global_transform.basis.z.normalized()
