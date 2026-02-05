@@ -7,9 +7,18 @@ var is_open: bool = false
 @export var chest_items: Array[Item] = [null,null,null,null, null,null,null,null,null,null]
 
 # Configuration
-@export var open_angle: float = 110.0 # Degrees to swing back
-@export var toggle_speed: float = 0.8  # Seconds the animation takes
-@export var inventory: Control
+var open_angle: float = 110.0 # Degrees to swing back
+var toggle_speed: float = 0.8  # Seconds the animation takes
+var inventory: Control
+
+func _ready():
+	# Find the inventory automatically
+	inventory = get_tree().get_first_node_in_group("InventoryUI")
+	
+	# Keep your duplication logic
+	for i in range(chest_items.size()):
+		if chest_items[i] is Item:
+			chest_items[i] = chest_items[i].duplicate()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if is_open and (event.is_action_pressed("inventory") or event.is_action_pressed("ui_cancel")):

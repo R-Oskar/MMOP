@@ -33,6 +33,7 @@ project/assembly_name="MMOP"
 [global_group]
 
 Damageable_World=""
+InventoryUI=""
 
 [input]
 

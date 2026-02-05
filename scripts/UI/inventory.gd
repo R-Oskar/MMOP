@@ -70,7 +70,7 @@ func load_item_to_inventory(item_id, row := 0, index := 0, count := 1) -> Item:
 		change_count(count, row, index)
 		return
 	
-	var item: Item = ItemIDs.ITEM_REGISTRY[item_id].duplicate()
+	var item: Item = ItemIDs.get_item(item_id)
 	inventory_items[row][index] = item
 	item.count = count
 	

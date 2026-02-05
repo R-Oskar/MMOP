@@ -13,6 +13,9 @@ size = Vector3(1, 0.85, 1)
 
 [node name="Chest" type="StaticBody3D" unique_id=684924033]
 script = ExtResource("1_bas4e")
+chest_items = null
+open_angle = null
+toggle_speed = null
 
 [node name="Body" type="MeshInstance3D" parent="." unique_id=1495462954]
 mesh = SubResource("BoxMesh_hxfd3")

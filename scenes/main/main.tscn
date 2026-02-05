@@ -6,14 +6,16 @@
 [ext_resource type="Script" uid="uid://dl3mfoi35lg5w" path="res://scripts/UI/show_coordinates.gd" id="3_85g3d"]
 [ext_resource type="Script" uid="uid://pl3n7g23c7ip" path="res://scripts/world_environment.gd" id="4_blune"]
 [ext_resource type="PackedScene" uid="uid://laa6wkcpj3ws" path="res://scenes/UI/hotbar.tscn" id="4_choun"]
+[ext_resource type="Texture2D" uid="uid://dahs8mhn1hp1t" path="res://ressources/pictures/Items/Stone.png" id="5_nvumn"]
 [ext_resource type="Texture2D" uid="uid://2lg3o2g67vdp" path="res://ressources/pictures/UI/crosshair.png" id="5_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://equrnyrs8b8x" path="res://scenes/UI/pause_menu.tscn" id="6_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://bb4fk5cvhk80y" path="res://scenes/objects/stone.tscn" id="6_ou6is"]
+[ext_resource type="AudioStream" uid="uid://1o10fnhinqcg" path="res://ressources/sounds/place.mp3" id="7_necax"]
 [ext_resource type="AudioStream" uid="uid://chrw4bninhbgo" path="res://ressources/sounds/backgroundMusic.mp3" id="7_trceg"]
 [ext_resource type="PackedScene" uid="uid://cq8sbte51hdu2" path="res://scenes/UI/inventory.tscn" id="8_b1x3f"]
 [ext_resource type="PackedScene" uid="uid://dr1hqhhyvv47c" path="res://scenes/objects/oxigentank.tscn" id="12_blune"]
 [ext_resource type="Script" uid="uid://dwdabywcheuay" path="res://scripts/item.gd" id="13_7smn1"]
 [ext_resource type="PackedScene" uid="uid://dr230symovhoe" path="res://scenes/objects/chest.tscn" id="13_th5th"]
-[ext_resource type="Resource" uid="uid://c6467ksnpxd1y" path="res://items/blocks/Stone.tres" id="14_raeie"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ouso4"]
 vertices = PackedVector3Array(35.598007, 0.5, -36.151993, 40.348007, 0.5, -40.151993, 40.348007, 0.5, -41.151993, -40.901993, 0.5, -41.651993, -40.901993, 0.5, -41.151993, -35.651993, 0.5, -36.151993, 0.5980072, 0.5, -50.651993, 41.098007, 0.5, -124.90199, -0.6519928, 0.5, -50.651993, -41.401993, 0.5, -124.65199, 0.5980072, 0.5, -141.902, -0.4019928, 0.5, -141.902, 46.348007, 0.5, -46.151993, 46.348007, 0.5, -47.151993, 47.098007, 0.5, -122.40199, -46.401993, 0.5, -47.151993, -46.401993, 0.5, -46.651993, -46.901993, 0.5, -122.40199, -52.401993, 0.5, -53.151993, -52.401993, 0.5, -52.651993, -52.901993, 0.5, -119.90199, 51.848007, 0.5, -52.151993, 51.848007, 0.5, -52.651993, 52.598007, 0.5, -120.15199, 57.848007, 0.5, -57.651993, 58.598007, 0.5, -117.65199, -58.401993, 0.5, -58.651993, -58.901993, 0.5, -117.40199, 117.84801, 0.5, -57.901993, 100.59801, 0.5, -100.15199, -100.15199, 0.5, -100.65199, -117.40199, 0.5, -59.151993, -119.90199, 0.5, -53.151993, 120.09801, 0.5, -52.401993, -122.40199, 0.5, -47.151993, 122.59801, 0.5, -46.401993, -1.9019928, 1, -2.6519928, -1.9019928, 1, -2.1519928, -1.1519928, 1, -1.6519928, 0.3480072, 1, -1.9019928, 2.0980072, 1, -48.651993, -0.1519928, 1, -49.651993, -2.4019928, 1, -48.401993, 1.3480072, 1, -1.4019928, 2.0980072, 1, -0.6519928, 2.0980072, 1, 0.3480072, 10.098007, 1, 2.0980072, 10.598007, 1, 1.3480072, 11.598007, 1, 1.3480072, 11.598007, 1, -44.651993, -7.401993, 1, -8.151993, -7.401993, 1, -7.651993, -7.901993, 1, -46.151993, -124.65199, 0.5, -41.651993, 125.09801, 0.5, -40.401993, -13.401993, 1, -13.651993, -13.901993, 1, -43.651993, 12.598007, 1, 1.3480072, 17.848007, 1, -4.151993, 35.098007, 1, -35.151993, 45.098007, 1, -10.651993, -35.151993, 1, -35.151993, -43.651993, 1, -14.151993, -40.651993, 0.5, 40.348007, -39.901993, 0.5, 40.348007, -35.651993, 0.5, 36.098007, -49.151993, 0.5, 4.348007, -141.902, 0.5, -0.4019928, -141.902, 0.5, 0.5980072, -124.90199, 0.5, 40.848007, -50.651993, 0.5, 0.5980072, -50.651993, 0.5, -0.6519928, 36.598007, 0.5, -34.651993, 36.098007, 0.5, 35.848007, 41.348007, 0.5, 41.098007, 41.848007, 0.5, 41.098007, 50.598007, 0.5, -0.6519928, 50.598007, 0.5, 0.8480072, 124.59801, 0.5, 41.598007, 141.848, 0.5, 0.5980072, 141.348, 0.5, -1.9019928, -46.151993, 1, -8.151993, 47.598007, 1, -4.401993, -48.401993, 1, -2.6519928, 13.348007, 1, 1.8480072, 48.098007, 1, 3.3480072, 49.598007, 1, -0.1519928, 13.598007, 1, 3.3480072, -1.9019928, 1, -0.4019928, -1.6519928, 1, 1.3480072, -1.4019928, 1, 1.3480072, -49.651993, 1, -0.1519928, -48.651993, 1, 1.8480072, -0.6519928, 4.5, 0.5980072, 0.0980072, 4.75, 0.8480072, 0.8480072, 4.75, 0.0980072, 0.5980072, 4.5, -0.6519928, -0.6519928, 4.75, -0.6519928, -0.4019928, 1, -0.4019928, -0.4019928, 1, 0.3480072, 0.3480072, 1, 0.3480072, 0.3480072, 1, -0.4019928, 9.848007, 1, 3.8480072, 0.8480072, 1, 1.8480072, 11.098007, 1, 4.848007, -0.9019928, 1, 1.5980072, -1.6519928, 1, 48.848007, 0.3480072, 1, 49.598007, 11.098007, 1, 44.848007, -7.651993, 1, 7.348007, -6.901993, 1, 7.348007, -46.151993, 1, 7.848007, -7.651993, 1, 46.348007, 12.848007, 1, 4.598007, 13.098007, 1, 5.098007, 47.098007, 1, 5.598007, 43.098007, 1, 15.598007, 35.098007, 1, 35.098007, -43.901993, 1, 13.348007, -12.901993, 1, 12.848007, -13.651993, 1, 43.848007, -35.151993, 1, 35.098007, -1.4019928, 0.5, 50.348007, -40.651993, 0.5, 125.09801, 0.8480072, 0.5, 50.598007, 41.848007, 0.5, 124.59801, -1.9019928, 0.5, 141.348, 0.5980072, 0.5, 141.848, -46.651993, 0.5, 46.348007, -45.901993, 0.5, 46.348007, -122.40199, 0.5, 46.848007, -46.651993, 0.5, 122.59801, 47.348007, 0.5, 47.098007, 47.848007, 0.5, 122.09801, 47.848007, 0.5, 47.098007, 122.09801, 0.5, 47.598007, -120.15199, 0.5, 52.348007, -51.901993, 0.5, 51.848007, -51.901993, 0.5, 52.598007, -52.651993, 0.5, 120.09801, 53.348007, 0.5, 53.098007, 53.848007, 0.5, 119.59801, 53.848007, 0.5, 53.098007, 119.59801, 0.5, 53.598007, -57.401993, 0.5, 57.848007, -117.65199, 0.5, 58.348007, -58.151993, 0.5, 117.84801, 58.848007, 0.5, 58.598007, 59.348007, 0.5, 117.34801, 117.34801, 0.5, 59.098007, -100.65199, 0.5, 100.09801, 99.09801, 0.5, 101.09801, 100.59801, 0.5, 100.09801)
@@ -51,6 +53,36 @@ func _on_world_flexible_child_order_changed() -> void:
 	queue_bake()
 "
 
+[sub_resource type="Resource" id="Resource_hxu8e"]
+resource_local_to_scene = true
+script = ExtResource("13_7smn1")
+name = "Stone"
+icon = ExtResource("5_nvumn")
+count = 30
+scene = ExtResource("6_ou6is")
+sound = ExtResource("7_necax")
+metadata/_custom_type_script = "uid://dwdabywcheuay"
+
+[sub_resource type="Resource" id="Resource_r4lks"]
+resource_local_to_scene = true
+script = ExtResource("13_7smn1")
+name = "Stone"
+icon = ExtResource("5_nvumn")
+count = 25
+scene = ExtResource("6_ou6is")
+sound = ExtResource("7_necax")
+metadata/_custom_type_script = "uid://dwdabywcheuay"
+
+[sub_resource type="Resource" id="Resource_nvumn"]
+resource_local_to_scene = true
+script = ExtResource("13_7smn1")
+name = "Stone"
+icon = ExtResource("5_nvumn")
+count = 29
+scene = ExtResource("6_ou6is")
+sound = ExtResource("7_necax")
+metadata/_custom_type_script = "uid://dwdabywcheuay"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
 albedo_color = Color(0, 0.54525805, 2.8878452e-07, 1)
 
@@ -77,6 +109,14 @@ navigation_mesh = SubResource("NavigationMesh_ouso4")
 navigation_layers = 255
 script = SubResource("GDScript_ouso4")
 
+[node name="Chest" parent="NavigationRegion3D" unique_id=684924033 instance=ExtResource("13_th5th")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.74548, 0.8975744, 5.7703676)
+chest_items = Array[ExtResource("13_7smn1")]([SubResource("Resource_hxu8e"), null, SubResource("Resource_r4lks"), null, null, null, null, null, null, null])
+
+[node name="Chest2" parent="NavigationRegion3D" unique_id=1738265254 instance=ExtResource("13_th5th")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.438357, 0.8733542, 5.41064)
+chest_items = Array[ExtResource("13_7smn1")]([SubResource("Resource_nvumn"), null, null, null, null, null, null, null, null, null])
+
 [node name="World_fixed" type="Node" parent="NavigationRegion3D" unique_id=695680520]
 
 [node name="Rocket" parent="NavigationRegion3D/World_fixed" unique_id=1853596346 instance=ExtResource("2_85g3d")]
@@ -99,6 +139,9 @@ material = SubResource("StandardMaterial3D_5vw27")
 [node name="World_flexible" type="Node3D" parent="NavigationRegion3D" unique_id=331126618]
 
 [node name="Blocks" type="Node3D" parent="NavigationRegion3D/World_flexible" unique_id=303966832]
+
+[node name="Chest" parent="." unique_id=1444878025 instance=ExtResource("13_th5th")]
+chest_items = Array[ExtResource("13_7smn1")]([null, null, null, null, null, null, null, null, null, null])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=16195839 node_paths=PackedStringArray("sun_pivot", "moon_pivot")]
 environment = SubResource("Environment_0xm2m")
@@ -168,23 +211,13 @@ texture = ExtResource("5_ya4ey")
 [node name="PauseMenu" parent="UI" unique_id=1619200407 node_paths=PackedStringArray("player") instance=ExtResource("6_eb6dy")]
 player = NodePath("../../Player")
 
-[node name="Inventory" parent="UI" unique_id=1918196311 node_paths=PackedStringArray("player", "hotbar") instance=ExtResource("8_b1x3f")]
+[node name="Inventory" parent="UI" unique_id=1918196311 node_paths=PackedStringArray("player", "hotbar") groups=["InventoryUI"] instance=ExtResource("8_b1x3f")]
 player = NodePath("../../Player")
 hotbar = NodePath("../Hotbar")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1099075134]
 stream = ExtResource("7_trceg")
 volume_db = -30.0
-
-[node name="Chest" parent="." unique_id=684924033 node_paths=PackedStringArray("inventory") instance=ExtResource("13_th5th")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.171272, 0.93809795, 8.909582)
-chest_items = Array[ExtResource("13_7smn1")]([ExtResource("14_raeie"), null, null, null, null, null, null, null, null, null])
-inventory = NodePath("../UI/Inventory")
-
-[node name="Chest2" parent="." unique_id=1507202176 node_paths=PackedStringArray("inventory") instance=ExtResource("13_th5th")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.299488, 0.93809795, 9.1933975)
-chest_items = Array[ExtResource("13_7smn1")]([null, null, null, null, null, null, null, null, ExtResource("14_raeie"), null])
-inventory = NodePath("../UI/Inventory")
 
 [connection signal="child_order_changed" from="NavigationRegion3D/World_flexible" to="NavigationRegion3D" method="_on_world_flexible_child_order_changed"]
 [connection signal="child_order_changed" from="NavigationRegion3D/World_flexible/Blocks" to="NavigationRegion3D" method="_on_world_flexible_child_order_changed"]
