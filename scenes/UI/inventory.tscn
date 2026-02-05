@@ -390,7 +390,7 @@ row = 5
 [node name="Slot_1" parent="Chest/row_5" unique_id=2144361644 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../../..")
-row = 4
+row = 5
 index = 1
 
 [node name="Slot_2" parent="Chest/row_5" unique_id=823652791 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]

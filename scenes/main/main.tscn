@@ -63,7 +63,7 @@ scene = ExtResource("6_ou6is")
 sound = ExtResource("7_necax")
 metadata/_custom_type_script = "uid://dwdabywcheuay"
 
-[sub_resource type="Resource" id="Resource_r4lks"]
+[sub_resource type="Resource" id="Resource_nvumn"]
 resource_local_to_scene = true
 script = ExtResource("13_7smn1")
 name = "Stone"
@@ -73,7 +73,7 @@ scene = ExtResource("6_ou6is")
 sound = ExtResource("7_necax")
 metadata/_custom_type_script = "uid://dwdabywcheuay"
 
-[sub_resource type="Resource" id="Resource_nvumn"]
+[sub_resource type="Resource" id="Resource_ou6is"]
 resource_local_to_scene = true
 script = ExtResource("13_7smn1")
 name = "Stone"
@@ -111,11 +111,11 @@ script = SubResource("GDScript_ouso4")
 
 [node name="Chest" parent="NavigationRegion3D" unique_id=684924033 instance=ExtResource("13_th5th")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.74548, 0.8975744, 5.7703676)
-chest_items = Array[ExtResource("13_7smn1")]([SubResource("Resource_hxu8e"), null, SubResource("Resource_r4lks"), null, null, null, null, null, null, null])
+chest_items = Array[ExtResource("13_7smn1")]([SubResource("Resource_hxu8e"), null, SubResource("Resource_nvumn"), null, null, null, null, null, null, null])
 
 [node name="Chest2" parent="NavigationRegion3D" unique_id=1738265254 instance=ExtResource("13_th5th")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.438357, 0.8733542, 5.41064)
-chest_items = Array[ExtResource("13_7smn1")]([SubResource("Resource_nvumn"), null, null, null, null, null, null, null, null, null])
+chest_items = Array[ExtResource("13_7smn1")]([SubResource("Resource_ou6is"), null, null, null, null, null, null, null, null, null])
 
 [node name="World_fixed" type="Node" parent="NavigationRegion3D" unique_id=695680520]
 
