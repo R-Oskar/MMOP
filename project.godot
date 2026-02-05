@@ -20,7 +20,7 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
-Item_ids="*res://items/item_ids.gd"
+Item_ids="*res://items/inventory_items/item_ids.gd"
 
 [display]
 

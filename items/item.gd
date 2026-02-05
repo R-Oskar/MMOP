@@ -2,7 +2,7 @@ extends Resource
 
 class_name Item
 
-const ItemScript = preload("res://items/item_ids.gd")
+const ItemScript = preload("res://items/inventory_items/item_ids.gd")
 
 @export var name: String
 @export var icon: Texture2D

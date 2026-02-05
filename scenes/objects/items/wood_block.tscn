@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cwu2ovgy15evo"]
+
+[ext_resource type="Script" uid="uid://dudgagn82qdak" path="res://scripts/stone.gd" id="1_c6ypr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_asons"]
+transparency = 1
+albedo_color = Color(0.5687764, 0.2461955, 0.12559289, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kxjt8"]
+material = SubResource("StandardMaterial3D_asons")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_asons"]
+
+[node name="Cube" type="StaticBody3D" unique_id=800659260]
+script = ExtResource("1_c6ypr")
+max_health = 20.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2141835005]
+mesh = SubResource("BoxMesh_kxjt8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=391328780]
+shape = SubResource("BoxShape3D_asons")

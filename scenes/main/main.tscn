@@ -7,15 +7,16 @@
 [ext_resource type="Script" uid="uid://dl3mfoi35lg5w" path="res://scripts/UI/show_coordinates.gd" id="3_85g3d"]
 [ext_resource type="Script" uid="uid://pl3n7g23c7ip" path="res://scripts/world_environment.gd" id="4_blune"]
 [ext_resource type="PackedScene" uid="uid://laa6wkcpj3ws" path="res://scenes/UI/hotbar.tscn" id="4_choun"]
-[ext_resource type="Texture2D" uid="uid://dahs8mhn1hp1t" path="res://ressources/pictures/Items/Stone.png" id="5_nvumn"]
+[ext_resource type="Texture2D" uid="uid://dahs8mhn1hp1t" path="res://ressources/pictures/Items/stone.png" id="5_nvumn"]
 [ext_resource type="Texture2D" uid="uid://2lg3o2g67vdp" path="res://ressources/pictures/UI/crosshair.png" id="5_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://equrnyrs8b8x" path="res://scenes/UI/pause_menu.tscn" id="6_eb6dy"]
-[ext_resource type="PackedScene" uid="uid://bb4fk5cvhk80y" path="res://scenes/objects/stone.tscn" id="6_ou6is"]
+[ext_resource type="PackedScene" uid="uid://bb4fk5cvhk80y" path="res://scenes/objects/items/stone.tscn" id="6_ou6is"]
 [ext_resource type="AudioStream" uid="uid://1o10fnhinqcg" path="res://ressources/sounds/place.mp3" id="7_necax"]
 [ext_resource type="AudioStream" uid="uid://chrw4bninhbgo" path="res://ressources/sounds/backgroundMusic.mp3" id="7_trceg"]
 [ext_resource type="PackedScene" uid="uid://cq8sbte51hdu2" path="res://scenes/UI/inventory.tscn" id="8_b1x3f"]
+[ext_resource type="Resource" uid="uid://bjj74et774x7v" path="res://items/inventory_items/blocks/wood.tres" id="8_ou6is"]
 [ext_resource type="PackedScene" uid="uid://dr1hqhhyvv47c" path="res://scenes/objects/oxygen_tank.tscn" id="12_blune"]
-[ext_resource type="Script" uid="uid://dwdabywcheuay" path="res://scripts/item.gd" id="13_7smn1"]
+[ext_resource type="Script" uid="uid://dwdabywcheuay" path="res://items/item.gd" id="13_7smn1"]
 [ext_resource type="PackedScene" uid="uid://dr230symovhoe" path="res://scenes/objects/chest.tscn" id="13_th5th"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ouso4"]
@@ -54,22 +55,12 @@ func _on_world_flexible_child_order_changed() -> void:
 	queue_bake()
 "
 
-[sub_resource type="Resource" id="Resource_nvumn"]
-resource_local_to_scene = true
-script = ExtResource("13_7smn1")
-name = "Stone"
-icon = ExtResource("5_nvumn")
-count = 30
-scene = ExtResource("6_ou6is")
-sound = ExtResource("7_necax")
-metadata/_custom_type_script = "uid://dwdabywcheuay"
-
 [sub_resource type="Resource" id="Resource_ou6is"]
 resource_local_to_scene = true
 script = ExtResource("13_7smn1")
 name = "Stone"
 icon = ExtResource("5_nvumn")
-count = 25
+count = 30
 scene = ExtResource("6_ou6is")
 sound = ExtResource("7_necax")
 metadata/_custom_type_script = "uid://dwdabywcheuay"
@@ -115,7 +106,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.387732, 0.9754207, 6.51156
 
 [node name="Chest" parent="NavigationRegion3D" unique_id=684924033 instance=ExtResource("13_th5th")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 14, 0.9, 5)
-chest_items = Array[ExtResource("13_7smn1")]([SubResource("Resource_nvumn"), null, SubResource("Resource_ou6is"), null, null, null, null, null, null, null])
+chest_items = Array[ExtResource("13_7smn1")]([SubResource("Resource_ou6is"), ExtResource("8_ou6is"), null, null, null, null, null, null, null, null])
 
 [node name="Chest2" parent="NavigationRegion3D" unique_id=1738265254 instance=ExtResource("13_th5th")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8.438357, 0.8733542, 5.41064)

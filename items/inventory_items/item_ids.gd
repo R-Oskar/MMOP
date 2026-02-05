@@ -2,11 +2,13 @@ extends Node
 class_name ItemIDs
 
 enum ItemID {
-	STONE
+	STONE,
+	WOOD
 }
 
 const ITEM_REGISTRY := {
-	ItemID.STONE: preload("res://items/blocks/Stone.tres"),
+	ItemID.STONE: preload("res://items/inventory_items/blocks/stone.tres"),
+	ItemID.WOOD: preload("res://items/inventory_items/blocks/wood.tres")
 }
 
 static func get_item(id: ItemID) -> Item:

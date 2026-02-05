@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cwbpprwwrx2rh" path="res://scripts/UI/inventory.gd" id="1_egg3t"]
 [ext_resource type="PackedScene" uid="uid://cocghnpcu6bpq" path="res://scenes/UI/slot.tscn" id="3_kpdmy"]
 [ext_resource type="PackedScene" uid="uid://40vsn8hlif6j" path="res://scenes/objects/crafting_recipe.tscn" id="3_lvvmf"]
+[ext_resource type="Resource" uid="uid://d3uqnkpo0g1hr" path="res://items/crafting/crafting_recipes/wood.tres" id="4_krngk"]
 
 [node name="Inventory" type="Control" unique_id=315312596]
 layout_mode = 3
@@ -462,7 +463,6 @@ offset_left = 843.0
 offset_top = 151.0
 offset_right = 899.0
 offset_bottom = 157.0
-amount_required = null
-item_name = null
+recipe = ExtResource("4_krngk")
 
 [connection signal="pressed" from="CraftingTable/CraftingRecipe" to="." method="_on_crafting_recipe_pressed"]
