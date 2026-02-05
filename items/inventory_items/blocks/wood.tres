@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("3_ivep5")
-name = "Wood"
+name = "Holz"
 icon = ExtResource("1_ivep5")
 count = 5
 scene = ExtResource("2_o5wu7")

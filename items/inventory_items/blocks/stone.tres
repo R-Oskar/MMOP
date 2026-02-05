@@ -8,7 +8,7 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("3_0cv0s")
-name = "Stone"
+name = "Stein"
 icon = ExtResource("1_tb0st")
 count = 50
 scene = ExtResource("2_74sm3")
