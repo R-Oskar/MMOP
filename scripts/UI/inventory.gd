@@ -101,8 +101,11 @@ func change_count(number: int, row: int, index: int) -> void:
 		clear_inventory_slot(row, index)
 		return
 
-	# Update the UI count label
-	var row_node = get_node("row_%d" % row)
+	var row_node
+	if row < 5:
+		row_node = get_node("row_%d" % row)
+	else:
+		row_node = get_node("Chest/row_%d" % row)
 	var slot_node = row_node.get_child(index)
 	var count_label = slot_node.get_node("Count") as RichTextLabel
 	if count_label:

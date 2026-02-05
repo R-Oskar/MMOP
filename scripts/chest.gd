@@ -12,7 +12,7 @@ var is_open: bool = false
 @export var inventory: Control
 
 func _unhandled_input(event: InputEvent) -> void:
-	if is_open and event.is_action_pressed("inventory"):
+	if is_open and (event.is_action_pressed("inventory") or event.is_action_pressed("ui_cancel")):
 		toggle_chest()
 
 ## ChatGPT Code

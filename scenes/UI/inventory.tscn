@@ -396,49 +396,49 @@ index = 1
 [node name="Slot_2" parent="Chest/row_5" unique_id=823652791 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../../..")
-row = 4
+row = 5
 index = 2
 
 [node name="Slot_3" parent="Chest/row_5" unique_id=288737528 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../../..")
-row = 4
+row = 5
 index = 3
 
 [node name="Slot_4" parent="Chest/row_5" unique_id=483896653 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../../..")
-row = 4
+row = 5
 index = 4
 
 [node name="Slot_5" parent="Chest/row_5" unique_id=1520948867 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../../..")
-row = 4
+row = 5
 index = 5
 
 [node name="Slot_6" parent="Chest/row_5" unique_id=97932282 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../../..")
-row = 4
+row = 5
 index = 6
 
 [node name="Slot_7" parent="Chest/row_5" unique_id=2124713013 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../../..")
-row = 4
+row = 5
 index = 7
 
 [node name="Slot_8" parent="Chest/row_5" unique_id=1322494526 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../../..")
-row = 4
+row = 5
 index = 8
 
 [node name="Slot_9" parent="Chest/row_5" unique_id=1728592039 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
 inventory_ui = NodePath("../../..")
-row = 4
+row = 5
 index = 9
 
 [node name="ChestLabel" type="Label" parent="Chest" unique_id=1493000842]

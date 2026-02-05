@@ -177,8 +177,13 @@ stream = ExtResource("7_trceg")
 volume_db = -30.0
 
 [node name="Chest" parent="." unique_id=684924033 node_paths=PackedStringArray("inventory") instance=ExtResource("13_th5th")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.171272, 0.93809795, 12.145178)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.171272, 0.93809795, 8.909582)
 chest_items = Array[ExtResource("13_7smn1")]([ExtResource("14_raeie"), null, null, null, null, null, null, null, null, null])
+inventory = NodePath("../UI/Inventory")
+
+[node name="Chest2" parent="." unique_id=1507202176 node_paths=PackedStringArray("inventory") instance=ExtResource("13_th5th")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.299488, 0.93809795, 9.1933975)
+chest_items = Array[ExtResource("13_7smn1")]([null, null, null, null, null, null, null, null, ExtResource("14_raeie"), null])
 inventory = NodePath("../UI/Inventory")
 
 [connection signal="child_order_changed" from="NavigationRegion3D/World_flexible" to="NavigationRegion3D" method="_on_world_flexible_child_order_changed"]

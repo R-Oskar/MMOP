@@ -37,7 +37,6 @@ func _get_drag_data(_pos):
 		"item": item
 	}
 
-
 func _can_drop_data(_pos, data):
 	return data.has("item")
 
