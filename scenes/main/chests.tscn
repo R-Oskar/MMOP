@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cw5kx1y60l2vn"]
+
+[ext_resource type="PackedScene" uid="uid://dr230symovhoe" path="res://scenes/objects/chest.tscn" id="1_xj3g3"]
+[ext_resource type="Script" uid="uid://dwdabywcheuay" path="res://items/item.gd" id="2_orhkc"]
+[ext_resource type="Texture2D" uid="uid://dahs8mhn1hp1t" path="res://ressources/pictures/Items/stone.png" id="3_cr1g1"]
+[ext_resource type="PackedScene" uid="uid://bb4fk5cvhk80y" path="res://scenes/objects/items/stone.tscn" id="4_ibx4f"]
+[ext_resource type="AudioStream" uid="uid://1o10fnhinqcg" path="res://ressources/sounds/place.mp3" id="5_f7h1o"]
+[ext_resource type="Resource" uid="uid://bjj74et774x7v" path="res://items/inventory_items/blocks/wood.tres" id="6_euyn0"]
+
+[sub_resource type="Resource" id="Resource_xj3g3"]
+resource_local_to_scene = true
+script = ExtResource("2_orhkc")
+name = "Stone"
+icon = ExtResource("3_cr1g1")
+count = 30
+scene = ExtResource("4_ibx4f")
+sound = ExtResource("5_f7h1o")
+metadata/_custom_type_script = "uid://dwdabywcheuay"
+
+[sub_resource type="Resource" id="Resource_orhkc"]
+resource_local_to_scene = true
+script = ExtResource("2_orhkc")
+name = "Stone"
+icon = ExtResource("3_cr1g1")
+count = 50
+scene = ExtResource("4_ibx4f")
+sound = ExtResource("5_f7h1o")
+metadata/_custom_type_script = "uid://dwdabywcheuay"
+
+[node name="Chests" type="Node3D" unique_id=2055759188]
+
+[node name="Chest" parent="." unique_id=684924033 instance=ExtResource("1_xj3g3")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1, 0, 0)
+chest_items = Array[ExtResource("2_orhkc")]([SubResource("Resource_xj3g3"), null, null, null, null, null, null, null, SubResource("Resource_orhkc"), null])
+
+[node name="ChestLabel2" type="Label3D" parent="Chest" unique_id=623049078]
+transform = Transform3D(-0.99999976, 0, -8.7422755e-08, 0, 1, 0, 8.7422755e-08, 0, -0.99999976, 0, 1, 0)
+text = "Rechtsklick zum interagieren"
+
+[node name="Chest2" parent="." unique_id=759480209 instance=ExtResource("1_xj3g3")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1, 0, 0)
+chest_items = Array[ExtResource("2_orhkc")]([ExtResource("6_euyn0"), null, null, null, null, null, null, null, null, null])
+
+[node name="ChestLabel" type="Label3D" parent="." unique_id=1622639991]
+transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 2.5, 0)
+text = "Sammele Items
+↓"
+font_size = 128

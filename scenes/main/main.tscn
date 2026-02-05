@@ -4,19 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://cxpd0mkp6cky5" path="res://scenes/objects/crafting_table.tscn" id="2_nvumn"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://scenes/main/player.tscn" id="2_tipki"]
 [ext_resource type="Script" uid="uid://dl3mfoi35lg5w" path="res://scripts/UI/show_coordinates.gd" id="3_85g3d"]
+[ext_resource type="PackedScene" uid="uid://cw5kx1y60l2vn" path="res://scenes/main/chests.tscn" id="3_blune"]
 [ext_resource type="Script" uid="uid://pl3n7g23c7ip" path="res://scripts/world_environment.gd" id="4_blune"]
 [ext_resource type="PackedScene" uid="uid://laa6wkcpj3ws" path="res://scenes/UI/hotbar.tscn" id="4_choun"]
-[ext_resource type="Texture2D" uid="uid://dahs8mhn1hp1t" path="res://ressources/pictures/Items/stone.png" id="5_nvumn"]
 [ext_resource type="Texture2D" uid="uid://2lg3o2g67vdp" path="res://ressources/pictures/UI/crosshair.png" id="5_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://equrnyrs8b8x" path="res://scenes/UI/pause_menu.tscn" id="6_eb6dy"]
-[ext_resource type="PackedScene" uid="uid://bb4fk5cvhk80y" path="res://scenes/objects/items/stone.tscn" id="6_ou6is"]
-[ext_resource type="AudioStream" uid="uid://1o10fnhinqcg" path="res://ressources/sounds/place.mp3" id="7_necax"]
 [ext_resource type="AudioStream" uid="uid://chrw4bninhbgo" path="res://ressources/sounds/backgroundMusic.mp3" id="7_trceg"]
 [ext_resource type="PackedScene" uid="uid://cq8sbte51hdu2" path="res://scenes/UI/inventory.tscn" id="8_b1x3f"]
-[ext_resource type="Resource" uid="uid://bjj74et774x7v" path="res://items/inventory_items/blocks/wood.tres" id="8_ou6is"]
 [ext_resource type="PackedScene" uid="uid://dr1hqhhyvv47c" path="res://scenes/objects/oxygen_tank.tscn" id="12_blune"]
-[ext_resource type="Script" uid="uid://dwdabywcheuay" path="res://items/item.gd" id="13_7smn1"]
-[ext_resource type="PackedScene" uid="uid://dr230symovhoe" path="res://scenes/objects/chest.tscn" id="13_th5th"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ouso4"]
 vertices = PackedVector3Array(120.84801, 0.5, -50.651993, 101.59801, 0.5, -97.90199, 100.09801, 0.5, -100.65199, 0.5980072, 0.5, -141.902, -0.4019928, 0.5, -141.902, 0.5980072, 0.5, -50.651993, -100.15199, 0.5, -100.65199, -120.90199, 0.5, -50.651993, -0.6519928, 0.5, -50.651993, -141.902, 0.5, -0.4019928, -141.902, 0.5, 0.5980072, -120.90199, 0.5, 50.598007, -50.651993, 0.5, 0.5980072, -50.651993, 0.5, -0.6519928, -36.151993, 0.5, -35.651993, -36.151993, 0.5, 35.598007, -0.6519928, 0.5, 50.598007, -34.651993, 0.5, 36.598007, 140.348, 0.5, 4.348007, 141.848, 0.5, 0.5980072, 141.848, 0.5, -0.6519928, 120.84801, 0.5, 50.598007, 50.598007, 0.5, -0.6519928, 50.598007, 0.5, 0.8480072, 36.098007, 0.5, 35.848007, 0.8480072, 0.5, 50.598007, 35.598007, 0.5, -36.151993, 36.598007, 0.5, -34.651993, 0.3480072, 1, -1.9019928, 48.848007, 1, -1.9019928, 35.098007, 1, -35.151993, -0.1519928, 1, -49.651993, -35.151993, 1, -35.151993, -48.651993, 1, -1.9019928, -0.4019928, 1, -1.9019928, -49.651993, 1, -0.1519928, -48.651993, 1, 1.8480072, -1.6519928, 1, 1.0980072, -1.9019928, 1, -0.4019928, -0.6519928, 1, 1.8480072, -1.6519928, 1, -1.1519928, 1.5980072, 1, -1.1519928, 1.8480072, 1, 0.0980072, 4.098007, 1, 0.0980072, 5.098007, 1, 0.0980072, 49.598007, 1, 0.0980072, -0.6519928, 4.5, 0.5980072, 0.0980072, 4.5, 0.8480072, 0.8480072, 4.5, 0.0980072, 0.5980072, 4.5, -0.6519928, -0.6519928, 4.5, -0.6519928, -0.4019928, 1, -0.4019928, -0.4019928, 1, 0.3480072, 0.3480072, 1, 0.3480072, 0.3480072, 1, -0.4019928, 3.0980072, 1, 0.8480072, 1.8480072, 1, 0.8480072, -48.651993, 1, 2.3480072, -3.9019928, 1, 2.3480072, 3.5980072, 1, 2.3480072, 0.8480072, 1, 1.8480072, -2.6519928, 1, 2.3480072, 5.848007, 1, 2.0980072, 4.848007, 1, 2.8480072, 48.348007, 1, 2.8480072, 5.848007, 1, 1.0980072, -47.151993, 1, 5.598007, -4.401993, 1, 5.598007, -5.151993, 1, 4.848007, -5.151993, 1, 4.098007, -1.9019928, 1, 3.3480072, 3.8480072, 1, 2.8480072, 6.598007, 1, 3.3480072, 48.098007, 1, 3.3480072, 5.848007, 1, 3.3480072, 4.848007, 1, 4.098007, 4.848007, 1, 5.348007, 5.598007, 1, 6.098007, -3.1519928, 1, 5.598007, -46.901993, 1, 6.098007, 7.348007, 1, 5.348007, 6.598007, 1, 6.098007, 47.098007, 1, 6.098007, 7.348007, 1, 4.348007, 35.098007, 1, 35.098007, -0.1519928, 1, 49.598007, -35.151993, 1, 35.098007, -0.6519928, 0.5, 141.848, 0.5980072, 0.5, 141.848, 4.348007, 0.5, 140.348, 100.09801, 0.5, 100.59801, 101.09801, 0.5, 99.09801, -100.15199, 0.5, 100.59801)
@@ -34,9 +29,6 @@ var bake_queued := false
 func _ready():
 	pass
 
-
-
-
 func queue_bake():
 	if bake_queued:
 		return
@@ -49,7 +41,6 @@ func _do_bake():
 	bake_navigation_mesh()
 	bake_queued = false
 
-
 func _on_world_flexible_child_order_changed() -> void:
 	queue_bake()
 "
@@ -59,26 +50,6 @@ albedo_color = Color(0, 0.54525805, 2.8878452e-07, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
 albedo_color = Color(0, 0.7735731, 1, 1)
-
-[sub_resource type="Resource" id="Resource_nvumn"]
-resource_local_to_scene = true
-script = ExtResource("13_7smn1")
-name = "Stone"
-icon = ExtResource("5_nvumn")
-count = 30
-scene = ExtResource("6_ou6is")
-sound = ExtResource("7_necax")
-metadata/_custom_type_script = "uid://dwdabywcheuay"
-
-[sub_resource type="Resource" id="Resource_ou6is"]
-resource_local_to_scene = true
-script = ExtResource("13_7smn1")
-name = "Stone"
-icon = ExtResource("5_nvumn")
-count = 50
-scene = ExtResource("6_ou6is")
-sound = ExtResource("7_necax")
-metadata/_custom_type_script = "uid://dwdabywcheuay"
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_ouso4"]
 
@@ -126,28 +97,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 radius = 142.402
 material = SubResource("StandardMaterial3D_5vw27")
 
-[node name="Chests" type="Node" parent="NavigationRegion3D/World_fixed" unique_id=1960681214]
-
-[node name="Chest" parent="NavigationRegion3D/World_fixed/Chests" unique_id=684924033 instance=ExtResource("13_th5th")]
-transform = Transform3D(-0.51225275, 0, 0.85883474, 0, 1, 0, -0.85883474, 0, -0.51225275, 6.111495, 0.9, 4.772731)
-chest_items = Array[ExtResource("13_7smn1")]([SubResource("Resource_nvumn"), null, null, null, null, null, null, null, SubResource("Resource_ou6is"), null])
-
-[node name="ChestLabel2" type="Label3D" parent="NavigationRegion3D/World_fixed/Chests/Chest" unique_id=2099126141]
-transform = Transform3D(-0.99999976, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999976, 0, 0.97670054, 0)
-text = "Rechtsklick zum interagieren"
-
-[node name="Chest2" parent="NavigationRegion3D/World_fixed/Chests" unique_id=1738265254 instance=ExtResource("13_th5th")]
-transform = Transform3D(-0.51225275, 0, 0.85883474, 0, 1, 0, -0.85883474, 0, -0.51225275, 4.47344, 0.8733542, 1.4947839)
-chest_items = Array[ExtResource("13_7smn1")]([ExtResource("8_ou6is"), null, null, null, null, null, null, null, null, null])
-
-[node name="ChestLabel" type="Label3D" parent="NavigationRegion3D/World_fixed/Chests" unique_id=107254116]
-transform = Transform3D(0.51225257, 0, -0.8588346, 0, 1, 0, 0.8588346, 0, 0.51225257, 5.159802, 3.3580723, 3.4829926)
-text = "Sammele Items
-↓"
-font_size = 128
+[node name="Chests" parent="NavigationRegion3D/World_fixed" unique_id=439754063 instance=ExtResource("3_blune")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.9, 0)
 
 [node name="CraftingTable" parent="NavigationRegion3D/World_fixed" unique_id=117519311 instance=ExtResource("2_nvumn")]
-transform = Transform3D(0.55945325, 0, 0.82886183, 0, 1, 0, -0.82886183, 0, 0.55945325, -3.5366414, 0.9754207, 3.9598742)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -5.5, 0.9, 1)
 
 [node name="CraftingTableLabel" type="Label3D" parent="NavigationRegion3D/World_fixed/CraftingTable" unique_id=38182501]
 transform = Transform3D(0.9999999, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, 0.9999999, 0, 3.2249587, 0)
@@ -156,7 +110,7 @@ text = "Stelle her
 font_size = 128
 
 [node name="CraftingTableLabel2" type="Label3D" parent="NavigationRegion3D/World_fixed/CraftingTable" unique_id=763927476]
-transform = Transform3D(0.817326, 0, 0.5761753, 0, 1, 0, -0.5761753, 0, 0.817326, -4.7075157, 0.9602468, -2.1891649)
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -5, 0.9, -2)
 text = "Wähle einen Block in der Hotbar per Hotkey
 aus und platzieren ihn mit Rechtsklick."
 
@@ -185,7 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 44.10000
 shadow_enabled = true
 
 [node name="Player" parent="." unique_id=1560919245 instance=ExtResource("2_tipki")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 10.486757)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47, 10)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1447121957]
 
