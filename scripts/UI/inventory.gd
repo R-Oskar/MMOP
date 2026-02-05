@@ -35,10 +35,37 @@ func _input(event) -> void:
 		else:
 			open_inventory()
 
-func swap_inventory_slots(originalRow, originalIndex, row,index) -> void:
-	var item = inventory_items[originalRow][originalIndex]
-	clear_inventory_slot(originalRow, originalIndex)
-	load_item_to_inventory(item.item_id, row, index, item.count)
+func swap_inventory_slots(originalRow: int, originalIndex: int, targetRow: int, targetIndex: int) -> void:
+	var item_a = inventory_items[originalRow][originalIndex]
+	var item_b = inventory_items[targetRow][targetIndex]
+	
+	# 1. If we are dragging nothing, do nothing
+	if item_a == null:
+		return
+
+	# 2. If target is empty, just move it
+	if item_b == null:
+		load_item_to_inventory(item_a.item_id, targetRow, targetIndex, item_a.count)
+		clear_inventory_slot(originalRow, originalIndex)
+		
+	# 3. If target is the SAME item type, stack them
+	elif item_b.item_id == item_a.item_id:
+		change_count(item_a.count, targetRow, targetIndex)
+		clear_inventory_slot(originalRow, originalIndex)
+		
+	# 4. If target is a DIFFERENT item type, swap them
+	else:
+		# Temporarily hold item_a's data
+		var temp_id = item_a.item_id
+		var temp_count = item_a.count
+		
+		# Move item_b to original slot
+		clear_inventory_slot(originalRow, originalIndex)
+		load_item_to_inventory(item_b.item_id, originalRow, originalIndex, item_b.count)
+		
+		# Move item_a to target slot
+		clear_inventory_slot(targetRow, targetIndex)
+		load_item_to_inventory(temp_id, targetRow, targetIndex, temp_count)
 
 ## Removes item (both visually and in code) from the inventory at given row and index.
 func clear_inventory_slot(row: int, index: int) -> void:
@@ -176,6 +203,3 @@ func get_total_from_locations(locations: Dictionary) -> int:
 	for count in locations.values():
 		sum += count
 	return sum
-
-func _on_crafting_recipe_pressed() -> void:
-	pass
