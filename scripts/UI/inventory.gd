@@ -68,7 +68,6 @@ func load_item_to_inventory(item_id, row := 0, index := 0, count := 1) -> Item:
 		return
 	
 	if original_item and original_item.item_id == item_id:
-		#inventory_items[row][index].count += count
 		change_count(count, row, index)
 		return
 	
@@ -148,7 +147,7 @@ func close_chest(opened_chest: StaticBody3D) -> void:
 func open_crafting_table():
 	open_inventory()
 	crafting_table.show()
-	crafting_table.get_node("CraftingRecipe").update_current_amount()
+	crafting_table.get_node("Wood").update_current_amount()
 
 func close_crafting_table():
 	close_inventory()
@@ -179,4 +178,4 @@ func get_total_from_locations(locations: Dictionary) -> int:
 	return sum
 
 func _on_crafting_recipe_pressed() -> void:
-	pass # Replace with function body.
+	pass

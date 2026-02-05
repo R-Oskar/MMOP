@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://cwbpprwwrx2rh" path="res://scripts/UI/inventory.gd" id="1_egg3t"]
 [ext_resource type="PackedScene" uid="uid://cocghnpcu6bpq" path="res://scenes/UI/slot.tscn" id="3_kpdmy"]
 [ext_resource type="PackedScene" uid="uid://40vsn8hlif6j" path="res://scenes/objects/crafting_recipe.tscn" id="3_lvvmf"]
+[ext_resource type="Script" uid="uid://dyb1bfd8gw2xv" path="res://scenes/UI/crafting_table_inventory.gd" id="3_qjyq4"]
 [ext_resource type="Resource" uid="uid://d3uqnkpo0g1hr" path="res://items/crafting/crafting_recipes/wood.tres" id="4_krngk"]
+[ext_resource type="AudioStream" uid="uid://cpad3gapdyd43" path="res://ressources/sounds/crafting_sound.mp3" id="4_qjyq4"]
 
 [node name="Inventory" type="Control" unique_id=315312596]
 layout_mode = 3
@@ -452,17 +454,22 @@ offset_right = 367.0
 offset_bottom = 88.0
 text = "Kiste"
 
-[node name="CraftingTable" type="Control" parent="." unique_id=1853384928]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CraftingTable" type="VBoxContainer" parent="." unique_id=981495428 node_paths=PackedStringArray("inventory", "crafting_sound")]
+layout_mode = 0
+offset_left = 859.0
+offset_top = 152.0
+offset_right = 1051.0
+offset_bottom = 287.0
+script = ExtResource("3_qjyq4")
+inventory = NodePath("..")
+crafting_sound = NodePath("CraftingSound")
 
-[node name="CraftingRecipe" parent="CraftingTable" unique_id=1373007955 instance=ExtResource("3_lvvmf")]
-layout_mode = 1
-offset_left = 843.0
-offset_top = 151.0
-offset_right = 899.0
-offset_bottom = 157.0
+[node name="CraftingSound" type="AudioStreamPlayer" parent="CraftingTable" unique_id=447807212]
+stream = ExtResource("4_qjyq4")
+
+[node name="Wood" parent="CraftingTable" unique_id=1373007955 instance=ExtResource("3_lvvmf")]
+layout_mode = 2
+size_flags_vertical = 3
 recipe = ExtResource("4_krngk")
 
-[connection signal="pressed" from="CraftingTable/CraftingRecipe" to="." method="_on_crafting_recipe_pressed"]
+[connection signal="pressed" from="CraftingTable/Wood" to="." method="_on_crafting_recipe_pressed"]
