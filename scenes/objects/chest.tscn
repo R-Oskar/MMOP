@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dr230symovhoe"]
 
 [ext_resource type="Script" uid="uid://dyfnqsehjocyi" path="res://scripts/chest.gd" id="1_bas4e"]
+[ext_resource type="AudioStream" uid="uid://disxdn4k8w57" path="res://ressources/sounds/open_chest.mp3" id="2_acra8"]
+[ext_resource type="AudioStream" uid="uid://cb7favdb6rgcv" path="res://ressources/sounds/close_chest.mp3" id="3_pev8c"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hxfd3"]
 size = Vector3(1, 0.8, 1)
@@ -11,11 +13,10 @@ size = Vector3(1, 0.2, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_hxfd3"]
 size = Vector3(1, 0.85, 1)
 
-[node name="Chest" type="StaticBody3D" unique_id=684924033]
+[node name="Chest" type="StaticBody3D" unique_id=684924033 node_paths=PackedStringArray("open_chest_sound", "close_chest_sound")]
 script = ExtResource("1_bas4e")
-chest_items = null
-open_angle = null
-toggle_speed = null
+open_chest_sound = NodePath("Sounds/OpenChest")
+close_chest_sound = NodePath("Sounds/CloseChest")
 
 [node name="Body" type="MeshInstance3D" parent="." unique_id=1495462954]
 mesh = SubResource("BoxMesh_hxfd3")
@@ -31,3 +32,12 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=146804805]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("BoxShape3D_hxfd3")
+
+[node name="Sounds" type="Node" parent="." unique_id=198869678]
+
+[node name="OpenChest" type="AudioStreamPlayer3D" parent="Sounds" unique_id=519396681]
+stream = ExtResource("2_acra8")
+
+[node name="CloseChest" type="AudioStreamPlayer3D" parent="Sounds" unique_id=1007586909]
+stream = ExtResource("3_pev8c")
+pitch_scale = 1.8

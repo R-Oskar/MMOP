@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cxpd0mkp6cky5"]
+
+[ext_resource type="Script" uid="uid://biwb0lk1b8ml0" path="res://scripts/crafting_table.gd" id="1_pdger"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwjbn"]
+albedo_color = Color(0.4319011, 0.16216648, 0.09275297, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pdger"]
+material = SubResource("StandardMaterial3D_pwjbn")
+size = Vector3(2, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pwjbn"]
+size = Vector3(2, 1, 1)
+
+[node name="CraftingTable" type="StaticBody3D" unique_id=117519311]
+script = ExtResource("1_pdger")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1297854770]
+mesh = SubResource("BoxMesh_pdger")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1415588626]
+shape = SubResource("BoxShape3D_pwjbn")

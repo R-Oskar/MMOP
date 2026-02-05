@@ -22,6 +22,8 @@ func check_interaction():
 		# Check if the object we hit has the toggle_chest function
 		if collider.has_method("toggle_chest"):
 			collider.toggle_chest()
+		if collider.has_method("toggle_crafting_table"):
+			collider.toggle_crafting_table()
 
 func _input(event):
 	if event.is_action_pressed("interact"): # Create "interact" in Input Map (e.g., 'E' key)

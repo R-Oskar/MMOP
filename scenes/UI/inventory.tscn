@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cq8sbte51hdu2"]
 
 [ext_resource type="Script" uid="uid://cwbpprwwrx2rh" path="res://scripts/UI/inventory.gd" id="1_egg3t"]
-[ext_resource type="PackedScene" uid="uid://cocghnpcu6bpq" path="res://scripts/slot.tscn" id="3_kpdmy"]
+[ext_resource type="PackedScene" uid="uid://cocghnpcu6bpq" path="res://scenes/UI/slot.tscn" id="3_kpdmy"]
 
 [node name="Inventory" type="Control" unique_id=315312596]
 layout_mode = 3
@@ -364,6 +364,7 @@ row = 4
 index = 9
 
 [node name="Chest" type="Control" parent="." unique_id=2095524525]
+visible = false
 anchors_preset = 0
 
 [node name="Background_3" type="ColorRect" parent="Chest" unique_id=290342923]

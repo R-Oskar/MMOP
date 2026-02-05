@@ -1,2 +1,3 @@
 Stone icon: https://www.desertcart.de/products/319922322-karelian-heritageauthentic-shungite-stone-cube-highly-protective-crystal-cube
 Basis für Movementcontroller: https://github.com/Brackeys/brackeys-proto-controller?tab=readme-ov-file
+open and close chest sound: https://sfxengine.com/sound-effects/chest
