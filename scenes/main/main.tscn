@@ -149,7 +149,7 @@ font_size = 128
 [node name="CraftingTableLabel2" type="Label3D" parent="NavigationRegion3D/World_fixed/CraftingTable" unique_id=763927476]
 transform = Transform3D(0.817326, 0, 0.5761753, 0, 1, 0, -0.5761753, 0, 0.817326, -4.7075157, 0.9602468, -2.1891649)
 text = "Wähle einen Block in der Hotbar per Hotkey
-aus und platzieren in mit Rechtsklick."
+aus und platzieren ihn mit Rechtsklick."
 
 [node name="World_flexible" type="Node3D" parent="NavigationRegion3D" unique_id=331126618]
 
