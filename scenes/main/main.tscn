@@ -102,6 +102,10 @@ text = "Beschütze!
 ↓"
 font_size = 128
 
+[node name="ChestLabel3" type="Label3D" parent="NavigationRegion3D/World_fixed/Oxygentank" unique_id=1891736032]
+transform = Transform3D(0.43383938, 0, 0, 0, 0.43383947, 0, 0, 0, 0.43383938, 0, 0.92873853, 0.7419561)
+text = "Drücke Tab um das Inventar zu öffnen"
+
 [node name="Floor" type="CSGCylinder3D" parent="NavigationRegion3D/World_fixed" unique_id=1262442530]
 use_collision = true
 radius = 50.0
@@ -118,6 +122,10 @@ material = SubResource("StandardMaterial3D_5vw27")
 [node name="Chest" parent="NavigationRegion3D/World_fixed/Chests" unique_id=684924033 instance=ExtResource("13_th5th")]
 transform = Transform3D(-0.51225275, 0, 0.85883474, 0, 1, 0, -0.85883474, 0, -0.51225275, 6.111495, 0.9, 4.772731)
 chest_items = Array[ExtResource("13_7smn1")]([SubResource("Resource_nvumn"), null, null, null, null, null, null, null, ExtResource("8_necax"), null])
+
+[node name="ChestLabel2" type="Label3D" parent="NavigationRegion3D/World_fixed/Chests/Chest" unique_id=2099126141]
+transform = Transform3D(-0.99999976, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999976, 0, 0.97670054, 0)
+text = "Rechtsklick zum interagieren"
 
 [node name="Chest2" parent="NavigationRegion3D/World_fixed/Chests" unique_id=1738265254 instance=ExtResource("13_th5th")]
 transform = Transform3D(-0.51225275, 0, 0.85883474, 0, 1, 0, -0.85883474, 0, -0.51225275, 4.47344, 0.8733542, 1.4947839)
@@ -137,6 +145,11 @@ transform = Transform3D(0.9999999, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0,
 text = "Stelle her
 ↓"
 font_size = 128
+
+[node name="CraftingTableLabel2" type="Label3D" parent="NavigationRegion3D/World_fixed/CraftingTable" unique_id=763927476]
+transform = Transform3D(0.817326, 0, 0.5761753, 0, 1, 0, -0.5761753, 0, 0.817326, -4.7075157, 0.9602468, -2.1891649)
+text = "Wähle einen Block in der Hotbar per Hotkey
+aus und platzieren in mit Rechtsklick."
 
 [node name="World_flexible" type="Node3D" parent="NavigationRegion3D" unique_id=331126618]
 
