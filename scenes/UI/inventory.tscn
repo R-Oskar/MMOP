@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cwbpprwwrx2rh" path="res://scripts/UI/inventory.gd" id="1_egg3t"]
 [ext_resource type="PackedScene" uid="uid://cocghnpcu6bpq" path="res://scenes/UI/slot.tscn" id="3_kpdmy"]
+[ext_resource type="PackedScene" uid="uid://40vsn8hlif6j" path="res://scenes/objects/crafting_recipe.tscn" id="3_lvvmf"]
 
 [node name="Inventory" type="Control" unique_id=315312596]
 layout_mode = 3
@@ -449,3 +450,19 @@ offset_top = 65.0
 offset_right = 367.0
 offset_bottom = 88.0
 text = "Kiste"
+
+[node name="CraftingTable" type="Control" parent="." unique_id=1853384928]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CraftingRecipe" parent="CraftingTable" unique_id=1373007955 instance=ExtResource("3_lvvmf")]
+layout_mode = 1
+offset_left = 843.0
+offset_top = 151.0
+offset_right = 899.0
+offset_bottom = 157.0
+amount_required = null
+item_name = null
+
+[connection signal="pressed" from="CraftingTable/CraftingRecipe" to="." method="_on_crafting_recipe_pressed"]

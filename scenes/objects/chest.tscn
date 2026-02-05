@@ -35,9 +35,9 @@ shape = SubResource("BoxShape3D_hxfd3")
 
 [node name="Sounds" type="Node" parent="." unique_id=198869678]
 
-[node name="OpenChest" type="AudioStreamPlayer3D" parent="Sounds" unique_id=519396681]
+[node name="OpenChest" type="AudioStreamPlayer" parent="Sounds" unique_id=596770277]
 stream = ExtResource("2_acra8")
 
-[node name="CloseChest" type="AudioStreamPlayer3D" parent="Sounds" unique_id=1007586909]
+[node name="CloseChest" type="AudioStreamPlayer" parent="Sounds" unique_id=1494468381]
 stream = ExtResource("3_pev8c")
 pitch_scale = 1.8

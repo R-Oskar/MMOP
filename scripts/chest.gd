@@ -6,8 +6,8 @@ var is_open: bool = false
 
 @export var chest_items: Array[Item] = [null,null,null,null, null,null,null,null,null,null]
 
-@export var open_chest_sound: AudioStreamPlayer3D
-@export var close_chest_sound: AudioStreamPlayer3D
+@export var open_chest_sound: AudioStreamPlayer
+@export var close_chest_sound: AudioStreamPlayer
 
 # Configuration
 var open_angle: float = 110.0 # Degrees to swing back

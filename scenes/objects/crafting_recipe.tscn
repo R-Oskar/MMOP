@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://40vsn8hlif6j"]
+
+[ext_resource type="Script" uid="uid://cpose8tnuy8uo" path="res://scenes/objects/crafting_recipe.gd" id="1_v35ak"]
+
+[node name="CraftingRecipe" type="Button" unique_id=799557746 node_paths=PackedStringArray("recipe_label")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v35ak")
+recipe_label = NodePath("RecipeLabel")
+
+[node name="Title" type="Label" parent="." unique_id=1618661926]
+layout_mode = 0
+offset_right = 94.0
+offset_bottom = 23.0
+text = "Harter Stein"
+
+[node name="RecipeLabel" type="RichTextLabel" parent="." unique_id=117741044]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 23.0
+offset_right = 103.0
+offset_bottom = 46.0
+theme_override_font_sizes/normal_font_size = 14
+text = "0"

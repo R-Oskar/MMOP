@@ -3,6 +3,7 @@ extends Control
 @export var player:CharacterBody3D
 @export var hotbar: Control
 @onready var chest: Control = get_node("Chest")
+@onready var crafting_table: Control = get_node("CraftingTable")
 
 # row 0 for hotbar, row 6 for chests
 var inventory_items: Array[Array] = [
@@ -22,8 +23,9 @@ func get_hotbar_item(index: int) -> Item:
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	visible = false
-	chest.visible = false
+	hide()
+	chest.hide()
+	crafting_table.hide()
 
 func _input(event) -> void:
 	if event.is_action_pressed("inventory"):
@@ -126,7 +128,7 @@ func open_chest(opened_chest:  StaticBody3D) -> void:
 	var chest_items = opened_chest.chest_items
 	
 	open_inventory()
-	chest.visible = true
+	chest.show()
 	
 	for i in chest_items.size():
 		var item = chest_items[i]
@@ -135,10 +137,46 @@ func open_chest(opened_chest:  StaticBody3D) -> void:
 
 func close_chest(opened_chest: StaticBody3D) -> void:
 	close_inventory()
-	chest.visible = false
+	chest.hide()
 	var chest_items = opened_chest.chest_items
 	
 	opened_chest.update(inventory_items[5])
 	
 	for i in chest_items.size():
 		clear_inventory_slot(5, i)
+
+func open_crafting_table():
+	open_inventory()
+	crafting_table.show()
+	crafting_table.get_node("CraftingRecipe").update_current_amount()
+
+func close_crafting_table():
+	close_inventory()
+	crafting_table.hide()
+
+## Returns the total amount of a specific item currently held in the inventory.
+## Update the first line to accept the Enum type
+func inventory_contains(target_id: ItemIDs.ItemID) -> Dictionary:
+	var locations = {}
+	
+	for row_index in range(inventory_items.size()):
+		var row = inventory_items[row_index]
+		for slot_index in range(row.size()):
+			var item = row[slot_index]
+			
+			# Now we are comparing int to int (the enum values)
+			if item != null and item.item_id == target_id:
+				var coords = Vector2(row_index, slot_index)
+				locations[coords] = item.count
+				
+	return locations
+
+## Takes the dictionary from inventory_contains and returns the total sum of items.
+func get_total_from_locations(locations: Dictionary) -> int:
+	var sum: int = 0
+	for count in locations.values():
+		sum += count
+	return sum
+
+func _on_crafting_recipe_pressed() -> void:
+	pass # Replace with function body.
