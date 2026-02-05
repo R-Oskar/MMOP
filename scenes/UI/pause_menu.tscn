@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://equrnyrs8b8x"]
+[gd_scene format=3 uid="uid://equrnyrs8b8x"]
 
 [ext_resource type="Script" uid="uid://cusn8u58ybsc7" path="res://scripts/UI/pause_menu.gd" id="1_myx47"]
 [ext_resource type="Shader" uid="uid://uqbe5rix8ke0" path="res://ressources/shader/pause_menu.gdshader" id="1_n87rw"]
@@ -154,7 +154,7 @@ _data = {
 &"blur": SubResource("Animation_kukqi")
 }
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" unique_id=1913560065]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -164,14 +164,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_myx47")
 
-[node name="Blur" type="ColorRect" parent="."]
+[node name="Blur" type="ColorRect" parent="." unique_id=1461288169]
 material = SubResource("ShaderMaterial_myx47")
 layout_mode = 0
 offset_right = 1150.0
 offset_bottom = 646.0
 mouse_filter = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=626011311]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -187,25 +187,23 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1671844561]
 layout_mode = 2
 theme_override_constants/separation = 4
 alignment = 1
 
-[node name="Resume" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="PanelContainer/VBoxContainer" unique_id=94033043]
 layout_mode = 2
 size_flags_vertical = 4
 text = "Fortfahren"
 
-[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer" unique_id=407802305]
 layout_mode = 2
 size_flags_vertical = 4
 text = "Beenden"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_7l7mv")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1799889062]
+libraries/ = SubResource("AnimationLibrary_7l7mv")
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

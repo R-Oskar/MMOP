@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://c6467ksnpxd1y"]
+
+[ext_resource type="Texture2D" uid="uid://dahs8mhn1hp1t" path="res://ressources/pictures/Items/stone.png" id="1_tb0st"]
+[ext_resource type="PackedScene" uid="uid://bb4fk5cvhk80y" path="res://scenes/objects/items/stone.tscn" id="2_74sm3"]
+[ext_resource type="Script" uid="uid://dwdabywcheuay" path="res://items/item.gd" id="3_0cv0s"]
+[ext_resource type="AudioStream" uid="uid://1o10fnhinqcg" path="res://ressources/sounds/place.mp3" id="4_0pgis"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("3_0cv0s")
+name = "Stein"
+icon = ExtResource("1_tb0st")
+count = 50
+scene = ExtResource("2_74sm3")
+sound = ExtResource("4_0pgis")
+metadata/_custom_type_script = "uid://dwdabywcheuay"

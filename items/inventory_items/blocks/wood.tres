@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bjj74et774x7v"]
+
+[ext_resource type="Texture2D" uid="uid://o30by7r1www7" path="res://ressources/pictures/Items/wood_block.png" id="1_ivep5"]
+[ext_resource type="PackedScene" uid="uid://cwu2ovgy15evo" path="res://scenes/objects/items/wood_block.tscn" id="2_o5wu7"]
+[ext_resource type="Script" uid="uid://dwdabywcheuay" path="res://items/item.gd" id="3_ivep5"]
+
+[resource]
+script = ExtResource("3_ivep5")
+name = "Holz"
+icon = ExtResource("1_ivep5")
+count = 5
+scene = ExtResource("2_o5wu7")
+item_id = 1
+metadata/_custom_type_script = "uid://dwdabywcheuay"

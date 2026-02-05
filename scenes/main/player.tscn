@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://3cvycxtlb0c4" path="res://scripts/player/player.gd" id="1_fjrip"]
-[ext_resource type="AudioStream" uid="uid://c40cnjfmavs2y" path="res://ressources/sounds/jump.mp3" id="4_rm8fd"]
+[ext_resource type="AudioStream" uid="uid://c40cnjfmavs2y" path="res://ressources/sounds/player/jump.mp3" id="4_rm8fd"]
 [ext_resource type="AudioStream" uid="uid://1o10fnhinqcg" path="res://ressources/sounds/place.mp3" id="5_2jso2"]
-[ext_resource type="AudioStream" uid="uid://dmsdeo8wuunex" path="res://ressources/sounds/landing.mp3" id="6_fmh12"]
+[ext_resource type="AudioStream" uid="uid://dmsdeo8wuunex" path="res://ressources/sounds/player/landing.mp3" id="6_fmh12"]
 [ext_resource type="Script" uid="uid://blvquebv4338o" path="res://scripts/player/player_movement.gd" id="7_fjrip"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
@@ -34,6 +34,9 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=518740790]
+
+[node name="InteractRay" type="RayCast3D" parent="Head/Camera3D" unique_id=736315723]
+target_position = Vector3(0, 0, -3)
 
 [node name="SoundEffects" type="Node" parent="." unique_id=1602734604]
 

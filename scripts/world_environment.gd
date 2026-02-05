@@ -9,24 +9,23 @@ extends WorldEnvironment
 
 # References to lights
 @export var sun_pivot: Node3D
-@export var sun_light: DirectionalLight3D
+@onready var sun_light: DirectionalLight3D = sun_pivot.get_node("SunLight")
 @export var moon_pivot: Node3D
-@export var moon_light: DirectionalLight3D
+@onready var moon_light: DirectionalLight3D =  moon_pivot.get_node("MoonLight")
 
 var is_day:bool
 
 # Internal time tracking
-var time := 0.0  # 0.0 - 1.0 represents full day cycle
+@export var time := 0.0  # 0.0 - 1.0 represents full day cycle
 
 func _ready():
 	moon_light.light_color = moon_color
-
 func _process(delta):
 	# Advance time
 	time += delta / day_length_seconds
 	if time > 1.0:
 		time -= 1.0
-
+	
 	_update_lights()
 
 func _update_lights():

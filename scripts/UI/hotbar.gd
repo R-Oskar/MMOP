@@ -8,8 +8,6 @@ var selected_index := 0
 
 func _ready() -> void:
 	$Select.position = Vector2(0,0)
-	load_item_to_hotbar(ItemIDs.ItemID.STONE, 2, 100)
-	load_item_to_hotbar(ItemIDs.ItemID.STONE, 3, 10)
 
 func _process(_delta: float) -> void:
 	var item = inventory.get_hotbar_item(selected_index)
@@ -19,6 +17,7 @@ func _process(_delta: float) -> void:
 func _unhandled_input(_event: InputEvent) -> void:
 	if not player.is_input_enabled():
 		return
+	
 	for i in range(10):
 		var action_name = "slot%d" % i
 		if Input.is_action_just_pressed(action_name):
@@ -26,11 +25,10 @@ func _unhandled_input(_event: InputEvent) -> void:
 				selected_index = 9
 			else:
 				selected_index = i - 1
-			if(player.last_preview):
-				player.clear_preview()
+			player.clear_preview()
 			update_selection_position()
 			break
-		
+	
 	if Input.is_action_pressed("use_item"):
 		var item = inventory.get_hotbar_item(selected_index)
 		if item && player.try_to_use_item(item):

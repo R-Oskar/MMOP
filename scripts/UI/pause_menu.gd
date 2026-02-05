@@ -6,7 +6,7 @@ func _ready():
 	$AnimationPlayer.play("RESET")
 	hide()
 
-func _unhandled_input(_event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if not player.is_input_enabled():
 		return
 	if Input.is_action_just_pressed("ui_cancel") and !get_tree().paused:

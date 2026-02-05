@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://laa6wkcpj3ws"]
 
-[ext_resource type="PackedScene" uid="uid://cocghnpcu6bpq" path="res://scripts/slot.tscn" id="1_mjyg7"]
+[ext_resource type="PackedScene" uid="uid://cocghnpcu6bpq" path="res://scenes/UI/slot.tscn" id="1_mjyg7"]
 [ext_resource type="Script" uid="uid://dcajdgouxdv0w" path="res://scripts/UI/hotbar.gd" id="1_xrqkv"]
-[ext_resource type="Texture2D" uid="uid://cuerrwspg40sl" path="res://ressources/pictures/select_texture.png" id="2_3lmyj"]
+[ext_resource type="Texture2D" uid="uid://cuerrwspg40sl" path="res://ressources/pictures/UI/select_texture.png" id="2_3lmyj"]
 
 [node name="Hotbar" type="Control" unique_id=439422052]
 layout_mode = 3
