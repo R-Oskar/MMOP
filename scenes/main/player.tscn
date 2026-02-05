@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://3cvycxtlb0c4" path="res://scripts/player/player.gd" id="1_fjrip"]
-[ext_resource type="AudioStream" uid="uid://c40cnjfmavs2y" path="res://ressources/sounds/jump.mp3" id="4_rm8fd"]
+[ext_resource type="AudioStream" uid="uid://c40cnjfmavs2y" path="res://ressources/sounds/player/jump.mp3" id="4_rm8fd"]
 [ext_resource type="AudioStream" uid="uid://1o10fnhinqcg" path="res://ressources/sounds/place.mp3" id="5_2jso2"]
-[ext_resource type="AudioStream" uid="uid://dmsdeo8wuunex" path="res://ressources/sounds/landing.mp3" id="6_fmh12"]
+[ext_resource type="AudioStream" uid="uid://dmsdeo8wuunex" path="res://ressources/sounds/player/landing.mp3" id="6_fmh12"]
 [ext_resource type="Script" uid="uid://blvquebv4338o" path="res://scripts/player/player_movement.gd" id="7_fjrip"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]

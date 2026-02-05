@@ -3,3 +3,4 @@ Basis für Movementcontroller: https://github.com/Brackeys/brackeys-proto-contro
 open and close chest sound: https://sfxengine.com/sound-effects/chest
 wood block: https://www.hood.de/i/lounge-sitzblock-klotz-wuerfel-cube-hocker-massivholz-sitzklotz-buche-holzklotz-93879885.htm
 craft sound effect: https://pixabay.com/de/sound-effects/search/anvil/
+Bäume: https://free3d.com/3d-model/realistic-tree-pack-3-trees-95419.html

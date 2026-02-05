@@ -8,8 +8,6 @@ var selected_index := 0
 
 func _ready() -> void:
 	$Select.position = Vector2(0,0)
-	load_item_to_hotbar(ItemIDs.ItemID.STONE, 2, 100)
-	load_item_to_hotbar(ItemIDs.ItemID.STONE, 3, 10)
 
 func _process(_delta: float) -> void:
 	var item = inventory.get_hotbar_item(selected_index)

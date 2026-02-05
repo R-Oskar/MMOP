@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bdyigy4fvbvtr"]
 
 [ext_resource type="Script" uid="uid://o3eg7vjc47t7" path="res://scripts/main.gd" id="1_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://bdp4f8yo0fnl7" path="res://scenes/objects/rocket.tscn" id="2_85g3d"]
 [ext_resource type="PackedScene" uid="uid://cxpd0mkp6cky5" path="res://scenes/objects/crafting_table.tscn" id="2_nvumn"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://scenes/main/player.tscn" id="2_tipki"]
 [ext_resource type="Script" uid="uid://dl3mfoi35lg5w" path="res://scripts/UI/show_coordinates.gd" id="3_85g3d"]
@@ -14,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://1o10fnhinqcg" path="res://ressources/sounds/place.mp3" id="7_necax"]
 [ext_resource type="AudioStream" uid="uid://chrw4bninhbgo" path="res://ressources/sounds/backgroundMusic.mp3" id="7_trceg"]
 [ext_resource type="PackedScene" uid="uid://cq8sbte51hdu2" path="res://scenes/UI/inventory.tscn" id="8_b1x3f"]
+[ext_resource type="Resource" uid="uid://c6467ksnpxd1y" path="res://items/inventory_items/blocks/stone.tres" id="8_necax"]
 [ext_resource type="Resource" uid="uid://bjj74et774x7v" path="res://items/inventory_items/blocks/wood.tres" id="8_ou6is"]
 [ext_resource type="PackedScene" uid="uid://dr1hqhhyvv47c" path="res://scenes/objects/oxygen_tank.tscn" id="12_blune"]
 [ext_resource type="Script" uid="uid://dwdabywcheuay" path="res://items/item.gd" id="13_7smn1"]
@@ -55,7 +55,13 @@ func _on_world_flexible_child_order_changed() -> void:
 	queue_bake()
 "
 
-[sub_resource type="Resource" id="Resource_ou6is"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
+albedo_color = Color(0, 0.54525805, 2.8878452e-07, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
+albedo_color = Color(0, 0.7735731, 1, 1)
+
+[sub_resource type="Resource" id="Resource_nvumn"]
 resource_local_to_scene = true
 script = ExtResource("13_7smn1")
 name = "Stone"
@@ -64,22 +70,6 @@ count = 30
 scene = ExtResource("6_ou6is")
 sound = ExtResource("7_necax")
 metadata/_custom_type_script = "uid://dwdabywcheuay"
-
-[sub_resource type="Resource" id="Resource_necax"]
-resource_local_to_scene = true
-script = ExtResource("13_7smn1")
-name = "Stone"
-icon = ExtResource("5_nvumn")
-count = 29
-scene = ExtResource("6_ou6is")
-sound = ExtResource("7_necax")
-metadata/_custom_type_script = "uid://dwdabywcheuay"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
-albedo_color = Color(0, 0.54525805, 2.8878452e-07, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
-albedo_color = Color(0, 0.7735731, 1, 1)
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_ouso4"]
 
@@ -101,24 +91,16 @@ navigation_mesh = SubResource("NavigationMesh_ouso4")
 navigation_layers = 255
 script = SubResource("GDScript_ouso4")
 
-[node name="CraftingTable" parent="NavigationRegion3D" unique_id=117519311 instance=ExtResource("2_nvumn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.387732, 0.9754207, 6.511563)
-
-[node name="Chest" parent="NavigationRegion3D" unique_id=684924033 instance=ExtResource("13_th5th")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 14, 0.9, 5)
-chest_items = Array[ExtResource("13_7smn1")]([SubResource("Resource_ou6is"), ExtResource("8_ou6is"), null, null, null, null, null, null, null, null])
-
-[node name="Chest2" parent="NavigationRegion3D" unique_id=1738265254 instance=ExtResource("13_th5th")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8.438357, 0.8733542, 5.41064)
-chest_items = Array[ExtResource("13_7smn1")]([SubResource("Resource_necax"), null, null, null, null, null, null, null, null, null])
-
 [node name="World_fixed" type="Node" parent="NavigationRegion3D" unique_id=695680520]
-
-[node name="Rocket" parent="NavigationRegion3D/World_fixed" unique_id=1853596346 instance=ExtResource("2_85g3d")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 11.731729, 0.9431906, 3.0545082)
 
 [node name="Oxygentank" parent="NavigationRegion3D/World_fixed" unique_id=1969997739 instance=ExtResource("12_blune")]
 transform = Transform3D(2.305, 0, 0, 0, 2.305, 0, 0, 0, 2.305, 0, 0, 0)
+
+[node name="OxygenTankLabel" type="Label3D" parent="NavigationRegion3D/World_fixed/Oxygentank" unique_id=573855338]
+transform = Transform3D(0.43383947, 0, 0, 0, 0.43383947, 0, 0, 0, 0.43383947, 0, 2.4693522, 0)
+text = "Beschütze!
+↓"
+font_size = 128
 
 [node name="Floor" type="CSGCylinder3D" parent="NavigationRegion3D/World_fixed" unique_id=1262442530]
 use_collision = true
@@ -130,6 +112,31 @@ material = SubResource("StandardMaterial3D_272bh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 radius = 142.402
 material = SubResource("StandardMaterial3D_5vw27")
+
+[node name="Chests" type="Node" parent="NavigationRegion3D/World_fixed" unique_id=1960681214]
+
+[node name="Chest" parent="NavigationRegion3D/World_fixed/Chests" unique_id=684924033 instance=ExtResource("13_th5th")]
+transform = Transform3D(-0.51225275, 0, 0.85883474, 0, 1, 0, -0.85883474, 0, -0.51225275, 6.111495, 0.9, 4.772731)
+chest_items = Array[ExtResource("13_7smn1")]([SubResource("Resource_nvumn"), null, null, null, null, null, null, null, ExtResource("8_necax"), null])
+
+[node name="Chest2" parent="NavigationRegion3D/World_fixed/Chests" unique_id=1738265254 instance=ExtResource("13_th5th")]
+transform = Transform3D(-0.51225275, 0, 0.85883474, 0, 1, 0, -0.85883474, 0, -0.51225275, 4.47344, 0.8733542, 1.4947839)
+chest_items = Array[ExtResource("13_7smn1")]([ExtResource("8_ou6is"), null, null, null, null, null, null, null, null, null])
+
+[node name="ChestLabel" type="Label3D" parent="NavigationRegion3D/World_fixed/Chests" unique_id=107254116]
+transform = Transform3D(0.51225257, 0, -0.8588346, 0, 1, 0, 0.8588346, 0, 0.51225257, 5.159802, 3.3580723, 3.4829926)
+text = "Sammele Items
+↓"
+font_size = 128
+
+[node name="CraftingTable" parent="NavigationRegion3D/World_fixed" unique_id=117519311 instance=ExtResource("2_nvumn")]
+transform = Transform3D(0.55945325, 0, 0.82886183, 0, 1, 0, -0.82886183, 0, 0.55945325, -3.5366414, 0.9754207, 3.9598742)
+
+[node name="CraftingTableLabel" type="Label3D" parent="NavigationRegion3D/World_fixed/CraftingTable" unique_id=38182501]
+transform = Transform3D(0.9999999, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, 0.9999999, 0, 3.2249587, 0)
+text = "Stelle her
+↓"
+font_size = 128
 
 [node name="World_flexible" type="Node3D" parent="NavigationRegion3D" unique_id=331126618]
 
@@ -156,7 +163,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 44.10000
 shadow_enabled = true
 
 [node name="Player" parent="." unique_id=1560919245 instance=ExtResource("2_tipki")]
-transform = Transform3D(0.97639036, 0, 0.2160136, 0, 1, 0, -0.2160136, 0, 0.97639036, 13.885383, 1.5007839, 11.5729475)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 10.486757)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1447121957]
 
