@@ -2,8 +2,11 @@ extends Control
 
 @export var player:CharacterBody3D
 @export var hotbar: Control
+@onready var chest: Control = get_node("Chest")
 
+# row 0 for hotbar, row 6 for chests
 var inventory_items: Array[Array] = [
+	[null, null, null, null, null, null, null, null, null, null],
 	[null, null, null, null, null, null, null, null, null, null],
 	[null, null, null, null, null, null, null, null, null, null],
 	[null, null, null, null, null, null, null, null, null, null],
@@ -20,6 +23,7 @@ func get_hotbar_item(index: int) -> Item:
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
+	chest.visible = false
 
 func _input(event) -> void:
 	if event.is_action_pressed("inventory"):
@@ -38,7 +42,12 @@ func swap_inventory_slots(originalRow, originalIndex, row,index) -> void:
 func clear_inventory_slot(row: int, index: int) -> void:
 	inventory_items[row][index] = null
 
-	var row_node = get_node("row_%d" % row)
+	var row_node
+	
+	if row < 5:
+		row_node = get_node("row_%d" % (row ))
+	else:
+		row_node = get_node("Chest/row_%d" % (row ))
 	var slot_node = row_node.get_child(index)
 
 	var icon_node = slot_node.get_node("Item") as TextureRect
@@ -65,7 +74,12 @@ func load_item_to_inventory(item_id, row := 0, index := 0, count := 1) -> Item:
 	inventory_items[row][index] = item
 	item.count = count
 	
-	var row_node = get_node("row_%d" % (row ))
+	var row_node
+	
+	if row < 5:
+		row_node = get_node("row_%d" % (row ))
+	else:
+		row_node = get_node("Chest/row_%d" % (row ))
 	var slot_node = row_node.get_child(index)
 	var icon_node = slot_node.get_node("Item") as TextureRect
 	icon_node.texture = item.icon
@@ -104,3 +118,24 @@ func close_inventory() -> void:
 	visible = false
 	player.enable_input(true)
 	hotbar.update_hotbar_ui()
+
+func open_chest(opened_chest:  StaticBody3D) -> void:
+	var chest_items = opened_chest.chest_items
+	
+	open_inventory()
+	chest.visible = true
+	
+	for i in chest_items.size():
+		var item = chest_items[i]
+		if item:
+			load_item_to_inventory(item.item_id, 5, i, item.count)
+
+func close_chest(opened_chest: StaticBody3D) -> void:
+	close_inventory()
+	chest.visible = false
+	var chest_items = opened_chest.chest_items
+	
+	opened_chest.update(inventory_items[5])
+	
+	for i in chest_items.size():
+		clear_inventory_slot(5, i)

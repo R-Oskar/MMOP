@@ -80,7 +80,6 @@ func block_placeable(spawn_pos: Vector3, blocks_root: Node3D = null) -> bool:
 		return false
 
 	# 2. If blocks_root is null, we can't check neighbors, so we assume strictly false 
-	# unless you want "creative mode" behavior. For strict survival, return false here.
 	if blocks_root == null:
 		return false 
 
@@ -97,7 +96,7 @@ func block_placeable(spawn_pos: Vector3, blocks_root: Node3D = null) -> bool:
 		# 4. Check if there is a block directly UNDERNEATH (y - 1)
 		if child.global_position.is_equal_approx(spawn_pos + Vector3.DOWN):
 			has_support = true
-
+	
 	return has_support
 
 ## Returns the blocks_root node
@@ -147,28 +146,22 @@ func show_preview(item) -> void:
 	var spawn_pos = calculate_block_spawn_pos()
 	var blocks_root = get_blocks_root(false) # Don't create if missing, just get it
 	
-	# FIX: We now pass blocks_root to check the floating rule
 	if not block_placeable(spawn_pos, blocks_root):
 		clear_preview()
 		return
-
+	
 	# If no preview exists or item changed, create a new one
 	if not last_preview: # Simplified check; we usually queue_free on item switch anyway
 		var instance = item.scene.instantiate() as Node3D
 		get_tree().current_scene.add_child(instance)
 		instance.global_transform.origin = spawn_pos
-
+	
 		# Apply transparency
 		apply_transparency(instance)
 		last_preview = instance
 		
-		# IMPORTANT: Add preview to raycast exceptions so we don't look at it!
-		# If your raycast detects the preview, the math will glitch.
-		if interact_ray:
-			# We need to find the StaticBody or CollisionShape inside the preview
-			# Usually easiest to just set the preview's collision layer to 0 or disable shapes
-			disable_collision_recursively(instance)
-
+		disable_collision_recursively(instance)
+	
 	else:
 		# Preview exists, just move it
 		last_preview.global_transform.origin = spawn_pos
@@ -217,7 +210,6 @@ func use_selected_item(item) -> bool:
 	if item.scene:
 		return place_block(item)
 	return false
-
 
 func play_sound(sound) -> void:
 	var music_player = AudioStreamPlayer.new()

@@ -19,17 +19,26 @@ color = Color(0.19607843, 0.19607843, 0.19607843, 0.84313726)
 [node name="Background_2" type="ColorRect" parent="." unique_id=1892083492]
 layout_mode = 0
 offset_left = 281.0
-offset_top = 177.0
+offset_top = 147.99998
 offset_right = 840.0
-offset_bottom = 493.8805
+offset_bottom = 464.8805
+scale = Vector2(1, 1.12)
 color = Color(0.19641912, 0.19641912, 0.19641912, 1)
+
+[node name="InventoryLabel" type="Label" parent="." unique_id=1894786357]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 163.0
+offset_right = 367.0
+offset_bottom = 186.0
+text = "Inventar"
 
 [node name="row_0" type="HBoxContainer" parent="." unique_id=1143610251]
 layout_mode = 1
 offset_left = 291.0
-offset_top = 430.0
+offset_top = 440.0
 offset_right = 827.0
-offset_bottom = 482.0
+offset_bottom = 492.0
 
 [node name="Slot_0" parent="row_0" unique_id=337140349 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
 layout_mode = 2
@@ -353,3 +362,89 @@ layout_mode = 2
 inventory_ui = NodePath("../..")
 row = 4
 index = 9
+
+[node name="Chest" type="Control" parent="." unique_id=2095524525]
+anchors_preset = 0
+
+[node name="Background_3" type="ColorRect" parent="Chest" unique_id=290342923]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 61.0
+offset_right = 840.0
+offset_bottom = 377.8805
+scale = Vector2(1, 0.27999997)
+color = Color(0.19641912, 0.19641912, 0.19641912, 1)
+
+[node name="row_5" type="HBoxContainer" parent="Chest" unique_id=593088301]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 86.0
+offset_right = 827.0
+offset_bottom = 138.0
+
+[node name="Slot_0" parent="Chest/row_5" unique_id=212214653 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+inventory_ui = NodePath("../../..")
+row = 5
+
+[node name="Slot_1" parent="Chest/row_5" unique_id=2144361644 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+inventory_ui = NodePath("../../..")
+row = 4
+index = 1
+
+[node name="Slot_2" parent="Chest/row_5" unique_id=823652791 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+inventory_ui = NodePath("../../..")
+row = 4
+index = 2
+
+[node name="Slot_3" parent="Chest/row_5" unique_id=288737528 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+inventory_ui = NodePath("../../..")
+row = 4
+index = 3
+
+[node name="Slot_4" parent="Chest/row_5" unique_id=483896653 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+inventory_ui = NodePath("../../..")
+row = 4
+index = 4
+
+[node name="Slot_5" parent="Chest/row_5" unique_id=1520948867 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+inventory_ui = NodePath("../../..")
+row = 4
+index = 5
+
+[node name="Slot_6" parent="Chest/row_5" unique_id=97932282 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+inventory_ui = NodePath("../../..")
+row = 4
+index = 6
+
+[node name="Slot_7" parent="Chest/row_5" unique_id=2124713013 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+inventory_ui = NodePath("../../..")
+row = 4
+index = 7
+
+[node name="Slot_8" parent="Chest/row_5" unique_id=1322494526 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+inventory_ui = NodePath("../../..")
+row = 4
+index = 8
+
+[node name="Slot_9" parent="Chest/row_5" unique_id=1728592039 node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_kpdmy")]
+layout_mode = 2
+inventory_ui = NodePath("../../..")
+row = 4
+index = 9
+
+[node name="ChestLabel" type="Label" parent="Chest" unique_id=1493000842]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 65.0
+offset_right = 367.0
+offset_bottom = 88.0
+text = "Kiste"
