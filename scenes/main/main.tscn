@@ -36,7 +36,7 @@ script/source = "extends NavigationRegion3D
 @onready var blocks := $World_flexible/Blocks
 var bake_queued := false
 
-var is_day = false
+
 
 func _ready():
 	pass
@@ -56,9 +56,9 @@ func _do_bake():
 	bake_navigation_mesh()
 	bake_queued = false
 
-func day() -> bool:
-	is_day =  worldEnvironment.get_day()
-	return is_day
+func is_day() -> bool:
+	var day = worldEnvironment.get_day()
+	return day
 
 	
 
@@ -66,7 +66,7 @@ func _on_world_flexible_child_order_changed() -> void:
 	queue_bake()
 
 func _on_mob_timer_timeout():
-	if not day():
+	if true:
 		return
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()

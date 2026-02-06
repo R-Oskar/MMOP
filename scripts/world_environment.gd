@@ -35,9 +35,9 @@ func _update_lights():
 	moon_pivot.rotation_degrees.x = sun_pivot.rotation_degrees.x - 180
 	
 	# Sun height factor: 0 = below horizon, 1 = overhead
-	var sun_height_factor = clamp((sun_pivot.rotation_degrees.x + 90) / 180, 0, 1)
+	var sun_height_factor = clamp(sun_pivot.rotation_degrees.x/180, -1, 1)
 	
-	# Sun intensity
+	# Sun intensity 
 	sun_light.light_energy = sun_max_intensity * sun_height_factor
 	
 	# Moon intensity: stronger at night, weaker when sun is up
@@ -52,6 +52,7 @@ func _update_lights():
 	sun_light.light_color = sun_color.lerp(sunrise_color, 1 - sun_height_factor)
 	
 	is_day = sun_height_factor > 0
+	print(str(is_day) + " | " + str(sun_height_factor))
 
 func get_day():
 	return is_day
