@@ -29,6 +29,7 @@ func _process(delta):
 	_update_lights()
 
 func _update_lights():
+
 	# Rotate sun
 	sun_pivot.rotation_degrees.x = lerp(-90, 270, time)
 	moon_pivot.rotation_degrees.x = sun_pivot.rotation_degrees.x - 180
@@ -51,3 +52,6 @@ func _update_lights():
 	sun_light.light_color = sun_color.lerp(sunrise_color, 1 - sun_height_factor)
 	
 	is_day = sun_height_factor > 0
+
+func get_day():
+	return is_day

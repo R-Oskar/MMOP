@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dl3mfoi35lg5w" path="res://scripts/UI/show_coordinates.gd" id="3_85g3d"]
 [ext_resource type="Script" uid="uid://pl3n7g23c7ip" path="res://scripts/world_environment.gd" id="4_blune"]
 [ext_resource type="PackedScene" uid="uid://laa6wkcpj3ws" path="res://scenes/UI/hotbar.tscn" id="4_choun"]
-[ext_resource type="Texture2D" uid="uid://dahs8mhn1hp1t" path="res://ressources/pictures/Items/stone.png" id="5_nvumn"]
+[ext_resource type="Texture2D" uid="uid://dahs8mhn1hp1t" path="res://ressources/pictures/Items/Stone.png" id="5_nvumn"]
 [ext_resource type="Texture2D" uid="uid://2lg3o2g67vdp" path="res://ressources/pictures/UI/crosshair.png" id="5_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://equrnyrs8b8x" path="res://scenes/UI/pause_menu.tscn" id="6_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://bb4fk5cvhk80y" path="res://scenes/objects/items/stone.tscn" id="6_ou6is"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://chrw4bninhbgo" path="res://ressources/sounds/backgroundMusic.mp3" id="7_trceg"]
 [ext_resource type="PackedScene" uid="uid://cq8sbte51hdu2" path="res://scenes/UI/inventory.tscn" id="8_b1x3f"]
 [ext_resource type="Resource" uid="uid://bjj74et774x7v" path="res://items/inventory_items/blocks/wood.tres" id="8_ou6is"]
+[ext_resource type="PackedScene" uid="uid://bhq5ow250herw" path="res://scenes/main/enemy.tscn" id="11_r4lks"]
 [ext_resource type="PackedScene" uid="uid://dr1hqhhyvv47c" path="res://scenes/objects/oxygen_tank.tscn" id="12_blune"]
 [ext_resource type="Script" uid="uid://dwdabywcheuay" path="res://items/item.gd" id="13_7smn1"]
 [ext_resource type="PackedScene" uid="uid://dr230symovhoe" path="res://scenes/objects/chest.tscn" id="13_th5th"]
@@ -28,8 +29,14 @@ agent_radius = 0.4
 [sub_resource type="GDScript" id="GDScript_ouso4"]
 script/source = "extends NavigationRegion3D
 
+@export var mob_scene: PackedScene
+@export var player: CharacterBody3D
+@export var worldEnvironment: WorldEnvironment
+
 @onready var blocks := $World_flexible/Blocks
 var bake_queued := false
+
+var is_day = false
 
 func _ready():
 	pass
@@ -49,9 +56,33 @@ func _do_bake():
 	bake_navigation_mesh()
 	bake_queued = false
 
+func day() -> bool:
+	is_day =  worldEnvironment.get_day()
+	return is_day
+
+	
 
 func _on_world_flexible_child_order_changed() -> void:
 	queue_bake()
+
+func _on_mob_timer_timeout():
+	if not day():
+		return
+	# Create a new instance of the Mob scene.
+	var mob = mob_scene.instantiate()
+
+	# Choose a random location on the SpawnPath.
+	# We store the reference to the SpawnLocation node.
+	var mob_spawn_location = get_node(\"Spawnpath/PathFollow3D\")
+	# And give it a random offset.
+	mob_spawn_location.progress_ratio = randf()
+
+	var player_position = player.position
+	mob.initialize(mob_spawn_location.position, player_position)
+
+	# Spawn the mob by adding it to the Main scene.
+	add_child(mob)
+	
 "
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
@@ -80,6 +111,14 @@ scene = ExtResource("6_ou6is")
 sound = ExtResource("7_necax")
 metadata/_custom_type_script = "uid://dwdabywcheuay"
 
+[sub_resource type="Curve3D" id="Curve3D_necax"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.18897486, 0, -48.908566, 0, 0, 0, 0, 0, 0, -34.191788, 0, -34.747196, 0, 0, 0, 0, 0, 0, -48.163837, 0, 0.18291953, 0, 0, 0, 0, 0, 0, -34.44413, 0, 32.14726, 0, 0, 0, 0, 0, 0, 0.023118496, 0, 49.05778, 0, 0, 0, 0, 0, 0, 33.78486, 0, 34.276524, 0, 0, 0, 0, 0, 0, 48.23017, 0, -0.32505414, 0, 0, 0, 0, 0, 0, 32.841, 0, -33.13),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_ouso4"]
 
 [sub_resource type="Sky" id="Sky_ig7tw"]
@@ -95,10 +134,13 @@ glow_enabled = true
 script = ExtResource("1_o6xl0")
 musicPlayer = NodePath("MusicPlayer")
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=258587123]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=258587123 node_paths=PackedStringArray("player", "worldEnvironment")]
 navigation_mesh = SubResource("NavigationMesh_ouso4")
 navigation_layers = 255
 script = SubResource("GDScript_ouso4")
+mob_scene = ExtResource("11_r4lks")
+player = NodePath("../Player")
+worldEnvironment = NodePath("../WorldEnvironment")
 
 [node name="World_fixed" type="Node" parent="NavigationRegion3D" unique_id=695680520]
 
@@ -163,6 +205,14 @@ aus und platzieren ihn mit Rechtsklick."
 [node name="World_flexible" type="Node3D" parent="NavigationRegion3D" unique_id=331126618]
 
 [node name="Blocks" type="Node3D" parent="NavigationRegion3D/World_flexible" unique_id=303966832]
+
+[node name="Spawnpath" type="Path3D" parent="NavigationRegion3D" unique_id=284277413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+curve = SubResource("Curve3D_necax")
+debug_custom_color = Color(18.892157, 18.892157, 18.892157, 1)
+
+[node name="PathFollow3D" type="PathFollow3D" parent="NavigationRegion3D/Spawnpath" unique_id=660173311]
+transform = Transform3D(-0.38446587, 0, 0.9231392, 0, 1, 0, -0.9231392, 0, -0.38446587, -0.18897486, 0, -48.908566)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=16195839 node_paths=PackedStringArray("sun_pivot", "moon_pivot")]
 environment = SubResource("Environment_0xm2m")
@@ -240,5 +290,9 @@ hotbar = NodePath("../Hotbar")
 stream = ExtResource("7_trceg")
 volume_db = -30.0
 
+[node name="Timer" type="Timer" parent="." unique_id=1116612803]
+autostart = true
+
 [connection signal="child_order_changed" from="NavigationRegion3D/World_flexible" to="NavigationRegion3D" method="_on_world_flexible_child_order_changed"]
 [connection signal="child_order_changed" from="NavigationRegion3D/World_flexible/Blocks" to="NavigationRegion3D" method="_on_world_flexible_child_order_changed"]
+[connection signal="timeout" from="Timer" to="NavigationRegion3D" method="_on_mob_timer_timeout"]
