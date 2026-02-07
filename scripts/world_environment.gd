@@ -50,5 +50,4 @@ func _update_lights():
 	# Sunrise/sunset color for sun
 	var sunrise_color = Color(1, 0.7, 0.5)
 	sun_light.light_color = sun_color.lerp(sunrise_color, 1 - sun_height_factor)
-	print(sun_height_factor)
 	is_day = sun_height_factor > 0
