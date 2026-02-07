@@ -43,6 +43,10 @@ func _do_bake():
 
 func _on_world_flexible_child_order_changed() -> void:
 	queue_bake()
+
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.
 "
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
@@ -50,6 +54,14 @@ albedo_color = Color(0, 0.54525805, 2.8878452e-07, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
 albedo_color = Color(0, 0.7735731, 1, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_blune"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.1814599, 0, -48.85111, 0, 0, 0, 0, 0, 0, -34.03722, 0, -34.369457, 0, 0, 0, 0, 0, 0, -48.714573, 0, 0.073397286, 0, 0, 0, 0, 0, 0, -33.841526, 0, 33.73345, 0, 0, 0, 0, 0, 0, -0.1814599, 0, 47.82371, 0, 0, 0, 0, 0, 0, 34.0657, 0, 33.92915, 0, 0, 0, 0, 0, 0, 48.35165, 0, -0.1223005, 0, 0, 0, 0, 0, 0, 34.26138, 0, -34.369457),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_ouso4"]
 
@@ -117,6 +129,19 @@ aus und platzieren ihn mit Rechtsklick."
 [node name="World_flexible" type="Node3D" parent="NavigationRegion3D" unique_id=331126618]
 
 [node name="Blocks" type="Node3D" parent="NavigationRegion3D/World_flexible" unique_id=303966832]
+
+[node name="Spawn" type="Node" parent="NavigationRegion3D" unique_id=1850696419]
+
+[node name="Path3D" type="Path3D" parent="NavigationRegion3D/Spawn" unique_id=1350111701]
+curve = SubResource("Curve3D_blune")
+debug_custom_color = Color(13.501688, 5.0975924, 8.011915, 1)
+
+[node name="PathFollow3D" type="PathFollow3D" parent="NavigationRegion3D/Spawn/Path3D" unique_id=1724887399]
+transform = Transform3D(-0.39327776, 0, 0.9194197, 0, 1, 0, -0.9194197, 0, -0.39327776, -0.1814599, 0, -48.85111)
+
+[node name="Timer" type="Timer" parent="NavigationRegion3D/Spawn" unique_id=855485124]
+wait_time = 0.5
+autostart = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=16195839 node_paths=PackedStringArray("sun_pivot", "moon_pivot")]
 environment = SubResource("Environment_0xm2m")
@@ -196,3 +221,4 @@ volume_db = -30.0
 
 [connection signal="child_order_changed" from="NavigationRegion3D/World_flexible" to="NavigationRegion3D" method="_on_world_flexible_child_order_changed"]
 [connection signal="child_order_changed" from="NavigationRegion3D/World_flexible/Blocks" to="NavigationRegion3D" method="_on_world_flexible_child_order_changed"]
+[connection signal="timeout" from="NavigationRegion3D/Spawn/Timer" to="NavigationRegion3D" method="_on_timer_timeout"]
