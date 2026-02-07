@@ -1,7 +1,7 @@
 extends WorldEnvironment
 
 # Day-night cycle settings
-@export var day_length_seconds := 180.0  # Duration of a full day in seconds
+@export var day_length_seconds := 90.0  # Duration of a full day in seconds
 @export var sun_max_intensity := 1.0
 @export var moon_max_intensity := 0.05
 @export var sun_color := Color(1, 1, 0.9)
@@ -15,7 +15,8 @@ extends WorldEnvironment
 
 var is_day:bool
 
-# Internal time tracking
+## Internal time tracking
+## 0 morning | 0.25 noon | 0.75 midnitht 
 @export var time := 0.0  # 0.0 - 1.0 represents full day cycle
 
 func _ready():
@@ -30,11 +31,11 @@ func _process(delta):
 
 func _update_lights():
 	# Rotate sun
-	sun_pivot.rotation_degrees.x = lerp(-90, 270, time)
+	sun_pivot.rotation_degrees.x = - lerp(0,360,time)
 	moon_pivot.rotation_degrees.x = sun_pivot.rotation_degrees.x - 180
-	
+	print(sun_pivot.rotation_degrees.x)
 	# Sun height factor: 0 = below horizon, 1 = overhead
-	var sun_height_factor = clamp((sun_pivot.rotation_degrees.x + 90) / 180, 0, 1)
+	var sun_height_factor = - sin(deg_to_rad(sun_pivot.rotation_degrees.x))
 	
 	# Sun intensity
 	sun_light.light_energy = sun_max_intensity * sun_height_factor
@@ -43,11 +44,11 @@ func _update_lights():
 	var moon_height_factor = 1.0 - sun_height_factor  # complementary to sun
 	moon_light.light_energy = moon_max_intensity * moon_height_factor
 	
-	var min_ambient = 0.05
+	var min_ambient = 0.1
 	moon_light.light_energy = max(moon_light.light_energy, min_ambient)
 	
 	# Sunrise/sunset color for sun
 	var sunrise_color = Color(1, 0.7, 0.5)
 	sun_light.light_color = sun_color.lerp(sunrise_color, 1 - sun_height_factor)
-	
+	print(sun_height_factor)
 	is_day = sun_height_factor > 0
