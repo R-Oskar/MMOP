@@ -91,7 +91,7 @@ albedo_color = Color(0, 0.54525805, 2.8878452e-07, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
 albedo_color = Color(0, 0.7735731, 1, 1)
 
-[sub_resource type="Resource" id="Resource_nvumn"]
+[sub_resource type="Resource" id="Resource_ou6is"]
 resource_local_to_scene = true
 script = ExtResource("13_7smn1")
 name = "Stone"
@@ -101,7 +101,7 @@ scene = ExtResource("6_ou6is")
 sound = ExtResource("7_necax")
 metadata/_custom_type_script = "uid://dwdabywcheuay"
 
-[sub_resource type="Resource" id="Resource_ou6is"]
+[sub_resource type="Resource" id="Resource_necax"]
 resource_local_to_scene = true
 script = ExtResource("13_7smn1")
 name = "Stone"
@@ -172,7 +172,7 @@ material = SubResource("StandardMaterial3D_5vw27")
 
 [node name="Chest" parent="NavigationRegion3D/World_fixed/Chests" unique_id=684924033 instance=ExtResource("13_th5th")]
 transform = Transform3D(-0.51225275, 0, 0.85883474, 0, 1, 0, -0.85883474, 0, -0.51225275, 6.111495, 0.9, 4.772731)
-chest_items = Array[ExtResource("13_7smn1")]([SubResource("Resource_nvumn"), null, null, null, null, null, null, null, SubResource("Resource_ou6is"), null])
+chest_items = Array[ExtResource("13_7smn1")]([SubResource("Resource_ou6is"), null, null, null, null, null, null, null, SubResource("Resource_necax"), null])
 
 [node name="ChestLabel2" type="Label3D" parent="NavigationRegion3D/World_fixed/Chests/Chest" unique_id=2099126141]
 transform = Transform3D(-0.99999976, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999976, 0, 0.97670054, 0)
@@ -206,13 +206,17 @@ aus und platzieren ihn mit Rechtsklick."
 
 [node name="Blocks" type="Node3D" parent="NavigationRegion3D/World_flexible" unique_id=303966832]
 
-[node name="Spawnpath" type="Path3D" parent="NavigationRegion3D" unique_id=284277413]
+[node name="Spawner" type="Node" parent="NavigationRegion3D" unique_id=1968525156]
+
+[node name="Spawnpath" type="Path3D" parent="NavigationRegion3D/Spawner" unique_id=284277413]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 curve = SubResource("Curve3D_necax")
 debug_custom_color = Color(18.892157, 18.892157, 18.892157, 1)
 
-[node name="PathFollow3D" type="PathFollow3D" parent="NavigationRegion3D/Spawnpath" unique_id=660173311]
+[node name="Spawnpoint" type="PathFollow3D" parent="NavigationRegion3D/Spawner/Spawnpath" unique_id=660173311]
 transform = Transform3D(-0.38446587, 0, 0.9231392, 0, 1, 0, -0.9231392, 0, -0.38446587, -0.18897486, 0, -48.908566)
+
+[node name="Spawn_Timer" type="Timer" parent="NavigationRegion3D/Spawner" unique_id=72610505]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=16195839 node_paths=PackedStringArray("sun_pivot", "moon_pivot")]
 environment = SubResource("Environment_0xm2m")

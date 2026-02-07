@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cwbpprwwrx2rh" path="res://scripts/UI/inventory.gd" id="1_egg3t"]
 [ext_resource type="PackedScene" uid="uid://cocghnpcu6bpq" path="res://scenes/UI/slot.tscn" id="3_kpdmy"]
 [ext_resource type="PackedScene" uid="uid://40vsn8hlif6j" path="res://scenes/objects/crafting_recipe.tscn" id="3_lvvmf"]
-[ext_resource type="Script" uid="uid://dyb1bfd8gw2xv" path="res://scenes/UI/crafting_table_inventory.gd" id="3_qjyq4"]
+[ext_resource type="Script" uid="uid://dyb1bfd8gw2xv" path="res://scripts/crafting/crafting_table_inventory.gd" id="3_qjyq4"]
 [ext_resource type="Resource" uid="uid://d3uqnkpo0g1hr" path="res://items/crafting/crafting_recipes/wood.tres" id="4_krngk"]
 [ext_resource type="AudioStream" uid="uid://cpad3gapdyd43" path="res://ressources/sounds/UI/crafting_sound.mp3" id="4_qjyq4"]
 
