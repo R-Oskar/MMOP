@@ -33,7 +33,6 @@ func _update_lights():
 	# Rotate sun
 	sun_pivot.rotation_degrees.x = - lerp(0,360,time)
 	moon_pivot.rotation_degrees.x = sun_pivot.rotation_degrees.x - 180
-	print(sun_pivot.rotation_degrees.x)
 	# Sun height factor: 0 = below horizon, 1 = overhead
 	var sun_height_factor = - sin(deg_to_rad(sun_pivot.rotation_degrees.x))
 	
