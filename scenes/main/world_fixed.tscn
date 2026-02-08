@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cjhvd857e0u7k"]
+
+[ext_resource type="PackedScene" uid="uid://dr1hqhhyvv47c" path="res://scenes/objects/oxygen_tank.tscn" id="1_br8mx"]
+[ext_resource type="PackedScene" uid="uid://cw5kx1y60l2vn" path="res://scenes/main/chests.tscn" id="2_blego"]
+[ext_resource type="PackedScene" uid="uid://cxpd0mkp6cky5" path="res://scenes/objects/crafting_table.tscn" id="3_42htb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
+albedo_color = Color(0, 0.54525805, 2.8878452e-07, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
+albedo_color = Color(0, 0.7735731, 1, 1)
+
+[node name="World_fixed" type="Node" unique_id=828041261]
+
+[node name="Oxygentank" parent="." unique_id=838330149 instance=ExtResource("1_br8mx")]
+transform = Transform3D(2.305, 0, 0, 0, 2.305, 0, 0, 0, 2.305, 0, 0, 0)
+
+[node name="OxygenTankLabel" type="Label3D" parent="Oxygentank" unique_id=364488713]
+transform = Transform3D(0.43383947, 0, 0, 0, 0.43383947, 0, 0, 0, 0.43383947, 0, 2.4693522, 0)
+text = "Beschütze!
+↓"
+font_size = 128
+
+[node name="ChestLabel3" type="Label3D" parent="Oxygentank" unique_id=1784416077]
+transform = Transform3D(0.43383938, 0, 0, 0, 0.43383947, 0, 0, 0, 0.43383938, 0, 0.92873853, 0.7419561)
+text = "Drücke Tab um das Inventar zu öffnen"
+
+[node name="Floor" type="CSGCylinder3D" parent="." unique_id=1296897026]
+use_collision = true
+radius = 50.0
+height = 1.0
+material = SubResource("StandardMaterial3D_272bh")
+
+[node name="Sea" type="CSGCylinder3D" parent="Floor" unique_id=827864961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+radius = 142.402
+material = SubResource("StandardMaterial3D_5vw27")
+
+[node name="Chests" parent="." unique_id=2055759188 instance=ExtResource("2_blego")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.9, 0)
+
+[node name="CraftingTable" parent="." unique_id=117519311 instance=ExtResource("3_42htb")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -5.5, 0.9, 1)
+
+[node name="CraftingTableLabel" type="Label3D" parent="CraftingTable" unique_id=700314737]
+transform = Transform3D(0.9999999, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, 0.9999999, 0, 3.2249587, 0)
+text = "Stelle her
+↓"
+font_size = 128
+
+[node name="CraftingTableLabel2" type="Label3D" parent="CraftingTable" unique_id=1501354292]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -5, 0.9, -2)
+text = "Wähle einen Block in der Hotbar per Hotkey
+aus und platzieren ihn mit Rechtsklick."

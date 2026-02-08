@@ -15,6 +15,7 @@ var player_can_take_damage = true
 
 func _ready() -> void:
 	add_to_group("enemy")
+	
 func _physics_process(delta):
 	apply_gravity(delta)
 	update_movement()
