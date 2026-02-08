@@ -61,8 +61,8 @@ func handle_damage() -> void:
 
 
 # This function will be called from the Main scene.
-func initialize(start_position, player_position):
-	look_at_from_position(start_position, player_position)
+func initialize(start_position):
+	look_at_from_position(start_position, Vector3(0,0,0))
 
 
 func _on_body_entered(body):

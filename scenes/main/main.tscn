@@ -54,16 +54,15 @@ func _on_world_flexible_child_order_changed() -> void:
 func _on_timer_timeout() -> void:
 	if not is_day:
 		return
-	# Create a new instance of the Mob scene.
-	var mob = mob_scene.instantiate()
+	spawn_mob()
 	
 
-	# Choose a random location on the SpawnPath.
-	# We store the reference to the SpawnLocation node.
-	var mob_spawn_location = get_node(\"Spawn/Spawnpath/PathFollow3D\")
-	# And give it a random offset.
+func spawn_mob():
+	var mob = mob_scene.instantiate()
+	var mob_spawn_location = get_node(\"Spawn/SpawnPath/SpawnLocation\")
+	# offset -> enemys don't spawn in the same location
 	mob_spawn_location.progress_ratio = randf()
-
+	mob.initialize(mob_spawn_location.position)
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
@@ -155,18 +154,18 @@ aus und platzieren ihn mit Rechtsklick."
 
 [node name="Spawn" type="Node" parent="NavigationRegion3D" unique_id=1850696419]
 
-[node name="Spawnpath" type="Path3D" parent="NavigationRegion3D/Spawn" unique_id=1350111701]
+[node name="SpawnPath" type="Path3D" parent="NavigationRegion3D/Spawn" unique_id=1350111701]
 curve = SubResource("Curve3D_blune")
 debug_custom_color = Color(13.501688, 5.0975924, 8.011915, 1)
 
-[node name="PathFollow3D" type="PathFollow3D" parent="NavigationRegion3D/Spawn/Spawnpath" unique_id=1724887399]
+[node name="SpawnLocation" type="PathFollow3D" parent="NavigationRegion3D/Spawn/SpawnPath" unique_id=1724887399]
 transform = Transform3D(-0.39327776, 0, 0.9194197, 0, 1, 0, -0.9194197, 0, -0.39327776, -0.1814599, 0, -48.85111)
+
+[node name="Enemy" parent="NavigationRegion3D/Spawn" unique_id=1800269208 instance=ExtResource("5_th5th")]
 
 [node name="Timer" type="Timer" parent="NavigationRegion3D/Spawn" unique_id=855485124]
 wait_time = 2.0
 autostart = true
-
-[node name="Enemy" parent="NavigationRegion3D/Spawn" unique_id=1800269208 instance=ExtResource("5_th5th")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=16195839 node_paths=PackedStringArray("sun_pivot", "moon_pivot")]
 environment = SubResource("Environment_0xm2m")
