@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cxpd0mkp6cky5" path="res://scenes/objects/crafting_table.tscn" id="2_nvumn"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://scenes/main/player.tscn" id="2_tipki"]
 [ext_resource type="Script" uid="uid://dl3mfoi35lg5w" path="res://scripts/UI/show_coordinates.gd" id="3_85g3d"]
-[ext_resource type="PackedScene" path="res://scenes/main/chests.tscn" id="3_blune"]
+[ext_resource type="PackedScene" uid="uid://cw5kx1y60l2vn" path="res://scenes/main/chests.tscn" id="3_blune"]
 [ext_resource type="Script" uid="uid://pl3n7g23c7ip" path="res://scripts/world_environment.gd" id="4_blune"]
 [ext_resource type="PackedScene" uid="uid://laa6wkcpj3ws" path="res://scenes/UI/hotbar.tscn" id="4_choun"]
 [ext_resource type="PackedScene" uid="uid://bhq5ow250herw" path="res://scenes/main/enemy.tscn" id="5_th5th"]
@@ -29,7 +29,12 @@ script/source = "extends NavigationRegion3D
 @onready var blocks := $World_flexible/Blocks
 var bake_queued := false
 
+@export var sun_damage : int
 
+func _process(delta: float) -> void:
+	if is_day():
+		get_tree().call_group(\"enemy\", \"sun_damage\", sun_damage*delta)
+		
 
 func _ready():
 	pass
@@ -52,7 +57,7 @@ func _on_world_flexible_child_order_changed() -> void:
 
 
 func _on_timer_timeout() -> void:
-	if not is_day:
+	if is_day():
 		return
 	spawn_mob()
 	
@@ -104,6 +109,7 @@ navigation_layers = 255
 script = SubResource("GDScript_ouso4")
 worldEnvironment = NodePath("../WorldEnvironment")
 mob_scene = ExtResource("5_th5th")
+sun_damage = 10
 
 [node name="World_fixed" type="Node" parent="NavigationRegion3D" unique_id=695680520]
 
@@ -161,7 +167,7 @@ debug_custom_color = Color(13.501688, 5.0975924, 8.011915, 1)
 [node name="SpawnLocation" type="PathFollow3D" parent="NavigationRegion3D/Spawn/SpawnPath" unique_id=1724887399]
 transform = Transform3D(-0.39327776, 0, 0.9194197, 0, 1, 0, -0.9194197, 0, -0.39327776, -0.1814599, 0, -48.85111)
 
-[node name="Enemy" parent="NavigationRegion3D/Spawn" unique_id=1800269208 instance=ExtResource("5_th5th")]
+[node name="Enemy" parent="NavigationRegion3D/Spawn" unique_id=1800269208 groups=["enemy"] instance=ExtResource("5_th5th")]
 
 [node name="Timer" type="Timer" parent="NavigationRegion3D/Spawn" unique_id=855485124]
 wait_time = 2.0
@@ -173,6 +179,7 @@ script = ExtResource("4_blune")
 moon_max_intensity = 0.02
 sun_pivot = NodePath("SunPivot")
 moon_pivot = NodePath("MoonPivot")
+time = 0.85
 
 [node name="SunPivot" type="Node3D" parent="WorldEnvironment" unique_id=968404363]
 

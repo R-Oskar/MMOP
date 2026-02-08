@@ -8,11 +8,13 @@ extends CharacterBody3D
 @export var damage := 10
 @export var gravity := 9.8
 @export var damage_interval := 1.0
+@export var health := 30
 var damage_timer := 0.0
 var bodies_in_damage_area: Array[Node3D] = []
 var player_can_take_damage = true
 
-
+func _ready() -> void:
+	add_to_group("enemy")
 func _physics_process(delta):
 	apply_gravity(delta)
 	update_movement()
@@ -58,8 +60,15 @@ func handle_damage() -> void:
 				body.take_damage(damage)
 				damage_timer = damage_interval
 
+func die():
+	queue_free()
 
+func sun_damage(amount):
+	health -= amount
 
+	if health <= 0:
+		call_deferred("die")
+	
 # This function will be called from the Main scene.
 func initialize(start_position):
 	look_at_from_position(start_position, Vector3(0,0,0))
