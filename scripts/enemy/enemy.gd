@@ -57,7 +57,9 @@ func handle_damage() -> void:
 			if body != null and body.has_method("take_damage"):
 				body.take_damage(damage)
 				damage_timer = damage_interval
-				
+
+
+
 # This function will be called from the Main scene.
 func initialize(start_position, player_position):
 	look_at_from_position(start_position, player_position)

@@ -25,7 +25,7 @@ agent_radius = 0.4
 script/source = "extends NavigationRegion3D
 
 @export var worldEnvironment : WorldEnvironment
-@export var mob_scene : CharacterBody3D
+@export var mob_scene: PackedScene
 @onready var blocks := $World_flexible/Blocks
 var bake_queued := false
 
@@ -33,8 +33,8 @@ var bake_queued := false
 
 func _ready():
 	pass
-func day():
-	return 
+func is_day():
+	return worldEnvironment.is_day
 func queue_bake():
 	if bake_queued:
 		return
@@ -52,14 +52,15 @@ func _on_world_flexible_child_order_changed() -> void:
 
 
 func _on_timer_timeout() -> void:
-	if false:
+	if not is_day:
 		return
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()
+	
 
 	# Choose a random location on the SpawnPath.
 	# We store the reference to the SpawnLocation node.
-	var mob_spawn_location = get_node(\"Spawnpath/PathFollow3D\")
+	var mob_spawn_location = get_node(\"Spawn/Spawnpath/PathFollow3D\")
 	# And give it a random offset.
 	mob_spawn_location.progress_ratio = randf()
 
@@ -98,12 +99,12 @@ glow_enabled = true
 script = ExtResource("1_o6xl0")
 musicPlayer = NodePath("MusicPlayer")
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=258587123 node_paths=PackedStringArray("worldEnvironment", "mob_scene")]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=258587123 node_paths=PackedStringArray("worldEnvironment")]
 navigation_mesh = SubResource("NavigationMesh_ouso4")
 navigation_layers = 255
 script = SubResource("GDScript_ouso4")
 worldEnvironment = NodePath("../WorldEnvironment")
-mob_scene = NodePath("Spawn/Enemy")
+mob_scene = ExtResource("5_th5th")
 
 [node name="World_fixed" type="Node" parent="NavigationRegion3D" unique_id=695680520]
 
@@ -154,15 +155,15 @@ aus und platzieren ihn mit Rechtsklick."
 
 [node name="Spawn" type="Node" parent="NavigationRegion3D" unique_id=1850696419]
 
-[node name="Path3D" type="Path3D" parent="NavigationRegion3D/Spawn" unique_id=1350111701]
+[node name="Spawnpath" type="Path3D" parent="NavigationRegion3D/Spawn" unique_id=1350111701]
 curve = SubResource("Curve3D_blune")
 debug_custom_color = Color(13.501688, 5.0975924, 8.011915, 1)
 
-[node name="PathFollow3D" type="PathFollow3D" parent="NavigationRegion3D/Spawn/Path3D" unique_id=1724887399]
+[node name="PathFollow3D" type="PathFollow3D" parent="NavigationRegion3D/Spawn/Spawnpath" unique_id=1724887399]
 transform = Transform3D(-0.39327776, 0, 0.9194197, 0, 1, 0, -0.9194197, 0, -0.39327776, -0.1814599, 0, -48.85111)
 
 [node name="Timer" type="Timer" parent="NavigationRegion3D/Spawn" unique_id=855485124]
-wait_time = 0.5
+wait_time = 2.0
 autostart = true
 
 [node name="Enemy" parent="NavigationRegion3D/Spawn" unique_id=1800269208 instance=ExtResource("5_th5th")]
